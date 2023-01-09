@@ -1,0 +1,19 @@
+Chapter What’s new
+1. Introduction
+2. Overview of Supervised Learning
+3. Linear Methods for Regression 
+4. Linear Methods for Classification Lasso path for logistic regression
+5. Basis Expansions and Regularization
+6. Kernel Smoothing Methods
+7. Model Assessment and Selection 
+8. Model Inference and Averaging
+9. Additive Models, Trees, and Related Methods
+10. Boosting and Additive Trees
+11. Neural Networks
+12. Support Vector Machines and Flexible Discriminants
+13. Prototype Methods and Nearest-Neighbors
+14. Unsupervised Learning
+15. Random Forests
+16. Ensemble Learning
+17. Undirected Graphical Models
+18. High-Dimensional Problems
