@@ -1,0 +1,19 @@
+fact: (manages satyam ronak)
+fact: (manages ronak lakshya)
+fact: (manages himanshu lakshya)
+fact: (manages suresh ramesh)
+fact: (colleagueOf  satyam deepika)
+fact: (supermanages satyam ramesh)
+fact: (manages ronak lakshya)
+
+
+
+rule: ((manages ?x ?y)) -> (supervises ?x ?y)
+rule: ((supervises ?x ?y) (colleagueOf ?x ?z)) -> (substitute ?z ?y)
+rule: ((supervises ?x ?y) (manages ?z ?x)) -> (supermanages ?z ?y)
+
+
+
+
+
+

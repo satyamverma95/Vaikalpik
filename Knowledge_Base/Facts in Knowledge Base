@@ -1,0 +1,32 @@
+Facts in Knowledge Base 
+[	Fact
+		('fact', 
+				Statement('motherof', [Term(Constant('ada')), Term(Constant('bing'))]), 
+				True, 
+				[], 
+				[], 
+				[]
+		), 
+
+	Fact
+		('fact', 
+				Statement('motherof', [Term(Constant('bing')), Term(Constant('chen'))]), 
+				True, 
+				[], 
+				[], 
+				[]
+		), 
+
+	Fact('fact', 
+				Statement('motherof', [Term(Constant('dolores')), Term(Constant('chen'))]), True, [], [], []), 
+
+	Fact('fact', 
+				Statement('sisters', [Term(Constant('ada')), Term(Constant('eva'))]), True, [], [], []), 
+	
+	Fact('fact', 
+				Statement('grandmotherof', [Term(Constant('ada')), Term(Constant('felix'))]), True, [], [], []), 
+	
+	Fact('fact', 
+				Statement('motherof', [Term(Constant('greta')), Term(Constant('felix'))]), True, [], [], [])
+
+]

@@ -1,0 +1,37 @@
+Rule in Knowledge Base 
+[	Rule(
+			'rule', 
+					[	Statement('motherof', [Term(Variable('?x')), Term(Variable('?y'))]) ],  	#LHS 
+					 	Statement('parentof', [Term(Variable('?x')), Term(Variable('?y'))]), 		#RHS
+					 	True, 																		#Asserted
+					 	[], 																		#Supported_by
+					 	[], 																		#Supported_facts
+					 	[]																			#supported_rules
+		), 
+
+
+	Rule(
+			'rule', 
+					[	Statement('parentof', [Term(Variable('?x')), Term(Variable('?y'))]), 
+						Statement('sisters', [Term(Variable('?x')), Term(Variable('?z'))])
+					], 
+						Statement('auntof', [Term(Variable('?z')), Term(Variable('?y'))]), 
+						True, 
+						[], 
+						[], 
+						[]
+		), 
+
+	Rule(
+			'rule', 
+					[	Statement('parentof', [Term(Variable('?x')), Term(Variable('?y'))]), 
+						Statement('motherof', [Term(Variable('?z')), Term(Variable('?x'))])
+					], 
+
+						Statement('grandmotherof', [Term(Variable('?z')), Term(Variable('?y'))]), 
+						True, 
+						[], 
+						[], 
+						[]
+		)
+]

@@ -1,0 +1,10 @@
+fact: (manages ada bing)
+fact: (manages bing chen)
+fact: (manages dolores chen)
+fact: (colleagueOf ada eva)
+fact: (supermanages ada felix)
+fact: (manages greta felix)
+
+rule: ((manages ?x ?y)) -> (supervises ?x ?y)
+rule: ((supervises ?x ?y) (colleagueOf ?x ?z)) -> (substitute ?z ?y)
+rule: ((supervises ?x ?y) (manages ?z ?x)) -> (supermanages ?z ?y)
