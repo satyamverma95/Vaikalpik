@@ -1,0 +1,180 @@
+Key,Value
+1 Introduction 1,1.1 Machine learning: what and why? 1
+1 Introduction 1,1.2 Supervised learning 3
+1 Introduction 1,1.3 Unsupervised learning 9
+1 Introduction 1,1.4 Some basic concepts in machine learning 16
+2 Probability 27,2.1 Introduction 27
+2 Probability 27,2.2 A brief review of probability theory 28
+2 Probability 27,2.3 Some common discrete distributions 34
+2 Probability 27,2.4 Some common continuous distributions 38
+2 Probability 27,2.5 Joint probability distributions 44
+2 Probability 27,2.6 Transformations of random variables 49
+2 Probability 27,2.7 Monte Carlo approximation 52
+2 Probability 27,2.8 Information theory 56
+3 Generative models for discrete data 65,3.1 Introduction 65
+3 Generative models for discrete data 65,3.2 Bayesian concept learning 65
+3 Generative models for discrete data 65,3.3 The beta-binomial model 72
+3 Generative models for discrete data 65,3.4 The Dirichlet-multinomial model 78
+3 Generative models for discrete data 65,3.5 Naive Bayes classifiers 82
+4 Gaussian models 97,4.1 Introduction 97
+4 Gaussian models 97,4.2 Gaussian discriminant analysis 101
+4 Gaussian models 97,4.3 Inference in jointly Gaussian distributions 110
+4 Gaussian models 97,4.4 Linear Gaussian systems 119
+4 Gaussian models 97,4.5 Digression: The Wishart distribution * 125
+4 Gaussian models 97,4.6 Inferring the parameters of an MVN 127
+5 Bayesian statistics 149,5.1 Introduction 149
+5 Bayesian statistics 149,5.2 Summarizing posterior distributions 149
+5 Bayesian statistics 149,5.3 Bayesian model selection 155
+5 Bayesian statistics 149,5.4 Priors 165
+5 Bayesian statistics 149,5.5 Hierarchical Bayes 171
+5 Bayesian statistics 149,5.6 Empirical Bayes 172
+5 Bayesian statistics 149,5.7 Bayesian decision theory 176
+6 Frequentist statistics 191,6.1 Introduction 191
+6 Frequentist statistics 191,6.2 Sampling distribution of an estimator 191
+6 Frequentist statistics 191,6.3 Frequentist decision theory 194
+6 Frequentist statistics 191,6.4 Desirable properties of estimators 200
+6 Frequentist statistics 191,6.5 Empirical risk minimization 204
+6 Frequentist statistics 191,6.6 Pathologies of frequentist statistics * 211
+7 Linear regression 217,7.1 Introduction 217
+7 Linear regression 217,7.2 Model specification 217
+7 Linear regression 217,7.3 Maximum likelihood estimation (least squares) 217
+7 Linear regression 217,7.4 Robust linear regression * 223
+7 Linear regression 217,7.5 Ridge regression 225
+7 Linear regression 217,7.6 Bayesian linear regression 231
+8 Logistic regression 245,8.1 Introduction 245
+8 Logistic regression 245,8.2 Model specification 245
+8 Logistic regression 245,8.3 Model fitting 245
+8 Logistic regression 245,8.4 Bayesian logistic regression 254
+8 Logistic regression 245,8.5 Online learning and stochastic optimization 261
+8 Logistic regression 245,8.6 Generative vs discriminative classifiers 267
+9 Generalized linear models and the exponential family 281,9.1 Introduction 281
+9 Generalized linear models and the exponential family 281,9.2 The exponential family 281
+9 Generalized linear models and the exponential family 281,9.3 Generalized linear models (GLMs) 290
+9 Generalized linear models and the exponential family 281,9.4 Probit regression 293
+9 Generalized linear models and the exponential family 281,9.5 Multi-task learning 296
+9 Generalized linear models and the exponential family 281,9.6 Generalized linear mixed models * 298
+9 Generalized linear models and the exponential family 281,9.7 Learning to rank * 300
+10 Directed graphical models (Bayes nets) 307,10.1 Introduction 307
+10 Directed graphical models (Bayes nets) 307,10.2 Examples 311
+10 Directed graphical models (Bayes nets) 307,10.3 Inference 319
+10 Directed graphical models (Bayes nets) 307,10.4 Learning 320
+10 Directed graphical models (Bayes nets) 307,10.5 Conditional independence properties of DGMs 324
+10 Directed graphical models (Bayes nets) 307,10.6 Influence (decision) diagrams * 328
+11 Mixture models and the EM algorithm 337,11.1 Latent variable models 337
+11 Mixture models and the EM algorithm 337,11.2 Mixture models 337
+11 Mixture models and the EM algorithm 337,11.3 Parameter estimation for mixture models 345
+11 Mixture models and the EM algorithm 337,11.4 The EM algorithm 348
+11 Mixture models and the EM algorithm 337,11.5 Model selection for latent variable models 370
+11 Mixture models and the EM algorithm 337,11.6 Fitting models with missing data 372
+12 Latent linear models 381,12.1 Factor analysis 381
+12 Latent linear models 381,12.2 Principal components analysis (PCA) 387
+12 Latent linear models 381,12.3 Choosing the number of latent dimensions 398
+12 Latent linear models 381,12.4 PCA for categorical data 402
+12 Latent linear models 381,12.5 PCA for paired and multi-view data 404
+12 Latent linear models 381,12.6 Independent Component Analysis (ICA) 407
+13 Sparse linear models 421,13.1 Introduction 421
+13 Sparse linear models 421,13.2 Bayesian variable selection 422
+13 Sparse linear models 421,13.3 1 regularization: basics 429
+13 Sparse linear models 421,13.4 1 regularization: algorithms 441
+13 Sparse linear models 421,13.5 1 regularization: extensions 449
+13 Sparse linear models 421,13.6 Non-convex regularizers 457
+13 Sparse linear models 421,13.7 Automatic relevance determination (ARD)/sparse Bayesian learning (SBL) 463
+13 Sparse linear models 421,13.8 Sparse coding * 468
+14 Kernels 479,14.1 Introduction 479
+14 Kernels 479,14.2 Kernel functions 479
+14 Kernels 479,14.3 Using kernels inside GLMs 486
+14 Kernels 479,14.4 The kernel trick 488
+14 Kernels 479,14.5 Support vector machines (SVMs) 496
+14 Kernels 479,14.6 Comparison of discriminative kernel methods 505
+14 Kernels 479,14.7 Kernels for building generative models 507
+15 Gaussian processes 515,15.1 Introduction 515
+15 Gaussian processes 515,15.2 GPs for regression 516
+15 Gaussian processes 515,15.3 GPs meet GLMs 525
+15 Gaussian processes 515,15.4 Connection with other methods 532
+15 Gaussian processes 515,15.5 GP latent variable model 540
+15 Gaussian processes 515,15.6 Approximation methods for large datasets 542
+16 Adaptive basis function models 543,16.1 Introduction 543
+16 Adaptive basis function models 543,16.2 Classification and regression trees (CART) 544
+16 Adaptive basis function models 543,16.3 Generalized additive models 552
+16 Adaptive basis function models 543,16.4 Boosting 554
+16 Adaptive basis function models 543,16.5 Feedforward neural networks (multilayer perceptrons) 563
+16 Adaptive basis function models 543,16.6 Ensemble learning 580
+16 Adaptive basis function models 543,16.7 Experimental comparison 582
+16 Adaptive basis function models 543,16.8 Interpreting black-box models 585
+17 Markov and hidden Markov models 589,17.1 Introduction 589
+17 Markov and hidden Markov models 589,17.2 Markov models 589
+17 Markov and hidden Markov models 589,17.3 Hidden Markov models 603
+17 Markov and hidden Markov models 589,17.4 Inference in HMMs 606
+17 Markov and hidden Markov models 589,17.5 Learning for HMMs 617
+17 Markov and hidden Markov models 589,17.6 Generalizations of HMMs 621
+18 State space models 631,18.1 Introduction 631
+18 State space models 631,18.2 Applications of SSMs 632
+18 State space models 631,18.3 Inference in LG-SSM 640
+18 State space models 631,18.4 Learning for LG-SSM 646
+18 State space models 631,"18.5 Approximate online inference for non-linear, non-Gaussian SSMs 647"
+18 State space models 631,18.6 Hybrid discrete/continuous SSMs 655
+19 Undirected graphical models (Markov random fields) 661,19.1 Introduction 661
+19 Undirected graphical models (Markov random fields) 661,19.2 Conditional independence properties of UGMs 661
+19 Undirected graphical models (Markov random fields) 661,19.3 Parameterization of MRFs 665
+19 Undirected graphical models (Markov random fields) 661,19.4 Examples of MRFs 668
+19 Undirected graphical models (Markov random fields) 661,19.5 Learning 676
+19 Undirected graphical models (Markov random fields) 661,19.6 Conditional random fields (CRFs) 684
+19 Undirected graphical models (Markov random fields) 661,19.7 Structural SVMs 693
+20 Exact inference for graphical models 707,20.1 Introduction 707
+20 Exact inference for graphical models 707,20.2 Belief propagation for trees 707
+20 Exact inference for graphical models 707,20.3 The variable elimination algorithm 714
+20 Exact inference for graphical models 707,20.4 The junction tree algorithm * 720
+20 Exact inference for graphical models 707,20.5 Computational intractability of exact inference in the worst case 726
+21 Variational inference 731,21.1 Introduction 731
+21 Variational inference 731,21.2 Variational inference 732
+21 Variational inference 731,21.3 The mean field method 735
+21 Variational inference 731,21.4 Structured mean field * 739
+21 Variational inference 731,21.5 Variational Bayes 742
+21 Variational inference 731,21.6 Variational Bayes EM 749
+21 Variational inference 731,21.7 Variational message passing and VIBES 756
+21 Variational inference 731,21.8 Local variational bounds * 756
+22 More variational inference 767,22.1 Introduction 767
+22 More variational inference 767,22.2 Loopy belief propagation: algorithmic issues 767
+22 More variational inference 767,22.3 Loopy belief propagation: theoretical issues * 776
+22 More variational inference 767,22.4 Extensions of belief propagation * 783
+22 More variational inference 767,22.5 Expectation propagation 787
+22 More variational inference 767,22.6 MAP state estimation 799
+23 Monte Carlo inference 815,23.1 Introduction 815
+23 Monte Carlo inference 815,23.2 Sampling from standard distributions 815
+23 Monte Carlo inference 815,23.3 Rejection sampling 817
+23 Monte Carlo inference 815,23.4 Importance sampling 820
+23 Monte Carlo inference 815,23.5 Particle filtering 823
+23 Monte Carlo inference 815,23.6 Rao-Blackwellised particle filtering (RBPF) 831
+24 Markov chain Monte Carlo (MCMC) inference 837,24.1 Introduction 837
+24 Markov chain Monte Carlo (MCMC) inference 837,24.2 Gibbs sampling 838
+24 Markov chain Monte Carlo (MCMC) inference 837,24.3 Metropolis Hastings algorithm 848
+24 Markov chain Monte Carlo (MCMC) inference 837,24.4 Speed and accuracy of MCMC 856
+24 Markov chain Monte Carlo (MCMC) inference 837,24.5 Auxiliary variable MCMC * 863
+24 Markov chain Monte Carlo (MCMC) inference 837,24.6 Annealing methods 868
+24 Markov chain Monte Carlo (MCMC) inference 837,24.7 Approximating the marginal likelihood 872
+25 Clustering 875,25.1 Introduction 875
+25 Clustering 875,25.2 Dirichlet process mixture models 879
+25 Clustering 875,25.3 Affinity propagation 887
+25 Clustering 875,25.4 Spectral clustering 890
+25 Clustering 875,25.5 Hierarchical clustering 893
+25 Clustering 875,25.6 Clustering datapoints and features 901
+26 Graphical model structure learning 907,26.1 Introduction 907
+26 Graphical model structure learning 907,26.2 Structure learning for knowledge discovery 908
+26 Graphical model structure learning 907,26.3 Learning tree structures 910
+26 Graphical model structure learning 907,26.4 Learning DAG structures 914
+26 Graphical model structure learning 907,26.5 Learning DAG structure with latent variables 922
+26 Graphical model structure learning 907,26.6 Learning causal DAGs 931
+26 Graphical model structure learning 907,26.7 Learning undirected Gaussian graphical models 938
+26 Graphical model structure learning 907,26.8 Learning undirected discrete graphical models 942
+27 Latent variable models for discrete data 945,27.1 Introduction 945
+27 Latent variable models for discrete data 945,27.2 Distributed state LVMs for discrete data 946
+27 Latent variable models for discrete data 945,27.3 Latent Dirichlet allocation (LDA) 950
+27 Latent variable models for discrete data 945,27.4 Extensions of LDA 961
+27 Latent variable models for discrete data 945,27.5 LVMs for graph-structured data 970
+27 Latent variable models for discrete data 945,27.6 LVMs for relational data 975
+27 Latent variable models for discrete data 945,27.7 Restricted Boltzmann machines (RBMs) 983
+28 Deep learning 995,28.1 Introduction 995
+28 Deep learning 995,28.2 Deep generative models 995
+28 Deep learning 995,28.3 Deep neural networks 999
+28 Deep learning 995,28.4 Applications of deep networks 1001
+28 Deep learning 995,28.5 Discussion 1005
