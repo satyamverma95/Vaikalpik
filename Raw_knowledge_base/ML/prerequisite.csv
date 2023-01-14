@@ -1,0 +1,29 @@
+﻿Linear Regression,Maximum Likelihood Estimation
+Linear Regression,RMSE / MSE
+Linear Regression,Cost Function
+Linear Regression,Gradient Descent
+Ridge Regression,Linear Regression
+Ridge Regression,Regularization
+LASSO Regreesion,Linear Regression
+LASSO Regreesion,Regularization
+QDA,Bayes Theorem
+QDA,Fisher Discriminant
+LDA,Bayes Theorem
+LDA,Fisher Discriminant
+Logistic Regression,Linear Regression
+Logistic Regression,Sigmoid / Logistic Function
+Support Vector Machine,Kernel Function
+Support Vector Machine,Lagrange Multiplier
+Bayesian Classifier,Bayes Theorem
+Bayesian Classifier,Bag of Words
+Bayesian Classifier,Maximum a Posteriori
+Bayesian Classifier,Maximum Likelihood Estimation
+Bayesian Classifier,Euclidean Distance
+Bayesian Classifier,Mahalanobis Distance
+K Nearest Neighbour,Distance Functions / Similarity Functions
+Decision Tree ,Purity Measure
+Purity Measure,Ginni Index
+Purity Measure,Entropy
+Purity Measure,Accuracy
+Random Forest,Decision Tree
+Random Forest,Feature Sampling
