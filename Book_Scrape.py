@@ -10,7 +10,6 @@ def get_book_text(path):
     book_text=''
     for i in range(0,len(a.pages)):   
         book_text+=a.pages[i].extract_text()
-
     with open('book_text.txt','w',encoding='UTF-8') as f:
         f.write(book_text.lower())
-    return book_text
+    return book_text 
