@@ -17,8 +17,8 @@ class Json_Object:
         if ( key in dictionary):
            del dictionary[ key ]
 
-    def print_dict (self, dictionary) :
-        print (dictionary)
+    def print_dict (self) :
+        print (self.dict_object)
 
     def write_to_file(self, data, filename):
 
@@ -30,6 +30,6 @@ class Json_Object:
 
         f_h = open(filename)
 
-        self.cuisine_names = json.load(f_h)
+        self.dict_object = json.load(f_h)
       
 
