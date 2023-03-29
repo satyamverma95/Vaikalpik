@@ -15,8 +15,12 @@ Machine_Learning =  {
                                             "Scrape"   :   False
                                         },
                                    "5": {   "Name"     :   "Ramakrishnan-Database-Management-Systems-3rd-Edition.pdf",
-                                            "Scrape"   :   True
+                                            "Scrape"   :   False
                                         },
+                                    "6": {   "Name"     :   "Artificial_Intelliegence_a_modern_approach.epub",
+                                            "Scrape"   :   True
+                                        }
+
                                  },
                         "web_resources" : { "0" :  {    "Link"     :   "https://courses.cs.washington.edu/courses/cse416/20su/",
                                                         "Scrape"   :   "Yes"

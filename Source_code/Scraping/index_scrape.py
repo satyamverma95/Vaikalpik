@@ -10,7 +10,15 @@ from json_manager import Json_Object
 import json
 from tika import parser 
 import pypdf
-import ssl 
+import fitz
+import io
+from pdfminer.high_level import extract_text
+from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+from pdfminer.converter import TextConverter
+from pdfminer.layout import LAParams
+from pdfminer.pdfpage import PDFPage
+import ebooklib
+from ebooklib import epub
 
 class Scrapper:
     def __init__ (self):
@@ -28,7 +36,11 @@ class Scrapper:
 
         print(self.book_content)
 
-    
+    def write_to_file(self, filename, data=None):
+        
+        with open(filename, 'w') as file:
+            file.write(data)
+
     def read_json(self, filename):
         self.books_dict_h = json.load(open(filename))
         #return (book_json)
@@ -52,6 +64,7 @@ class Scrapper:
 
     def check_if_index_page(self, page_content):
         
+        print ("page content", page_content)
         if ("contents" in page_content.lower()):
             #print("Page", page_content)
             return (True)
@@ -133,7 +146,7 @@ class Scrapper:
             self.books_dict_h.write_to_file(self.books_dict_h.dict_object, os.path.join(data_dict_dir,".".join([book_name.split(".")[0], "json"])))
 
 
-    def pdf_reader_tika(self, filename, book_name):
+    def pdf_reader_pypdf(self, filename, book_name):
         
         
         pdf_reader = pypdf.PdfReader(filename)
@@ -149,6 +162,84 @@ class Scrapper:
             #print(page.extract_text())
         
         #self.books_dict_h.print_dict(self.books_dict_h.dict_object)
+        data_dict_dir = self.file_manager_h.get_book_json_dir()
+        #print(os.path.join(data_dict_dir,book_name.split('.')[0]))
+        self.books_dict_h.write_to_file(self.books_dict_h.dict_object, os.path.join(data_dict_dir,".".join([book_name.split(".")[0], "json"])))
+
+
+    def pdf_reader_pymupdf(self, filename, book_name):
+        
+        
+        #pdf_reader = PyPDF2.PdfReader(pdf_file)
+        #num_pages = len(pdf_reader.pages)
+
+        self.books_dict_h.add_record("Name", book_name, self.books_dict_h.dict_object)
+        self.books_dict_h.add_record("Pages", {}, self.books_dict_h.dict_object)
+
+        resource_manager = PDFResourceManager()
+        output_string = io.StringIO()
+        laparams = LAParams()
+        device = TextConverter(resource_manager, output_string, laparams=laparams)
+        interpreter = PDFPageInterpreter(resource_manager, device)
+
+
+        with open(filename, 'rb') as fh:
+            for page_no, page in enumerate(PDFPage.get_pages(fh, check_extractable=True)):
+                interpreter.process_page(page)
+                text = output_string.getvalue()
+                output_string.truncate(0)
+                output_string.seek(0)
+                self.books_dict_h.add_record(page_no    , text, self.books_dict_h.dict_object['Pages'])
+        
+        device.close()
+        output_string.close()
+
+        '''
+        # Loop through each page and print the page text
+        for page_no, page in enumerate(pdf_file):
+            page_content = page.getText("text", block=True)
+            #page_content = " ".join(page_content.replace(u".", "").strip())
+            self.books_dict_h.add_record(page_no, page_content, self.books_dict_h.dict_object['Pages'])
+            #print(page.extract_text())
+        '''
+        #self.books_dict_h.print_dict()
+        data_dict_dir = self.file_manager_h.get_book_json_dir()
+        #print(os.path.join(data_dict_dir,book_name.split('.')[0]))
+        self.books_dict_h.write_to_file(self.books_dict_h.dict_object, os.path.join(data_dict_dir,".".join([book_name.split(".")[0], "json"])))
+
+    def epub_reader(self, filename, book_name):
+        
+        
+        book = epub.read_epub(filename)
+
+        title = book.get_metadata('DC', 'title')[0][0]
+        author = book.get_metadata('DC', 'creator')[0][0]
+        toc = book.get_items()
+        images = [item for item in book.get_items() if item.media_type == 'image/jpeg' or item.media_type == 'image/png']
+
+
+
+        self.books_dict_h.add_record("Name", book_name, self.books_dict_h.dict_object)
+        self.books_dict_h.add_record("Pages", {}, self.books_dict_h.dict_object)
+
+        for image in images:
+            print('Image file name:', image.file_name)
+ 
+        for item in toc:
+            if item.get_type() == ebooklib.ITEM_DOCUMENT:
+                content = item.get_content()
+                #print(content)
+                self.write_to_file("test.txt", str(content))
+
+        '''
+        # Loop through each page and print the page text
+        for page_no, page in enumerate(pdf_file):
+            page_content = page.getText("text", block=True)
+            #page_content = " ".join(page_content.replace(u".", "").strip())
+            self.books_dict_h.add_record(page_no, page_content, self.books_dict_h.dict_object['Pages'])
+            #print(page.extract_text())
+        '''
+        #self.books_dict_h.print_dict()
         data_dict_dir = self.file_manager_h.get_book_json_dir()
         #print(os.path.join(data_dict_dir,book_name.split('.')[0]))
         self.books_dict_h.write_to_file(self.books_dict_h.dict_object, os.path.join(data_dict_dir,".".join([book_name.split(".")[0], "json"])))
@@ -175,20 +266,22 @@ class Scrapper:
         #Check if the file exists
         if (not self.json_exists(json_filename_fp)):
             print("JSON version of book not available. Doing the processing. Please wait....")
-            self.pdf_reader_tika(filename, book_name)
+            self.epub_reader(filename, book_name)
         
         self.read_json(json_filename_fp)
         
         for page, content in self.books_dict_h["Pages"].items():
             
-            if (int(page) <= 10):
+            if (int(page) <= 15):
                 if (self.check_if_index_page(content)):
 
                     sections = content.split('\n')[1:]
-                    print("Sections :", sections)
+                    #print("Sections :", sections)
+                    #pattern = re.compile(r'^([\d.]+) (.+) (\d+)$|^([\d.]+)([\w\s,]+)$')
                     pattern = re.compile(r'^([\d.]+) (.+) (\d+)$')
-
-                    #print("Sections", sections)
+                    #^([\d.]+)([\w\s,]+)$
+                    print("Sections", sections)
+                    '''
                     for section in sections:
                         match = pattern.search(section)
                         try :
@@ -196,7 +289,7 @@ class Scrapper:
                                 section = match.group(1)
                                 title = match.group(2).replace(".", "").strip()
                                 page = match.group(3)
-                                #print("Section:{}, Title:{}, Page:{}".format(section, title, page))
+                                print("Section:{}, Title:{}, Page:{}".format(section, title, page))
 
                                 
                                 if ( self.check_if_major_topic(section) ):
@@ -235,10 +328,10 @@ class Scrapper:
                         except Exception as e: # work on python 2.x
                             print('Failed to add index: '+ str(e)) 
 
-
+                    '''    
                     #index_struct_json.print_dict()
-                    index_struct_json.write_to_file(index_struct_json.dict_object, intro_json_filename)
-                        
+                    #index_struct_json.write_to_file(index_struct_json.dict_object, intro_json_filename)
+                            
 
 
 
