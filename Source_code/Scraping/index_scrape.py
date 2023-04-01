@@ -38,7 +38,7 @@ class Scrapper:
 
     def write_to_file(self, filename, data=None):
         
-        with open(filename, 'w') as file:
+        with open(filename, 'w', encoding='utf-8') as file:
             file.write(data)
 
     def read_json(self, filename):
@@ -64,7 +64,7 @@ class Scrapper:
 
     def check_if_index_page(self, page_content):
         
-        print ("page content", page_content)
+        #print ("page content", page_content)
         if ("contents" in page_content.lower()):
             #print("Page", page_content)
             return (True)
@@ -207,6 +207,14 @@ class Scrapper:
         #print(os.path.join(data_dict_dir,book_name.split('.')[0]))
         self.books_dict_h.write_to_file(self.books_dict_h.dict_object, os.path.join(data_dict_dir,".".join([book_name.split(".")[0], "json"])))
 
+ 
+    def chapter_to_str(self, chapter):
+        soup = BeautifulSoup(chapter.get_body_content(), 'html.parser')
+        text = [para.get_text() for para in soup.find_all('p')]
+        return ' '.join(text)
+    
+ 
+ 
     def epub_reader(self, filename, book_name):
         
         
@@ -214,24 +222,29 @@ class Scrapper:
 
         title = book.get_metadata('DC', 'title')[0][0]
         author = book.get_metadata('DC', 'creator')[0][0]
+        items = list(book.get_items_of_type(ebooklib.ITEM_DOCUMENT))
         toc = book.get_items()
-        images = [item for item in book.get_items() if item.media_type == 'image/jpeg' or item.media_type == 'image/png']
 
+
+        texts = {}
+        
+        for c in items:
+            texts[c.get_name()] = self.chapter_to_str(c)
+        
+        self.write_to_file("test.txt", str(texts))
 
 
         self.books_dict_h.add_record("Name", book_name, self.books_dict_h.dict_object)
         self.books_dict_h.add_record("Pages", {}, self.books_dict_h.dict_object)
 
-        for image in images:
-            print('Image file name:', image.file_name)
- 
+        '''
         for item in toc:
             if item.get_type() == ebooklib.ITEM_DOCUMENT:
                 content = item.get_content()
                 #print(content)
                 self.write_to_file("test.txt", str(content))
 
-        '''
+       
         # Loop through each page and print the page text
         for page_no, page in enumerate(pdf_file):
             page_content = page.getText("text", block=True)
@@ -266,71 +279,80 @@ class Scrapper:
         #Check if the file exists
         if (not self.json_exists(json_filename_fp)):
             print("JSON version of book not available. Doing the processing. Please wait....")
-            self.epub_reader(filename, book_name)
+            self.pdf_reader_pypdf(filename, book_name)
         
         self.read_json(json_filename_fp)
         
         for page, content in self.books_dict_h["Pages"].items():
             
-            if (int(page) <= 15):
-                if (self.check_if_index_page(content)):
+            #if (int(page) <= 15):
+            if (self.check_if_index_page(content)):
 
-                    sections = content.split('\n')[1:]
-                    #print("Sections :", sections)
-                    #pattern = re.compile(r'^([\d.]+) (.+) (\d+)$|^([\d.]+)([\w\s,]+)$')
-                    pattern = re.compile(r'^([\d.]+) (.+) (\d+)$')
-                    #^([\d.]+)([\w\s,]+)$
-                    print("Sections", sections)
-                    '''
-                    for section in sections:
-                        match = pattern.search(section)
-                        try :
-                            if match:
-                                section = match.group(1)
-                                title = match.group(2).replace(".", "").strip()
-                                page = match.group(3)
-                                print("Section:{}, Title:{}, Page:{}".format(section, title, page))
-
-                                
-                                if ( self.check_if_major_topic(section) ):
-                                    #print("Inside IF loop")
-                                    index_struct_json.add_record(section, {}, index_struct_json.dict_object)
-                                    index_struct_json.add_record(title_kw, title, index_struct_json.dict_object[section])
-                                    #print(type(index_struct_json.dict_object))
-                                    index_struct_json.add_record(sub_topics_kw, {}, index_struct_json.dict_object[section])
-                                    #index_struct_json.print_dict()
-                                
-                                elif (self.check_if_sub_topics(section)):
-                                    #print("Inside Else If Loop")
-                                    #index_struct_json.print_dict() 
-                                    parent_section = self.get_parent_index(section)
-                                    #print("parent Section", parent_section)
-                                    index_struct_json.add_record(section, {}, index_struct_json.dict_object[parent_section][sub_topics_kw])
-                                    index_struct_json.add_record(title_kw, title, index_struct_json.dict_object[parent_section][sub_topics_kw][section])
-                                    index_struct_json.add_record(sub_topics_kw, {}, index_struct_json.dict_object[parent_section][sub_topics_kw][section])
-                                else:
-                                    #print("Inside Else Loop")
-                                    #index_struct_json.print_dict() 
-                                    parent_1_section = self.get_parent_index(section)
-                                    parent_2_section = self.get_parent_index(section, 2)
-                                    #print("parent 1 Section", parent_1_section)
-                                    #print("parent 2 Section", parent_2_section)
-                                    index_struct_json.add_record(section, {}, index_struct_json.dict_object[parent_2_section][sub_topics_kw][parent_1_section][sub_topics_kw])
-                                    index_struct_json.add_record(title_kw, title, index_struct_json.dict_object[parent_2_section][sub_topics_kw][parent_1_section][sub_topics_kw][section])
-                                    #index_struct_json.add_record(sub_topics_kw, {}, index_struct_json.dict_object[parent_section][sub_topics_kw][section])
-
-
-                            else:
-                                pass
-                                #print("No match found.")
-                                
+                sections = content.split('\n')[1:]
+                #print("Sections :", sections)
+                #pattern = re.compile(r'^([\d.]+) (.+) (\d+)$|^([\d.]+)([\w\s,]+)$')
+                #pattern = re.compile(r'^([\d.]+)(.+)(\d+)$|^([\d.]+)([\w\s,]+)$|^(\d+)(\D+)(\d*)$')
+                string_pattern = re.compile(r"^[0-9. ]*([a-zA-Z\s,]+)[0-9]*$")
+                number_pattern = re.compile(r"[\d.]+")
+                #print("Sections", sections)
+                
+                for section in sections:
+                    string_match = string_pattern.search(section)
+                    try :
+                        if string_match:
+                            title = string_match.group(1).replace(".", "").strip()
+                            number_match = number_pattern.findall(section)
                             
-                        except Exception as e: # work on python 2.x
-                            print('Failed to add index: '+ str(e)) 
+                            if (len(number_match) == 1):
+                                section = number_match[0]
+                                page = None
+                            elif (len(number_match) >= 1):
+                                section = number_match[0]
+                                page = number_match[-1]
 
-                    '''    
-                    #index_struct_json.print_dict()
-                    #index_struct_json.write_to_file(index_struct_json.dict_object, intro_json_filename)
+
+                            #print("Section:{}, Title:{}, Page:{}".format(section, title, page))
+
+                            
+                            if ( self.check_if_major_topic(section) ):
+                                #print("Inside IF loop")
+                                index_struct_json.add_record(section, {}, index_struct_json.dict_object)
+                                index_struct_json.add_record(title_kw, title, index_struct_json.dict_object[section])
+                                #print(type(index_struct_json.dict_object))
+                                index_struct_json.add_record(sub_topics_kw, {}, index_struct_json.dict_object[section])
+                                #index_struct_json.print_dict()
+                            
+                            elif (self.check_if_sub_topics(section)):
+                                #print("Inside Else If Loop")
+                                #index_struct_json.print_dict() 
+                                parent_section = self.get_parent_index(section)
+                                #print("parent Section", parent_section)
+                                index_struct_json.add_record(section, {}, index_struct_json.dict_object[parent_section][sub_topics_kw])
+                                index_struct_json.add_record(title_kw, title, index_struct_json.dict_object[parent_section][sub_topics_kw][section])
+                                index_struct_json.add_record(sub_topics_kw, {}, index_struct_json.dict_object[parent_section][sub_topics_kw][section])
+                            else:
+                                #print("Inside Else Loop")
+                                #index_struct_json.print_dict() 
+                                parent_1_section = self.get_parent_index(section)
+                                parent_2_section = self.get_parent_index(section, 2)
+                                #print("parent 1 Section", parent_1_section)
+                                #print("parent 2 Section", parent_2_section)
+                                index_struct_json.add_record(section, {}, index_struct_json.dict_object[parent_2_section][sub_topics_kw][parent_1_section][sub_topics_kw])
+                                index_struct_json.add_record(title_kw, title, index_struct_json.dict_object[parent_2_section][sub_topics_kw][parent_1_section][sub_topics_kw][section])
+                                #index_struct_json.add_record(sub_topics_kw, {}, index_struct_json.dict_object[parent_section][sub_topics_kw][section])
+
+
+                        else:
+                            pass
+                            #print("No match found.")
+                        
+                        
+                    except Exception as e: # work on python 2.x
+                        print('Failed to add index: '+ str(e))
+                        print("Section:{}, Title:{}, Page:{}".format(section, title, page))
+                    
+                #index_struct_json.print_dict()
+                index_struct_json.write_to_file(index_struct_json.dict_object, intro_json_filename)
                             
 
 

@@ -1,5 +1,5 @@
 Machine_Learning =  {
-                        "Books" : { "0" : {   "Name"     :   "Kevin Murphy - Machine Learning Probabilistic Perspective.pdf",
+                        "Books" : { "0" : {   "Name"     :   "Machine_Learning_A_Probabilistic_Perspective.pdf",
                                             "Scrape"   :   False
                                        },
                                    "1": {   "Name"     :   "Elements of Statistical Learning – Hastie and Tibshirani.pdf",
@@ -18,8 +18,17 @@ Machine_Learning =  {
                                             "Scrape"   :   False
                                         },
                                     "6": {   "Name"     :   "Artificial_Intelliegence_a_modern_approach.epub",
+                                            "Scrape"   :   False
+                                        },
+                                    "7": {   "Name"     :   "Mastering_Machine_Learning_Algorithms.epub",
+                                            "Scrape"   :   False
+                                        },
+                                    "8": {   "Name"     :   "Stochastics_Introduction_to_Probability_and_Statistics.pdf",
+                                            "Scrape"   :   False
+                                        }, 
+                                    "9": {   "Name"     :   "Introduction_to_Machine_Learning.pdf",
                                             "Scrape"   :   True
-                                        }
+                                        },  
 
                                  },
                         "web_resources" : { "0" :  {    "Link"     :   "https://courses.cs.washington.edu/courses/cse416/20su/",
