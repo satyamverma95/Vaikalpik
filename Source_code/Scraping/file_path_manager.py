@@ -16,6 +16,7 @@ class File_Path_Manager:
         self.data_dir       =   os.getenv("DATA_PATH")
         self.books_dir      =   os.getenv("BOOKS_PATH")
         self.book_Json      =   os.getenv("BOOK_JSON")
+        self.web_dir        =   os.getenv("WEB_PATH")
 
 
     def get_root_dir(self):
@@ -47,6 +48,11 @@ class File_Path_Manager:
         
         return (os.path.join(self.root_dir, self.users, self.users_name, self.cloud, self.category_folder, self.git_folder,\
                              self.project_dir, self.data_dir, self.book_Json))
+
+    def get_web_res_dir(self):      
+        
+        return (os.path.join(self.root_dir, self.users, self.users_name, self.cloud, self.category_folder, self.git_folder,\
+                             self.project_dir, self.data_dir, self.web_dir ))
 
 
 def main():

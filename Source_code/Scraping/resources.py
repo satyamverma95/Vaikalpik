@@ -27,12 +27,21 @@ Machine_Learning =  {
                                             "Scrape"   :   False
                                         }, 
                                     "9": {   "Name"     :   "Introduction_to_Machine_Learning.pdf",
-                                            "Scrape"   :   True
+                                            "Scrape"   :   False
                                         },  
 
                                  },
                         "web_resources" : { "0" :  {    "Link"     :   "https://courses.cs.washington.edu/courses/cse416/20su/",
-                                                        "Scrape"   :   "Yes"
+                                                        "Scrape"   :   False
+                                                   },
+                                            "1" :  {    "Link"     :   "https://www.coursera.org/learn/machine-learning?specialization=machine-learning-introduction#syllabus",
+                                                        "Scrape"   :   False
+                                                   },
+                                            "2" :  {    "Link"     :   "https://www.coursera.org/learn/ml-foundations?specialization=machine-learning",
+                                                        "Scrape"   :   False
+                                                   },
+                                            "3" :  {    "Link"     :   "https://www.coursera.org/learn/ml-regression?specialization=machine-learning",
+                                                        "Scrape"   :   True
                                                    }
-                                          ,}
+                                          }
                     }
