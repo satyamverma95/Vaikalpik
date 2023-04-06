@@ -41,6 +41,13 @@ class Scrapper:
         with open(filename, 'w', encoding='utf-8') as file:
             file.write(data)
 
+    def read_file(self, filename):
+        
+        with open(filename, "r", encoding='utf-8') as file:
+            content = file.read()
+        
+        return (content)
+
     def read_json(self, filename):
         self.books_dict_h = json.load(open(filename))
         #return (book_json)
@@ -63,7 +70,7 @@ class Scrapper:
         return (".".join(filename_parts)) 
     
 
-    def get_filename_for_website(self, url, new_string ="", sep=""):
+    def get_filename_for_website(self, url, new_string ="", sep="", file_extension=""):
 
         if ( not "specialization" in url):
             filename_parts = url.split("/")
@@ -71,7 +78,7 @@ class Scrapper:
             filename_parts_without_extension = [ filename_parts[-1] + sep + new_string ]
             #print("filename_parts_without_extension with new name", filename_parts_without_extension)
             #filename_parts[:-1] = [filename_parts_without_extension]
-            filename_parts_without_extension.append("json")
+            filename_parts_without_extension.append(file_extension)
 
             return (".".join(filename_parts_without_extension)) 
 
@@ -79,8 +86,8 @@ class Scrapper:
             url_parts = url.split("?")
             path_parts = url_parts[0].split("/")
             course_name = path_parts[-1]
-            filename_parts_without_extension = [course_name]
-            filename_parts_without_extension.append("json")
+            filename_parts_without_extension = [course_name + sep + new_string]
+            filename_parts_without_extension.append(file_extension)
 
             return (".".join(filename_parts_without_extension))
 
@@ -385,63 +392,55 @@ class Scrapper:
         This function will establish connection with the website and read all the content of the pages.
         '''
 
-        web_resource_struct_json    =   Json_Object()
-        #json_filename              =   self.get_filename_for_website(url)
-        #json_filename_w_path       =   os.path.join(self.file_manager_h.get_web_res_dir(), json_filename)
+        web_resource_struct_json   =   Json_Object()
+        html_filename              =   self.get_filename_for_website(url, file_extension="html")
+        html_filename_w_path       =   os.path.join(self.file_manager_h.get_web_res_dir(), html_filename)
 
         #print(json_full_filename)
 
         page_context_manager = urlopen(url)
         page_html = BeautifulSoup(page_context_manager, 'html.parser')
         
+        self.write_to_file(html_filename_w_path, str(page_html))
+        
         return (page_html)
     
 
-        #example_regex = re.compile(r'window\.__APOLLO_STATE__\s*=\s*({.*?});', re.IGNORECASE)
-        #page_footer_content = page_html.find_all(string=example_regex)
-        self.write_to_file(json_filename_w_path, str(page_html))
-
-        '''
-        # Use regular expressions to extract the value of the window.__APOLLO_STATE__ variable
-        match = re.search(r'window\.__APOLLO_STATE__\s*=\s*({.*?});', str(page_html))
-
-        # If a match is found, extract the JSON data from the match and convert it to a Python dictionary
-        if match:
-            apollo_state_json = match.group(1)
-            apollo_state = json.loads(apollo_state_json)
-            print(apollo_state)
-
-        web_resource_struct_json.write_to_file( apollo_state, json_filename_w_path)
-        '''
 
     def extact_online_resources(self, url):
 
-        course_detail_json_h    =   Json_Object()
-        json_filename           =   self.get_filename_for_website(url)
-        json_filename_w_path    =   os.path.join(self.file_manager_h.get_web_res_dir(), json_filename)
+        html_filename           =   self.get_filename_for_website(url, file_extension="html")
+        html_filename_w_path    =   os.path.join(self.file_manager_h.get_web_res_dir(), html_filename)
         html_content            =   ""
 
         #Websites keywords
         coursera_keywords       =   "coursera.org"
 
-
         #Check if the file exists
-        if (not self.json_exists(json_filename_w_path)):
+        if (not self.json_exists(html_filename_w_path)):
             print("Scrape data of website is not available. Doing the processing. Please wait....")
-            html_content    =   self.scrape_website(json_filename_w_path, url)
-    
+            html_content    =   self.scrape_website(html_filename_w_path, url)
+        else:
+            html_content    =   self.read_file(html_filename_w_path)
         
+        #print("HTML Content", html_filename_w_path)
+
         if (coursera_keywords in url) and (html_content):
-            self.coursera_scrapper(html_content)
+            self.coursera_scrapper(html_content, html_filename)
 
 
 
-    def coursera_scrapper(self, page_html):
+    def coursera_scrapper(self, page_html, html_filename):
 
-        #print("Coursera Html Content Received", page_html)
-
+        course_detail_json_h    =   Json_Object()
         key_pattern_Coursera    =   re.compile("^XdpV1_org_coursera_xdp_common_XDPModuleItem:\w+")
-        
+        json_filename           =   self.change_file_extension_to_json(html_filename, new_string="Index", sep = "_")
+        json_filename_w_path    =   os.path.join(self.file_manager_h.get_web_josn_res_dir(), json_filename)
+        course_title_kw         =   "Title"
+        title_index_seq         =   0
+
+        #print("json_filename ", json_filename)
+
         # Use regular expressions to extract the value of the window.__APOLLO_STATE__ variable
         match = re.search(r'window\.__APOLLO_STATE__\s*=\s*({.*?});', str(page_html))
 
@@ -449,14 +448,22 @@ class Scrapper:
         if match:
             apollo_state_json = match.group(1)
             apollo_state = json.loads(apollo_state_json)
-            print(apollo_state)
+            #print(apollo_state)
         
         for key in apollo_state:
         
             if key_pattern_Coursera.match(key):
+                title_index_seq += 1
+
                 if(apollo_state[key]['typeName']=="lecture"):
-                    print(apollo_state[key]['name'])
-        
+                    #print(apollo_state[key]['name'])
+                    if (course_title_kw not in course_detail_json_h.dict_object.keys()):
+                        course_detail_json_h.add_record(course_title_kw, {}, course_detail_json_h.dict_object)
+                    course_detail_json_h.add_record(title_index_seq, apollo_state[key]['name'], course_detail_json_h.dict_object[course_title_kw])
+
+        #course_detail_json_h.print_dict()   
+        course_detail_json_h.write_to_file( course_detail_json_h.dict_object, json_filename_w_path)
+
 
 
 def main():
