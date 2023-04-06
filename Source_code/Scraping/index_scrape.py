@@ -386,18 +386,22 @@ class Scrapper:
         '''
 
         web_resource_struct_json    =   Json_Object()
-        #json_filename               =   self.get_filename_for_website(url)
-        #json_filename_w_path        =   os.path.join(self.file_manager_h.get_web_res_dir(), json_filename)
+        #json_filename              =   self.get_filename_for_website(url)
+        #json_filename_w_path       =   os.path.join(self.file_manager_h.get_web_res_dir(), json_filename)
 
         #print(json_full_filename)
 
         page_context_manager = urlopen(url)
         page_html = BeautifulSoup(page_context_manager, 'html.parser')
+        
+        return (page_html)
+    
+
         #example_regex = re.compile(r'window\.__APOLLO_STATE__\s*=\s*({.*?});', re.IGNORECASE)
         #page_footer_content = page_html.find_all(string=example_regex)
-        #self.write_to_file(json_filename_w_path, str(page_footer_content))
+        self.write_to_file(json_filename_w_path, str(page_html))
 
-
+        '''
         # Use regular expressions to extract the value of the window.__APOLLO_STATE__ variable
         match = re.search(r'window\.__APOLLO_STATE__\s*=\s*({.*?});', str(page_html))
 
@@ -408,31 +412,51 @@ class Scrapper:
             print(apollo_state)
 
         web_resource_struct_json.write_to_file( apollo_state, json_filename_w_path)
-
+        '''
 
     def extact_online_resources(self, url):
 
         course_detail_json_h    =   Json_Object()
         json_filename           =   self.get_filename_for_website(url)
         json_filename_w_path    =   os.path.join(self.file_manager_h.get_web_res_dir(), json_filename)
-        key_pattern             =   re.compile("^XdpV1_org_coursera_xdp_common_XDPModuleItem:\w+")
-        
+        html_content            =   ""
 
-         #Check if the file exists
+        #Websites keywords
+        coursera_keywords       =   "coursera.org"
+
+
+        #Check if the file exists
         if (not self.json_exists(json_filename_w_path)):
             print("Scrape data of website is not available. Doing the processing. Please wait....")
-            self.scrape_website(json_filename_w_path, url)
+            html_content    =   self.scrape_website(json_filename_w_path, url)
     
-        course_detail_json_h.load_json(json_filename_w_path) 
         
-        for key in course_detail_json_h.dict_object:
-            
-            if key_pattern.match(key):
-                if(course_detail_json_h.dict_object[key]['typeName']=="lecture"):
-                    print(course_detail_json_h.dict_object[key]['name'])
+        if (coursera_keywords in url) and (html_content):
+            self.coursera_scrapper(html_content)
 
 
 
+    def coursera_scrapper(self, page_html):
+
+        #print("Coursera Html Content Received", page_html)
+
+        key_pattern_Coursera    =   re.compile("^XdpV1_org_coursera_xdp_common_XDPModuleItem:\w+")
+        
+        # Use regular expressions to extract the value of the window.__APOLLO_STATE__ variable
+        match = re.search(r'window\.__APOLLO_STATE__\s*=\s*({.*?});', str(page_html))
+
+        # If a match is found, extract the JSON data from the match and convert it to a Python dictionary
+        if match:
+            apollo_state_json = match.group(1)
+            apollo_state = json.loads(apollo_state_json)
+            print(apollo_state)
+        
+        for key in apollo_state:
+        
+            if key_pattern_Coursera.match(key):
+                if(apollo_state[key]['typeName']=="lecture"):
+                    print(apollo_state[key]['name'])
+        
 
 
 def main():
@@ -453,9 +477,6 @@ def main():
             s_h.extact_online_resources(Machine_Learning["web_resources"][str(index)]["Link"])
 
    
-
-    
-
 
 
 if __name__ == "__main__":

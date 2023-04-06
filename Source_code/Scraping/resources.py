@@ -35,13 +35,16 @@ Machine_Learning =  {
                                                         "Scrape"   :   False
                                                    },
                                             "1" :  {    "Link"     :   "https://www.coursera.org/learn/machine-learning?specialization=machine-learning-introduction#syllabus",
-                                                        "Scrape"   :   False
+                                                        "Scrape"   :   True
                                                    },
                                             "2" :  {    "Link"     :   "https://www.coursera.org/learn/ml-foundations?specialization=machine-learning",
                                                         "Scrape"   :   False
                                                    },
                                             "3" :  {    "Link"     :   "https://www.coursera.org/learn/ml-regression?specialization=machine-learning",
-                                                        "Scrape"   :   True
-                                                   }
+                                                        "Scrape"   :   False
+                                                   },
+                                            "4" :  {    "Link"     :   "https://www.udemy.com/course/machinelearning",
+                                                        "Scrape"   :   False
+                                                   },
                                           }
                     }
