@@ -1,0 +1,17 @@
+﻿Machine Learning ,Supervised Learning
+Machine Learning ,Unsupervised Learning
+Supervised Learning,Regression
+Supervised Learning,Dimensionality Reduction
+Supervised Learning,Classifier
+Regression,Linear Regression
+Regression,Ridge Regression
+Regression,LASSO Regression
+Dimensionality Reduction,LDA
+Dimensionality Reduction,QDA
+Classifier,Logistic Regression
+Classifier,Support Vector Machines
+Classifier,Bayesian Classifier
+Classifier,K Nearest Neighbours
+Classifier,Decision Tree
+Classifier,Random Forest
+Classifier,Perceptron
