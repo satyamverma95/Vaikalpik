@@ -24,7 +24,7 @@ doc2_set = clean_doc(doc2)
 # find common words
 common_words = doc1_set & doc2_set
 
-#print("Common words between the documents:", common_words)
+print("Common words between the documents:", common_words)
 
 # To Find common biagrams
 
@@ -45,7 +45,7 @@ doc2_bigrams = get_bigrams(doc2)
 common_bigrams = set(doc1_bigrams) & set(doc2_bigrams)
 
 
-#print("Common bigrams between the documents:",common_bigrams)
+print("Common bigrams between the documents:",common_bigrams)
 
 # To Find common triagrams
 
