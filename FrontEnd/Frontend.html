@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Machine Learning Topics</title>
+  <style>
+   /* Set default font styles */ 
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+
+
+/* Center the content */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the topics */
+.topic {
+  margin-bottom: 40px;
+}
+
+.topic h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.topic input[type=range] {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.topic h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.topic ul {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.topic li {
+  margin-bottom: 10px;
+}
+
+/* Style the subtopics */
+.topic div {
+  margin-top: 10px;
+  padding-left: 40px;
+}
+
+/* Show the subtopics when the slider is below 5 */
+.topic div[style*="block"] {
+  display: block;
+}
+
+/* Style the form button */
+input[type=submit] {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #0062cc;
+}
+
+input[type=submit]:active {
+  background-color: #005cbf;
+}
+
+body {
+			background-color: lightgreen;
+		}
+		
+		h1 {
+			color: #4d4dff;
+			background-color: #f2f2f2;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px #888888 ;
+		} 
+
+		h2 {
+			color:red;
+			background-color: #f9f9f9;
+			padding: 10px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px #888888;
+			margin-top: 20px;
+		}
+
+		h3 {
+			color: black;
+			background-color: #f9f9f9;
+			padding: 10px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px #888888;
+			margin-top: 20px;
+			margin-left: 20px;
+		}
+		
+		p {
+			color:black;
+			font-size: 16px;
+			line-height: 1.5;
+			margin: 10px;
+		}
+
+  </style>
+  <script>
+    function showSubtopics(topic) {
+      // Get the subtopics div
+      var subtopics = document.getElementById(topic + "-subtopics");
+      // Set its display to block
+      subtopics.style.display = "block";
+    }
+	
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Machine Learning Topics</h1>
+    <p>Please rate your knowledge level for each topic on a scale of 1 to 10.</p>
+    <form action="subtopics.html" method="get">
+      <div class="topic">
+        <h2>Supervised Learning</h2>
+		<input type="range" name="supervised-learning" min="1" max="10" value="5" class="slider"
+		onchange="if (this.value < 5) { showSubtopics('supervised-learning'); }">
+		
+        <div id="supervised-learning-subtopics" style="display:none">
+          <h3>Classification</h3>
+          <h3>Regression</h3>
+        </div>
+      </div>
+      <div class="topic">
+        <h2>Unsupervised Learning</h2>
+        <input type="range" name="unsupervised-learning" min="1" max="10" value="5" class="slider"
+               onchange="if (this.value < 5) { showSubtopics('unsupervised-learning'); }">
+        <div id="unsupervised-learning-subtopics" style="display:none">
+          <h3>Clustering</h3>
+          <h3>Dimensionality Reduction</h3>
+        </div>
+      </div>
+      <div class="topic">
+        <h2>Reinforcement Learning</h2>
+        <input type="range" name="reinforcement-learning" min="1" max="10" value="5" class="slider"
+               onchange="if (this.value < 5) { showSubtopics('reinforcement-learning'); }">
+        <div id="reinforcement-learning-subtopics" style="display:none">
+          <h3>Markov Decision Processes</h3>
+          <h3>Q-Learning</h3>
+        </div>
+      </div>
+      <div class="topic">
+        <h2>Model Evaluation and Selection</h2>
+        <input type="range" name="model-evaluation" min="1" max="10" value="5" class="slider"
+               onchange="if (this.value < 5) { showSubtopics('model-evaluation'); }">
+        <div id="model-evaluation-subtopics" style="display:none">
+          <h3>Confusion Matrix</h3>
+          <h3>Cross-Validation</h3>
+        </div>
+      </div>
+      <div class="topic">
+        <h2>Deep Learning</h2>
+        <input type="range" name="deep-learning" min="1" max="10" value="5" class="slider" onchange="if (this.value < 5) { showSubtopics('deep-learning'); }">
+        <div id="deep-learning-subtopics" style="display:none">
+          <h3>Recurrent Neural Networks</h3>
+		<ul>
+		<li>Long Short-Term Memory (LSTM)</li>
+		<li>Gated Recurrent Unit (GRU)</li>
+		<li>Vanishing Gradient Problem</li>
+		<li>Applications of RNNs (e.g. speech recognition, natural language processing)</li>
+		</ul>
+		<h3>Convolutional Neural Networks</h3>
+		<ul>
+		<li>Convolution and Pooling Layers</li>
+		<li>Activation Functions (e.g. ReLU, softmax)</li>
+		<li>Transfer Learning</li>
+		<li>Object Detection and Recognition</li>
+		<li>Image Segmentation</li>
+		</ul>
+		<h3>Generative Adversarial Networks</h3>
+		<ul>
+		<li>GAN Architecture</li>
+		<li>Training Process</li>
+		<li>Conditional GANs</li>
+		<li>Applications of GANs (e.g. image synthesis, data augmentation)</li>
+		</ul>
+		<h3>Autoencoders</h3>
+		<ul>
+		<li>Encoder and Decoder Networks</li>
+		<li>Variational Autoencoders (VAEs)</li>
+		<li>Applications of Autoencoders (e.g. image denoising, anomaly detection)</li>
+		</ul>
+		</div>
+		</div>
+	<div class="topic">
+		<h2>Natural Language Processing</h2>
+		<input type="range" name="natural-language-processing" min="1" max="10" value="5" class="slider" onchange="if (this.value < 5) { showSubtopics('natural-language-processing'); }">
+			<div id="natural-language-processing-subtopics" style="display:none">
+				<h3>Tokenization</h3>
+				<h3>Part-of-Speech Tagging</h3>
+				<h3>Sentiment Analysis</h3>
+				<h3>Named Entity Recognition</h3>
+				<h3>Topic Modeling</h3>
+			</div>
+	</div>
+	<div class="topic">
+	<h2>Computer Vision</h2>
+	<input type="range" name="computer-vision" min="1" max="10" value="5" class="slider" onchange="if (this.value < 5) { showSubtopics('computer-vision'); }">
+		<div id="computer-vision-subtopics" style="display:none">
+			<h3>Image Classification</h3>
+			<h3>Object Detection</h3>
+			<h3>Semantic Segmentation</h3>
+			<h3>Instance Segmentation</h3>
+			<h3>Generative Models</h3>
+		</div>
+	</div>
+	</form>
+	</div>
+</body>
+</html>
+		
+
+
+
