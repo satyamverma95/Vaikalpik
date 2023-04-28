@@ -8,9 +8,7 @@ from file_path_manager import File_Path_Manager
 from resources import Machine_Learning
 from json_manager import Json_Object
 import json
-from tika import parser 
 import pypdf
-import fitz
 import io
 from pdfminer.high_level import extract_text
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
@@ -19,6 +17,7 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 import ebooklib
 from ebooklib import epub
+
 
 class Scrapper:
     def __init__ (self):
