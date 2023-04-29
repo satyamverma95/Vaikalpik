@@ -35,7 +35,8 @@ class extract_transform:
         self.a_db.create_collection(database_name=data_base, collection_name=collection_name)
     
     def add_document(self, collection="", document_to_add=""):
-        self.a_db.add_document(collection_name=collection, document=document_to_add)
+        doc_id = self.a_db.add_document(collection_name=collection, document=document_to_add)
+        return(doc_id)
 
     def delete_collections(self, collection):
         self.a_db.delete_colection(collection_name=collection)
@@ -55,44 +56,52 @@ class extract_transform:
     def create_arango_object (self, title):
 
         doc =   {
-                    "_key"  :   title,
                     "Topic" :   title,
                 }
 
+        return (doc)
+    
+    def create_arango_realtion_object(self, _from, _to, topic):
+
+        doc =   {   
+                    "_to"       :   _to,
+                    "_from"     :   _from,
+                    "vertex"    :   topic
+                }
+        
         return (doc)
 
     def setup_arango_env(self):
 
         self.connect_to_graph_db()
         self.create_new_database(data_base="Data_Science")
-        self.create_new_collections(data_base="Data_Science", collection_name="Machine_Learning") 
+        self.create_new_collections(data_base="Data_Science", collection_name="Machine_Learning")
+        self.create_new_collections(data_base="Data_Science", collection_name="Machine_Learning_Hierarchy")
 
     def transform_json_data(self):
         
         for section in self.books_index_dict.values():
           
             #print(section["Title"])
-            if ("introduction" not in section["Title"].lower()):
-                section["Title"] = re.sub(r'[^A-Za-z0-9_\-\.]', '', section["Title"])
-                document = self.create_arango_object(section["Title"])
-                self.add_document(collection="Machine_Learning", document_to_add=document)
+            document = self.create_arango_object(section["Title"])
+            document_handle_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
                 
             for sub_section in section["Sub Topics"].values():
                 
                 print(sub_section["Title"])
-                if ("introduction" not in sub_section["Title"].lower()):
-                    sub_section["Title"] = re.sub(r'[^A-Za-z0-9_\-\.]', '', sub_section["Title"])
-                    document = self.create_arango_object(sub_section["Title"])
-                    self.add_document(collection="Machine_Learning", document_to_add=document)
-                
+                document = self.create_arango_object(sub_section["Title"])
+                document_handle_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
+                #print("Document handle", document_handle_sub_sec_id)
+                document_rel_sub_sec = self.create_arango_realtion_object(document_handle_sec_id, document_handle_sub_sec_id, sub_section["Title"])
+                self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sec)
+
                 for sub_sub_section in sub_section["Sub Topics"].values():
                     
                     print(sub_sub_section["Title"])
-                    if ("introduction" not in sub_sub_section["Title"].lower()):
-                        sub_sub_section["Title"] = re.sub(r'[^A-Za-z0-9_\-\.]', '', sub_sub_section["Title"])
-                        document = self.create_arango_object(sub_sub_section["Title"])
-                        self.add_document(collection="Machine_Learning", document_to_add=document)
-        
+                    document = self.create_arango_object(sub_sub_section["Title"])
+                    document_handle_sub_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
+                    document_rel_sub_sub_sec = self.create_arango_realtion_object(document_handle_sub_sec_id, document_handle_sub_sub_sec_id, sub_sub_section["Title"])
+                    self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sub_sec)
 
 
 def main():
@@ -111,6 +120,7 @@ def main():
             extract_transform_h.read_json(os.path.join(books_json_folder,json_filename)) 
             extract_transform_h.setup_arango_env()
             #extract_transform_h.delete_collections("Machine_Learning")
+            #extract_transform_h.delete_collections("Machine_Learning_Hierarchy")
             extract_transform_h.transform_json_data()
             
 

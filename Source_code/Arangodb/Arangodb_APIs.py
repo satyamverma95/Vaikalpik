@@ -42,7 +42,9 @@ class ArangoDB:
         doc = collection.createDocument()
         doc.set(document)
         doc.save()
-        
+        document_id = doc["_id"]
+
+        return(document_id)
 
     def delete_colection (self, collection_name=""):
 
