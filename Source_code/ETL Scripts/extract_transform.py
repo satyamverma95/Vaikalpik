@@ -1,6 +1,7 @@
 import sys
 import os 
 from dotenv import load_dotenv
+import re
 
 load_dotenv(os.sep.join([os.getcwd(), "Source_code", "Scraping", ".env"])) #nned to change the location of .env file.
 
@@ -54,7 +55,8 @@ class extract_transform:
     def create_arango_object (self, title):
 
         doc =   {
-                    'Topic' : title,
+                    "_key"  :   title,
+                    "Topic" :   title,
                 }
 
         return (doc)
@@ -68,22 +70,29 @@ class extract_transform:
     def transform_json_data(self):
         
         for section in self.books_index_dict.values():
-            
+          
             #print(section["Title"])
-            document = self.create_arango_object(section["Title"])
-            self.add_document(collection="Machine_Learning", document_to_add=document)
-            
+            if ("introduction" not in section["Title"].lower()):
+                section["Title"] = re.sub(r'[^A-Za-z0-9_\-\.]', '', section["Title"])
+                document = self.create_arango_object(section["Title"])
+                self.add_document(collection="Machine_Learning", document_to_add=document)
+                
             for sub_section in section["Sub Topics"].values():
                 
                 print(sub_section["Title"])
-                document = self.create_arango_object(sub_section["Title"])
-                self.add_document(collection="Machine_Learning", document_to_add=document)
+                if ("introduction" not in sub_section["Title"].lower()):
+                    sub_section["Title"] = re.sub(r'[^A-Za-z0-9_\-\.]', '', sub_section["Title"])
+                    document = self.create_arango_object(sub_section["Title"])
+                    self.add_document(collection="Machine_Learning", document_to_add=document)
                 
                 for sub_sub_section in sub_section["Sub Topics"].values():
                     
                     print(sub_sub_section["Title"])
-                    document = self.create_arango_object(sub_sub_section["Title"])
-                    self.add_document(collection="Machine_Learning", document_to_add=document)
+                    if ("introduction" not in sub_sub_section["Title"].lower()):
+                        sub_sub_section["Title"] = re.sub(r'[^A-Za-z0-9_\-\.]', '', sub_sub_section["Title"])
+                        document = self.create_arango_object(sub_sub_section["Title"])
+                        self.add_document(collection="Machine_Learning", document_to_add=document)
+        
 
 
 def main():
