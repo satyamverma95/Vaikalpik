@@ -7,7 +7,7 @@ def write_to_file(filename, text):
         f.write(text)
 
 
-res = requests.get("https://en.wikipedia.org/wiki/Linear_regression")
+res = requests.get("https://en.wikipedia.org/wiki/Differential_calculus")
 soup = bs(res.text, "html.parser")
 body_content = soup.find('div', {'class': 'mw-parser-output'})
 

@@ -61,12 +61,12 @@ class extract_transform:
 
         return (doc)
     
-    def create_arango_realtion_object(self, _from, _to, topic):
+    def create_arango_realtion_object(self, _from, _to, label):
 
         doc =   {   
                     "_to"       :   _to,
                     "_from"     :   _from,
-                    "vertex"    :   topic
+                    "label"     :   label
                 }
         
         return (doc)
@@ -92,7 +92,7 @@ class extract_transform:
                 document = self.create_arango_object(sub_section["Title"])
                 document_handle_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
                 #print("Document handle", document_handle_sub_sec_id)
-                document_rel_sub_sec = self.create_arango_realtion_object(document_handle_sec_id, document_handle_sub_sec_id, sub_section["Title"])
+                document_rel_sub_sec = self.create_arango_realtion_object(document_handle_sec_id, document_handle_sub_sec_id, "Sub_topic")
                 self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sec)
 
                 for sub_sub_section in sub_section["Sub Topics"].values():
@@ -100,7 +100,7 @@ class extract_transform:
                     print(sub_sub_section["Title"])
                     document = self.create_arango_object(sub_sub_section["Title"])
                     document_handle_sub_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
-                    document_rel_sub_sub_sec = self.create_arango_realtion_object(document_handle_sub_sec_id, document_handle_sub_sub_sec_id, sub_sub_section["Title"])
+                    document_rel_sub_sub_sec = self.create_arango_realtion_object(document_handle_sub_sec_id, document_handle_sub_sub_sec_id, "Sub_sub_topic")
                     self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sub_sec)
 
 
