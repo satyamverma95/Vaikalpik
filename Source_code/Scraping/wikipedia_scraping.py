@@ -92,7 +92,7 @@ class Wikipedia_Scrapper:
                         self.hyperlinks_dict.add_record( title, link, self.hyperlinks_dict.dict_object )
                 except:
                     print("Error retrieving link")            
-    
+
             self.write_to_file( json.dumps(self.hyperlinks_dict.dict_object), os.path.join(self.path_manager_h.get_hyperlink_data_dir(), self.base_filename))
             
 
@@ -156,4 +156,4 @@ def main ( outline_scraping=False, hyperlink_scraping=False ):
 
 
 if __name__ == "__main__":
-    main(outline_scraping=False, hyperlink_scraping=True)
+    main(outline_scraping=True, hyperlink_scraping=False)

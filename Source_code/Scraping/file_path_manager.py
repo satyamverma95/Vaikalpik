@@ -67,18 +67,18 @@ class File_Path_Manager:
     def get_web_scraped_dir(self):
 
         return (os.path.join(self.root_dir, self.users, self.users_name, self.cloud, self.category_folder, self.git_folder,\
-                            self.project_dir, self.source_dir, self.web_scrp_dir))
+                            self.project_dir, self.data_dir, self.web_scrp_dir))
 
     
     def get_course_outline_dir(self):
 
         return (os.path.join(self.root_dir, self.users, self.users_name, self.cloud, self.category_folder, self.git_folder,\
-                            self.project_dir, self.source_dir, self.web_scrp_dir, self.course_outline_dir))
+                            self.project_dir, self.data_dir, self.web_scrp_dir, self.course_outline_dir))
 
     def get_hyperlink_data_dir(self):
 
         return (os.path.join(self.root_dir, self.users, self.users_name, self.cloud, self.category_folder, self.git_folder,\
-                            self.project_dir, self.source_dir, self.web_scrp_dir, self.hyperlink_data_dir))
+                            self.project_dir, self.data_dir, self.web_scrp_dir, self.hyperlink_data_dir))
 
 
 def main():
