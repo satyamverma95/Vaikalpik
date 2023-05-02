@@ -1,6 +1,6 @@
 Machine_Learning =  {
                         "Books" : { "0" : {   "Name"     :   "Machine_Learning_A_Probabilistic_Perspective.pdf",
-                                            "Scrape"   :   False
+                                            "Scrape"   :   True
                                        },
                                    "1": {   "Name"     :   "Elements of Statistical Learning – Hastie and Tibshirani.pdf",
                                             "Scrape"   :   False

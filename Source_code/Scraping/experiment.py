@@ -1,16 +1,22 @@
-def create_dict_recursively(keys, values):
-    if not keys:
-        # base case: no more keys to process, return the final value
-        return values
-    else:
-        # recursive case: create a nested dictionary and process the remaining keys and values
-        key = keys[0]
-        remaining_keys = keys[1:]
-        nested_dict = {key: create_dict_recursively(remaining_keys, values)}
-        return nested_dict
+from bs4 import BeautifulSoup as bs
+import requests
 
-# example usage
-keys = ["a", "b", "c"]
-values = 123
-result = create_dict_recursively(keys, values)
-print(result)
+
+def write_to_file(filename, text):
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.write(text)
+
+
+res = requests.get("https://en.wikipedia.org/wiki/Linear_regression")
+soup = bs(res.text, "html.parser")
+body_content = soup.find('div', {'class': 'mw-parser-output'})
+
+naval_battles = {}
+
+
+for link in body_content.find_all("a"):
+    url = link.get("href", "")
+    if "/wiki/" in url:
+        naval_battles[link.text.strip()] = url
+
+write_to_file("experiment.txt" , ','.join(naval_battles))
