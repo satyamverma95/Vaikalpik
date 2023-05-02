@@ -5,19 +5,22 @@ class File_Path_Manager:
     def __init__ (self):
         #Loading env variables
         load_dotenv()
-        self.root_dir       =   os.getenv('ROOT_DIR')
-        self.project_dir    =   os.getenv("PROJECT_DIR")
-        self.users          =   os.getenv("USERS")
-        self.users_name     =   os.getenv("USERS_NAME")
-        self.cloud          =   os.getenv("CLOUD")
-        self.category_folder=   os.getenv("CATEGORY_FOLDER")
-        self.git_folder     =   os.getenv("GIT_FOLDER")
-        self.source_dir     =   os.getenv("SOURCE_DIR")
-        self.data_dir       =   os.getenv("DATA_PATH")
-        self.books_dir      =   os.getenv("BOOKS_PATH")
-        self.book_Json      =   os.getenv("BOOK_JSON")
-        self.web_dir        =   os.getenv("WEB_PATH")
-        self.web_json_dir   =   os.getenv("WEB_JSON_PATH")
+        self.root_dir           =   os.getenv('ROOT_DIR')
+        self.project_dir        =   os.getenv("PROJECT_DIR")
+        self.users              =   os.getenv("USERS")
+        self.users_name         =   os.getenv("USERS_NAME")
+        self.cloud              =   os.getenv("CLOUD")
+        self.category_folder    =   os.getenv("CATEGORY_FOLDER")
+        self.git_folder         =   os.getenv("GIT_FOLDER")
+        self.source_dir         =   os.getenv("SOURCE_DIR")
+        self.data_dir           =   os.getenv("DATA_PATH")
+        self.books_dir          =   os.getenv("BOOKS_PATH")
+        self.book_Json          =   os.getenv("BOOK_JSON")
+        self.web_dir            =   os.getenv("WEB_PATH")
+        self.web_json_dir       =   os.getenv("WEB_JSON_PATH")
+        self.web_scrp_dir       =   os.getenv("WEB_SCRAPED_DATA")
+        self.course_outline_dir =   os.getenv("COURSE_OUTLINE_DATA_FOLDER")
+        self.hyperlink_data_dir =   os.getenv("HYPERLINK_DATA_FOLDER")
 
 
     def get_root_dir(self):
@@ -60,6 +63,22 @@ class File_Path_Manager:
         
         return (os.path.join(self.root_dir, self.users, self.users_name, self.cloud, self.category_folder, self.git_folder,\
                              self.project_dir, self.data_dir, self.web_json_dir ))
+
+    def get_web_scraped_dir(self):
+
+        return (os.path.join(self.root_dir, self.users, self.users_name, self.cloud, self.category_folder, self.git_folder,\
+                            self.project_dir, self.data_dir, self.web_scrp_dir))
+
+    
+    def get_course_outline_dir(self):
+
+        return (os.path.join(self.root_dir, self.users, self.users_name, self.cloud, self.category_folder, self.git_folder,\
+                            self.project_dir, self.data_dir, self.web_scrp_dir, self.course_outline_dir))
+
+    def get_hyperlink_data_dir(self):
+
+        return (os.path.join(self.root_dir, self.users, self.users_name, self.cloud, self.category_folder, self.git_folder,\
+                            self.project_dir, self.data_dir, self.web_scrp_dir, self.hyperlink_data_dir))
 
 
 def main():
