@@ -367,8 +367,7 @@
     "Title": "Bayesian statistics",
     "Sub Topics": {
       "5.1": {
-        "Title": "Introduction 149",
-        "Sub Topics": {}
+        "Title": "Introduction 149"
       },
       "5.2": {
         "Title": "Summarizing posterior distributions 149",
@@ -457,8 +456,7 @@
     "Title": "Frequentist statistics",
     "Sub Topics": {
       "6.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "6.2": {
         "Title": "Sampling distribution of an estimator",
@@ -545,12 +543,10 @@
     "Title": "Linear regression",
     "Sub Topics": {
       "7.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "7.2": {
-        "Title": "Model specification",
-        "Sub Topics": {}
+        "Title": "Model specification"
       },
       "7.3": {
         "Title": "Maximum likelihood estimation (least squares)",
@@ -567,8 +563,7 @@
         }
       },
       "7.4": {
-        "Title": "Robust linear regression *",
-        "Sub Topics": {}
+        "Title": "Robust linear regression *"
       },
       "7.5": {
         "Title": "Ridge regression",
@@ -610,12 +605,10 @@
     "Title": "Logistic regression",
     "Sub Topics": {
       "8.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "8.2": {
-        "Title": "Model specification",
-        "Sub Topics": {}
+        "Title": "Model specification"
       },
       "8.3": {
         "Title": "Model fitting",
@@ -703,8 +696,7 @@
     "Title": "Generalized linear models and the exponential family",
     "Sub Topics": {
       "9.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "9.2": {
         "Title": "The exponential family",
@@ -851,8 +843,7 @@
         }
       },
       "10.3": {
-        "Title": "Inference",
-        "Sub Topics": {}
+        "Title": "Inference"
       },
       "10.4": {
         "Title": "Learning",
@@ -883,8 +874,7 @@
         }
       },
       "10.6": {
-        "Title": "Influence (decision) diagrams *",
-        "Sub Topics": {}
+        "Title": "Influence (decision) diagrams *"
       }
     }
   },
@@ -892,8 +882,7 @@
     "Title": "Mixture models and the EM algorithm",
     "Sub Topics": {
       "11.1": {
-        "Title": "Latent variable models",
-        "Sub Topics": {}
+        "Title": "Latent variable models"
       },
       "11.2": {
         "Title": "Mixture models",
@@ -1078,8 +1067,7 @@
     "Title": "Sparse linear models",
     "Sub Topics": {
       "13.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "13.2": {
         "Title": "Bayesian variable selection",
@@ -1206,8 +1194,7 @@
     "Title": "Kernel Methods",
     "Sub Topics": {
       "14.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "14.2": {
         "Title": "Kernel functions",
@@ -1287,8 +1274,7 @@
         }
       },
       "14.6": {
-        "Title": "Comparison of discriminative kernel methods",
-        "Sub Topics": {}
+        "Title": "Comparison of discriminative kernel methods"
       },
       "14.7": {
         "Title": "Kernels for building generative models",
@@ -1316,8 +1302,7 @@
     "Title": "Gaussian processes",
     "Sub Topics": {
       "15.1": {
-        "Title": "Introduction 515",
-        "Sub Topics": {}
+        "Title": "Introduction 515"
       },
       "15.2": {
         "Title": "GPs for regression",
@@ -1383,12 +1368,10 @@
         }
       },
       "15.5": {
-        "Title": "GP latent variable model 540",
-        "Sub Topics": {}
+        "Title": "GP latent variable model 540"
       },
       "15.6": {
-        "Title": "Approximation methods for large datasets 542",
-        "Sub Topics": {}
+        "Title": "Approximation methods for large datasets 542"
       }
     }
   },
@@ -1529,8 +1512,7 @@
     "Title": "Markov and hidden Markov models",
     "Sub Topics": {
       "17.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "17.2": {
         "Title": "Markov models",
@@ -1629,8 +1611,7 @@
     "Title": "State space models",
     "Sub Topics": {
       "18.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "18.2": {
         "Title": "Applications of SSMs",
@@ -1717,8 +1698,7 @@
     "Title": "Undirected graphical models (Markov random fields)",
     "Sub Topics": {
       "19.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "19.2": {
         "Title": "Conditional independence properties of UGMs",
@@ -1831,8 +1811,7 @@
     "Title": "Exact inference for graphical models",
     "Sub Topics": {
       "20.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "20.2": {
         "Title": "Belief propagation for trees",
@@ -1896,8 +1875,7 @@
     "Title": "Variational inference",
     "Sub Topics": {
       "21.1": {
-        "Title": "Introduction 731",
-        "Sub Topics": {}
+        "Title": "Introduction 731"
       },
       "21.2": {
         "Title": "Variational inference 732",
@@ -1949,8 +1927,7 @@
         }
       },
       "21.7": {
-        "Title": "Variational message passing and VIBES 756",
-        "Sub Topics": {}
+        "Title": "Variational message passing and VIBES 756"
       },
       "21.8": {
         "Title": "Local variational bounds * 756",
@@ -1978,8 +1955,7 @@
     "Title": "Variational Inference",
     "Sub Topics": {
       "22.1": {
-        "Title": "Introduction 767",
-        "Sub Topics": {}
+        "Title": "Introduction 767"
       },
       "22.2": {
         "Title": "Loopy belief propagation: algorithmic issues 767",
@@ -2087,8 +2063,7 @@
     "Title": "Monte Carlo inference",
     "Sub Topics": {
       "23.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "23.2": {
         "Title": "Sampling from standard distributions",
@@ -2184,8 +2159,7 @@
     "Title": "Markov chain Monte Carlo (MCMC) inference",
     "Sub Topics": {
       "24.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "24.2": {
         "Title": "Gibbs sampling",
@@ -2392,8 +2366,7 @@
     "Title": "Graphical model structure learning",
     "Sub Topics": {
       "26.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "26.2": {
         "Title": "Structure learning for knowledge discovery",
@@ -2505,8 +2478,7 @@
     "Title": "Latent variable models for discrete data",
     "Sub Topics": {
       "27.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "27.2": {
         "Title": "Distributed state LVMs for discrete data",
@@ -2616,8 +2588,7 @@
     "Title": "Deep learning",
     "Sub Topics": {
       "28.1": {
-        "Title": "Introduction",
-        "Sub Topics": {}
+        "Title": "Introduction"
       },
       "28.2": {
         "Title": "Deep generative models",

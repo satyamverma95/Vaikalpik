@@ -53,15 +53,16 @@ class extract_transform:
 
         return (".".join(filename_parts)) 
 
-    def create_arango_object (self, title):
+    def create_arango_object (self, title, index_squence):
 
         doc =   {
-                    "Topic" :   title,
+                    "Topic"     :   title,
+                    "Sequence"  :   index_squence
                 }
 
         return (doc)
     
-    def create_arango_realtion_object(self, _from, _to, label):
+    def create_arango_relation_object(self, _from, _to, label):
 
         doc =   {   
                     "_to"       :   _to,
@@ -80,27 +81,27 @@ class extract_transform:
 
     def transform_json_data(self):
         
-        for section in self.books_index_dict.values():
+        for index, section in self.books_index_dict.items():
           
             #print(section["Title"])
-            document = self.create_arango_object(section["Title"])
+            document = self.create_arango_object(section["Title"], index)
             document_handle_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
                 
-            for sub_section in section["Sub Topics"].values():
+            for index_sub_section, sub_section in section["Sub Topics"].items():
                 
                 print(sub_section["Title"])
-                document = self.create_arango_object(sub_section["Title"])
+                document = self.create_arango_object(sub_section["Title"], index_sub_section)
                 document_handle_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
                 #print("Document handle", document_handle_sub_sec_id)
-                document_rel_sub_sec = self.create_arango_realtion_object(document_handle_sec_id, document_handle_sub_sec_id, "Sub_topic")
+                document_rel_sub_sec = self.create_arango_relation_object(document_handle_sec_id, document_handle_sub_sec_id, "Sub_topic")
                 self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sec)
 
-                for sub_sub_section in sub_section["Sub Topics"].values():
+                for index_sub_sub_section, sub_sub_section in sub_section["Sub Topics"].items():
                     
                     print(sub_sub_section["Title"])
-                    document = self.create_arango_object(sub_sub_section["Title"])
+                    document = self.create_arango_object(sub_sub_section["Title"], index_sub_sub_section)
                     document_handle_sub_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
-                    document_rel_sub_sub_sec = self.create_arango_realtion_object(document_handle_sub_sec_id, document_handle_sub_sub_sec_id, "Sub_sub_topic")
+                    document_rel_sub_sub_sec = self.create_arango_relation_object(document_handle_sub_sec_id, document_handle_sub_sub_sec_id, "Sub_sub_topic")
                     self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sub_sec)
 
 
