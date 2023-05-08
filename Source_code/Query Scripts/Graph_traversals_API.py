@@ -14,9 +14,8 @@ class Graph_API():
     def get_parent_topic(self, topic_name):
         #############################
         # We need to follow protocol while using Query Enging API
-        #   1) Always connect to the databse first.
+        #   1) Always connect to the databse first. 
         #   2) Thsi will initialise the database handle in the script.
-        #  
         ###############################
         self.arangoDB_qurey_engine_h.connect_to_db()
         doc_id = self.arangoDB_qurey_engine_h.get_collection_id( collection_name=self.collection_name,\

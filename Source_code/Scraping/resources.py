@@ -48,31 +48,31 @@ Machine_Learning =  {
                                                    },
                                           },
                         "Wikipedia_Outline":{   "0" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_linear_algebra",
-                                                            "Scrape":   True
+                                                            "Scrape":   False
                                                         },
                                                 "1" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_machine_learning",
-                                                            "Scrape":   True
+                                                            "Scrape":   False
                                                         },
                                                 "2" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_statistics",
-                                                            "Scrape":   True
+                                                            "Scrape":   False
                                                         },
                                                 "3" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_calculus",
                                                             "Scrape":   True
                                                         },
                                                 "4" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_data_structures",
-                                                            "Scrape":   True
+                                                            "Scrape":   False
                                                         },
                                                 "5" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_algorithms",
-                                                            "Scrape":   True
+                                                            "Scrape":   False
                                                         },
                                                 "6" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_algorithm_general_topics",
-                                                            "Scrape":   True
+                                                            "Scrape":   False
                                                         },
                                                 "7" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_computer_programming",
-                                                            "Scrape":   True
+                                                            "Scrape":   False
                                                         },
                                                 "8" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_probability",
-                                                            "Scrape":   True
+                                                            "Scrape":   False
                                                         },    
                                                 "9" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_algorithm_general_topics",
                                                             "Scrape":   False
@@ -80,5 +80,8 @@ Machine_Learning =  {
                                                 "10" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_algorithm_general_topics",
                                                             "Scrape":   False
                                                         },
+                                                "11" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_calculus_topics",
+                                                            "Scrape":   False
+                                                        }
                                             }
                     }
