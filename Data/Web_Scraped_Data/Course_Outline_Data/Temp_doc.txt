@@ -1,0 +1,39 @@
+
+{
+"1": {"Title": "Bloom filter", "Link": "", "Sub Topics": {}},
+"2": {"Title": "Binary fuse filter", "Link": "", "Sub Topics": {}},
+"3": {"Title": "Cuckoo filter", "Link": "", "Sub Topics": {}},
+"4": {"Title": "Xor filter", "Link": "", "Sub Topics": {}},
+"5": {"Title": "Count–min sketch", "Link": "", "Sub Topics": {}},
+"6": {"Title": "Distributed hash table", "Link": "", "Sub Topics": {}},
+"7": {"Title": "Double hashing", "Link": "", "Sub Topics": {}},
+"8": {"Title": "Dynamic perfect hash table", "Link": "", "Sub Topics": {}},
+"9": {"Title": "Hash array mapped trie", "Link": "", "Sub Topics": {}},
+"10": {"Title": "Hash list", "Link": "", "Sub Topics": {}},
+"11": {"Title": "Hash table", "Link": "", "Sub Topics": {}},
+"12": {"Title": "Hash tree", "Link": "", "Sub Topics": {}},
+"13": {"Title": "Hash trie", "Link": "", "Sub Topics": {}},
+"14": {"Title": "Koorde", "Link": "", "Sub Topics": {}},
+"15": {"Title": "Prefix hash tree", "Link": "", "Sub Topics": {}},
+"16": {"Title": "Rolling hash", "Link": "", "Sub Topics": {}},
+"17": {"Title": "MinHash", "Link": "", "Sub Topics": {}},
+"18": {"Title": "Quotient filter", "Link": "", "Sub Topics": {}},
+"19": {"Title": "Ctrie", "Link": "", "Sub Topics": {}}
+}
+
+{
+"1": {"Title": "Graph", "Link": "", "Sub Topics": {}},
+"2": {"Title": "Adjacency list", "Link": "", "Sub Topics": {}},
+"3": {"Title": "Adjacency matrix", "Link": "", "Sub Topics": {}},
+"4": {"Title": "Graph-structured stack", "Link": "", "Sub Topics": {}},
+"5": {"Title": "Scene graph", "Link": "", "Sub Topics": {}},
+"6": {"Title": "Decision tree", "Link": "", "Sub Topics": {}},
+"7": {"Title": "Binary decision diagram", "Link": "", "Sub Topics": {}},
+"8": {"Title": "Zero-suppressed decision diagram", "Link": "", "Sub Topics": {}},
+"9": {"Title": "And-inverter graph", "Link": "", "Sub Topics": {}},
+"10": {"Title": "Directed graph", "Link": "", "Sub Topics": {}},
+"11": {"Title": "Directed acyclic graph", "Link": "", "Sub Topics": {}},
+"12": {"Title": "Propositional directed acyclic graph", "Link": "", "Sub Topics": {}},
+"13": {"Title": "Multigraph", "Link": "", "Sub Topics": {}},
+"14": {"Title": "Hypergraph", "Link": "", "Sub Topics": {}}
+}
