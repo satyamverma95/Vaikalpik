@@ -47,38 +47,45 @@ Machine_Learning =  {
                                                         "Scrape"   :   False
                                                    },
                                           },
-                        "Wikipedia_Outline":{   "0" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_linear_algebra",
-                                                            "Scrape":   True
+                        "Wikipedia_Outline":{   "0" :   {   "Link"      :   "https://en.wikipedia.org/wiki/Outline_of_linear_algebra",
+                                                            "Scrape"    :   True,
+                                                            "function"  :   "self.scrape_page_ver_2"
                                                         },
-                                                "1" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_machine_learning",
-                                                            "Scrape":   True
+                                                "1" :   {   "Link"      :   "https://en.wikipedia.org/wiki/Outline_of_machine_learning",
+                                                            "Scrape"    :   True,
+                                                            "function"  :   "self.scrape_page"
                                                         },
-                                                "2" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_statistics",
-                                                            "Scrape":   True
+                                                "2" :   {  "Link"       :   "https://en.wikipedia.org/wiki/Outline_of_statistics",
+                                                            "Scrape"    :   True,
+                                                            "function"  :   "self.scrape_page_ver_2"
                                                         },
-                                                "3" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_calculus",
-                                                            "Scrape":   True
+                                                "3" :   {  "Link"       :   "https://en.wikipedia.org/wiki/Outline_of_calculus",
+                                                            "Scrape"    :   True,
+                                                            "function"  :   "self.scrape_page_ver_2"
                                                         },
-                                                "4" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_data_structures",
-                                                            "Scrape":   True
+                                                "4" :   {  "Link"       :   "https://en.wikipedia.org/wiki/List_of_data_structures",
+                                                            "Scrape"    :   True,
+                                                            "function"  :   "self.scrape_page"
                                                         },
-                                                "5" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_algorithms",
-                                                            "Scrape":   True
+                                                "5" :   {  "Link"       :   "https://en.wikipedia.org/wiki/List_of_algorithms",
+                                                            "Scrape"    :   True,
+                                                            "function"  :   "self.scrape_page"
                                                         },
-                                                "6" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_algorithm_general_topics",
-                                                            "Scrape":   True
+                                                "6" :   {  "Link"       :   "https://en.wikipedia.org/wiki/List_of_algorithm_general_topics",
+                                                            "Scrape"    :   True,
+                                                            "function"  :   "self.scrape_page_ver_2"
                                                         },
-                                                "7" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_computer_programming",
-                                                            "Scrape":   True
+                                                "7" :   {  "Link"       :   "https://en.wikipedia.org/wiki/Outline_of_computer_programming",
+                                                            "Scrape"    :   True,
+                                                            "function"  :   "self.scrape_page_ver_2"
                                                         },
-                                                "8" :   {  "Link"   :   "https://en.wikipedia.org/wiki/Outline_of_probability",
-                                                            "Scrape":   True
+                                                "8" :   {  "Link"       :   "https://en.wikipedia.org/wiki/Outline_of_probability",
+                                                            "Scrape"    :   True,
+                                                            "function"  :   "self.scrape_page"
                                                         },    
-                                                "9" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_algorithm_general_topics",
-                                                            "Scrape":   False
-                                                        },
-                                                "10" :   {  "Link"   :   "https://en.wikipedia.org/wiki/List_of_algorithm_general_topics",
-                                                            "Scrape":   False
-                                                        },
+                                                "9" :  {  "Link"      :   "https://en.wikipedia.org/wiki/List_of_calculus_topics",
+                                                            "Scrape"    :   True,
+                                                            "function"  :   "self.scrape_page_ver_2"
+                                                        }
                                             }
                     }

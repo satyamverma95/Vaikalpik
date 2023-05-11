@@ -24,12 +24,12 @@ class ArangoDB:
         if not self.conn.hasDatabase(db_name):
             self.conn.createDatabase(name=db_name)
 
-    def create_collection (self, database_name = "", collection_name = "" ):
+    def create_collection (self, database_name = "", collection_name = "" ,  create_edge=False):
 
         self.db = self.conn[database_name]
 
         if collection_name not in self.db.collections:
-            self.new_collection  = self.db.createCollection(name=collection_name)
+            self.new_collection  = self.db.createCollection(name=collection_name, edge=create_edge)
         else:
             print("Collections already exists.")
 

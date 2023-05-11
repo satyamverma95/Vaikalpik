@@ -19,6 +19,11 @@ class Wikipedia_Scrapper:
         self.base_filename  =   ""
         self.outline_dict   =   ""
         self.wikipedia_url  =   "https://en.wikipedia.org/"
+        self.sub_topics_kw  =   "Sub Topics"    
+        self.title_kw       =   "Title"
+        self.link           =   "Link"
+        self.see_also       =   "See also"
+
 
     def scrape_website (self):
         '''
@@ -49,32 +54,236 @@ class Wikipedia_Scrapper:
         print(self.base_filename)
 
 
+    def is_next_tag(tag):
+        return tag.name in ['h3', 'ul', 'p']
 
     def scrape_page(self):
 
         self.page_body = self.page_html.find_all("div", {"class":"mw-parser-output"})
         div_element = self.page_body[-1] #Since we have only one div element with that id, its better to index it separately.
+        heading_list = div_element.find_all("h2")
+        sub_heading_list = div_element.find_all("h3")
+        #topics_list = div_element.find_all("ul")
+        self.lr_topic_dict = Json_Object()
+                
+        #print("H2 heading List", heading_list)
+        #print("Number of H2 Element", len(heading_list))
+
+        for heading_iter, head_elem in enumerate(heading_list):
+
+            #print("Heading List", head_elem)
+            span_elem =  head_elem.find("span")
+            #print("span_elem ", span_elem)
+            heading_title = span_elem.text
+            heading_index = heading_iter + 1 
+
+            #print("heading title ", heading_title.text)
+
+            self.lr_topic_dict.add_record( heading_index, {}, self.lr_topic_dict.dict_object )
+            self.lr_topic_dict.add_record( self.title_kw, heading_title, self.lr_topic_dict.dict_object[heading_index] )
+            self.lr_topic_dict.add_record( self.link, "", self.lr_topic_dict.dict_object[heading_index] )
+            self.lr_topic_dict.add_record(self.sub_topics_kw, {}, self.lr_topic_dict.dict_object[heading_index])
+            
+            current_tag = heading_list[heading_iter]
+            print("\nCurrent h2 ", heading_list[heading_iter].text)
+            intial_loop = True 
+            topic_index = 1
+
+            while current_tag and (current_tag.name != "h2" or intial_loop):
+                
+                if current_tag.name =="h3":
+
+                    title = current_tag.find("span").text
+                    #print("Cuurent Tag", title)
+
+                    self.lr_topic_dict.add_record( topic_index, {}, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw] )
+                    self.lr_topic_dict.add_record( self.title_kw, title, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index] )
+                    self.lr_topic_dict.add_record( self.link, "", self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index] )
+                    self.lr_topic_dict.add_record(self.sub_topics_kw, {}, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index])
+                    
+
+                    uls = current_tag.find_next('ul', until=current_tag)
+                    list_elem = uls.find_all("li")
+                    subtopic_indexer = 1
+                 
+                    for li in list_elem:
+                        anchor_tags = li.find_all("a")
+                        
+                        for index_subtopic, anchor in enumerate(anchor_tags): 
+                            
+                            link = anchor.get("href")
+                            title = anchor.get("title")
+                            sub_topic_index = ".".join([str(topic_index), str(subtopic_indexer)])
+                            print(" Adding Data title:{}, Link :{}, index:{}".format(title, link, sub_topic_index))
+                            
+                            self.lr_topic_dict.add_record( sub_topic_index, {}, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index][self.sub_topics_kw] )
+                            self.lr_topic_dict.add_record( self.title_kw, title, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index][self.sub_topics_kw][sub_topic_index] )
+                            self.lr_topic_dict.add_record( self.link, link, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index][self.sub_topics_kw][sub_topic_index] )
+                            self.lr_topic_dict.add_record(self.sub_topics_kw, {}, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index][self.sub_topics_kw][sub_topic_index])
+
+
+                            subtopic_indexer += 1
+                   
+                    topic_index += 1
+                current_tag = current_tag.find_next()
+                #print("Current tag Name", current_tag.name)
+                #print(current_tag.name != "h2" )
+                intial_loop = False
+
+            '''
+            # iterate through each h3 element
+            for iter in range(len(next_h3_list)):
+            
+                #print("\n\nHeading : ", type(next_h3_list))
+                title = next_h3_list[iter].find("span").text
+
+                # find the next h3 element, if it exists
+                next_h3 = next_h3_list[iter + 1] if iter + 1 < len(next_h3_list) else None
+                topic_index = iter + 1
+
+                self.lr_topic_dict.add_record( topic_index, {}, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw] )
+                self.lr_topic_dict.add_record( self.title_kw, title, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index] )
+                self.lr_topic_dict.add_record( self.link, "", self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index] )
+                self.lr_topic_dict.add_record(self.sub_topics_kw, {}, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index])
+                
+                # find all ul elements between this h3 and the next one
+                uls = next_h3_list[iter].find_next('ul', until=next_h3)
+                list_elem = uls.find_all("li")
+                topic_indexer = 1 
+                
+                # process each ul element
+                for li in list_elem:
+                    anchor_tags = li.find_all("a")
+                    
+                    for index_subtopic, anchor in enumerate(anchor_tags): 
+                        
+                        link = anchor.get("href")
+                        title = anchor.get("title")
+                        #print(" Adding Data title:{}, Link :{}, index:{}".format(title, link, topic_indexer))
+                        sub_topic_index = ".".join([str(topic_index), str(topic_indexer)])
+
+                        self.lr_topic_dict.add_record( sub_topic_index, {}, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index][self.sub_topics_kw] )
+                        self.lr_topic_dict.add_record( self.title_kw, title, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index][self.sub_topics_kw][sub_topic_index] )
+                        self.lr_topic_dict.add_record( self.link, link, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index][self.sub_topics_kw][sub_topic_index] )
+                        self.lr_topic_dict.add_record(self.sub_topics_kw, {}, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][topic_index][self.sub_topics_kw][sub_topic_index])
+                        
+                        topic_indexer += 1
+            '''
+        self.write_to_file( json.dumps(self.lr_topic_dict.dict_object), os.path.join(self.path_manager_h.get_course_outline_dir(), self.base_filename))
+
+    
+    def scrape_page_ver_2(self):
+
+        self.page_body = self.page_html.find_all("div", {"class":"mw-parser-output"})
+        div_element = self.page_body[-1] #Since we have only one div element with that id, its better to index it separately.
+        heading_list = div_element.find_all("h2")
+        self.lr_topic_dict = Json_Object()
+                
+        #print("H2 heading List", heading_list)
+        #print("Number of H2 Element", len(heading_list))
+
+        for heading_iter, head_elem in enumerate(heading_list):
+
+            #print("Heading List", head_elem)
+            span_elem =  head_elem.find("span")
+            #print("span_elem ", span_elem)
+            heading_title = span_elem.text
+            heading_index = heading_iter + 1 
+
+            #print("heading title ", heading_title.text)
+
+            self.lr_topic_dict.add_record( heading_index, {}, self.lr_topic_dict.dict_object )
+            self.lr_topic_dict.add_record( self.title_kw, heading_title, self.lr_topic_dict.dict_object[heading_index] )
+            self.lr_topic_dict.add_record( self.link, "", self.lr_topic_dict.dict_object[heading_index] )
+            self.lr_topic_dict.add_record(self.sub_topics_kw, {}, self.lr_topic_dict.dict_object[heading_index])
+            
+            current_tag = heading_list[heading_iter]
+            intial_loop = True
+            sub_topic_index  = 1
+            
+            print("\nCurrent h2 ", heading_list[heading_iter].find("span").text)
+            
+            if (self.see_also.lower() in heading_list[heading_iter].find("span").text.lower()):
+                break
+             
+            while current_tag and (current_tag.name != "h2" or intial_loop):
+                
+                if current_tag.name =="ul":
+                
+                    #print("Current Tag ", current_tag.text )
+                    list_elem = current_tag.find_all("li")
+                    
+                    
+                    # process each ul element
+                    for li in list_elem:
+                        anchor_tags = li.find_all("a")
+
+                        if (anchor_tags):
+                            #print("anchor tags ", anchor_tags)
+                            sub_topic_link = anchor_tags[-1].get("href")
+                            sub_topic_title = anchor_tags[-1].get("title")
+                            print(" Adding Data title:{}, Link :{}, index:{}".format(sub_topic_link, sub_topic_link, sub_topic_index))
+
+                            self.lr_topic_dict.add_record( sub_topic_index, {}, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw] )
+                            self.lr_topic_dict.add_record( self.title_kw, sub_topic_title, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][sub_topic_index] )
+                            self.lr_topic_dict.add_record( self.link, sub_topic_link, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][sub_topic_index] )
+                            self.lr_topic_dict.add_record(self.sub_topics_kw, {}, self.lr_topic_dict.dict_object[heading_index][self.sub_topics_kw][sub_topic_index])
+                
+                            sub_topic_index += 1
+
+                current_tag = current_tag.find_next()
+                #print("Current tag Name", current_tag.name)
+                #print(current_tag.name != "h2" )
+                intial_loop = False
+
+          
+        self.write_to_file( json.dumps(self.lr_topic_dict.dict_object), os.path.join(self.path_manager_h.get_course_outline_dir(), self.base_filename))
+
+
+
+
+    def scrape_page_old(self):    
+        
+        self.page_body = self.page_html.find_all("div", {"class":"mw-parser-output"})
+        div_element = self.page_body[-1] #Since we have only one div element with that id, its better to index it separately.
+        heading_list = div_element.find_all("h2")
+        sub_heading_list = div_element.find_all("h3")
         topics_list = div_element.find_all("ul")
         self.lr_topic_dict = Json_Object()
+        
+        if ( len( sub_heading_list ) > 0 ):
 
-        for topics in topics_list:
-            try:
-                a_tags = topics.find_all("a")
-                for a_tag in a_tags:
+            for index, sub_heading in enumerate(sub_heading_list):
+                try:
                     link = a_tag.get("href")
                     title = a_tag.get("title")
 
-                    print("title:{}, Link :{}".format(link, title))
                     if (link is not None) and (title is not None):
-                        self.lr_topic_dict.add_record( title, link, self.lr_topic_dict.dict_object )
-            except:
-                print("Error retrieving link")            
+                            self.lr_topic_dict.add_record( index, {}, self.lr_topic_dict.dict_object )
+                            self.lr_topic_dict.add_record( self.title_kw, title, self.lr_topic_dict.dict_object[index] )
+                            self.lr_topic_dict.add_record( self.link, link, self.lr_topic_dict.dict_object[index] )
+                            self.lr_topic_dict.add_record(self.sub_topics_kw, {}, self.lr_topic_dict.dict_object[index])
+                except:
+                    print("Not able to extract sub-Heading.")
+                
+                for topics in topics_list:
+                    try:
+                        a_tags = topics.find_all("a")
+                        for a_tag in a_tags:
+                            link = a_tag.get("href")
+                            title = a_tag.get("title")
 
-        self.write_to_file( json.dumps(self.lr_topic_dict.dict_object), os.path.join(self.path_manager_h.get_course_outline_dir(), self.base_filename))
+                            #print("title:{}, Link :{}".format(link, title))
+                            if (link is not None) and (title is not None):
+                                self.lr_topic_dict.add_record( title, link, self.lr_topic_dict.dict_object )
+                    except:
+                        print("Error retrieving link")            
+
+            self.write_to_file( json.dumps(self.lr_topic_dict.dict_object), os.path.join(self.path_manager_h.get_course_outline_dir(), self.base_filename))
         
 
     def scrape_hyperlinks(self):
-
+ 
         self.hyperlinks_dict = Json_Object()
        
         self.page_body = self.page_html.find_all("div", {"class":"mw-parser-output"})
@@ -110,16 +319,19 @@ class Wikipedia_Scrapper:
         return (files_list)
 
 
-    def scrape_topic_outline(self, web_url):
+    def scrape_topic_outline(self, web_url, function_ver):
 
         self.web_url = web_url
         
         self.get_base_filename()
         self.scrape_website ()
-        self.scrape_page()
-        #path = self.path_manager_h.get_web_scraped_dir()
-        #print(path)
-        #self.write_to_file(self.page_html, os.path.join(self.path_manager_h.get_course_outline_dir(), "scrape.txt"))
+        
+        if ("ver_2" in function_ver):
+            self.scrape_page_ver_2()
+        else:
+            self.scrape_page()
+        
+       
 
     def scrape_hyperlinks_wikipedia(self):
         
@@ -138,7 +350,7 @@ class Wikipedia_Scrapper:
                 self.scrape_hyperlinks()
 
 
-def main ( outline_scraping=False, hyperlink_scraping=False ):
+def main ( outline_scraping=True, hyperlink_scraping=False ):
 
     ws_h = Wikipedia_Scrapper()
 
@@ -146,7 +358,8 @@ def main ( outline_scraping=False, hyperlink_scraping=False ):
         for index, books in enumerate(Machine_Learning["Wikipedia_Outline"]):
             if (Machine_Learning["Wikipedia_Outline"][str(index)]["Scrape"]):
                 print(Machine_Learning["Wikipedia_Outline"][str(index)]["Link"])
-                ws_h.scrape_topic_outline(Machine_Learning["Wikipedia_Outline"][str(index)]["Link"])
+                ws_h.scrape_topic_outline( Machine_Learning["Wikipedia_Outline"][str(index)]["Link"],\
+                                           Machine_Learning["Wikipedia_Outline"][str(index)]["function"] )
     
     elif (hyperlink_scraping):
         
