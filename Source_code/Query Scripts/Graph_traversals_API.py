@@ -34,6 +34,8 @@ class Graph_API():
             else:
                 print("Cuurently we don't have level {} Parent topic for {}".format( parent_level, topic_name))
 
+        return (parent_topic)
+
     def get_all_sub_topics(self, topic_name):
         
         self.arangoDB_qurey_engine_h.connect_to_db()
@@ -42,7 +44,7 @@ class Graph_API():
                                                                  database_name=self.database_name )
         #print("Document Id ", doc_id)
         if (doc_id):
-            all_child_query = "FOR node IN 1..1 OUTBOUND @start_node GRAPH @graph_name RETURN node"
+            all_child_query = "FOR node IN 1..1 INBOUND @start_node GRAPH @graph_name RETURN node"
             results_list = self.arangoDB_qurey_engine_h.execute_traversal_query ( all_child_query, collection=self.collection_name,\
                                                                                 node_key= doc_id,\
                                                                                 graph_name=self.graph_name,\
@@ -76,6 +78,14 @@ class Graph_API():
             else:
                 print("Currently we don't have any sub topic for {}".format(topic_name))
 
+
+    def get_childer_inbound_edges(self, topic_name):
+
+        parent_node = self.get_parent_topic(topic_name="Pareto distribution", parent_level = 1)
+        self.get_all_sub_topics(topic_name=parent_node)
+
+
+
 if __name__=="__main__":
 
     graph_api_h = Graph_API()
@@ -86,9 +96,11 @@ if __name__=="__main__":
                                     database_name="Data_Science"
                                 )
     
-    #graph_api_h.get_parent_topic(topic_name="The log-sum-exp trick", parent_level = 2)
+    #graph_api_h.get_parent_topic(topic_name="Pareto distribution", parent_level = 1)
 
     #Not used in the current Graph Structure
     #graph_api_h.get_all_sub_topics(topic_name="Pareto distribution")
 
-    graph_api_h.get_all_other_sub_topics_of_a_topic(topic_name="Pareto distribution")
+    #graph_api_h.get_all_other_sub_topics_of_a_topic(topic_name="Pareto distribution")
+
+    graph_api_h.get_childer_inbound_edges(topic_name="Pareto distribution")
