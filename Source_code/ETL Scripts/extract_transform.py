@@ -20,6 +20,7 @@ class extract_transform:
     def __init__ ( self ):
         self.a_db               =   ArangoDB()
         self.books_index_dict   =   ""
+        self.title_kw           =   "Title"
 
     def read_json(self, filename):
         self.books_index_dict = json.load(open(filename))
@@ -31,9 +32,9 @@ class extract_transform:
     def create_new_database(self, data_base="_system"):
         self.a_db.create_database(databasename=data_base)
 
-    def create_new_collections(self, data_base="_system", collection_name="default"):
-        self.a_db.create_collection(database_name=data_base, collection_name=collection_name)
-    
+    def create_new_collections(self, data_base="_system", collection_name="default", edge_coll=False):
+        self.a_db.create_collection(database_name=data_base, collection_name=collection_name, create_edge=edge_coll)
+
     def add_document(self, collection="", document_to_add=""):
         doc_id = self.a_db.add_document(collection_name=collection, document=document_to_add)
         return(doc_id)
@@ -76,34 +77,44 @@ class extract_transform:
 
         self.connect_to_graph_db()
         self.create_new_database(data_base="Data_Science")
-        self.create_new_collections(data_base="Data_Science", collection_name="Machine_Learning")
-        self.create_new_collections(data_base="Data_Science", collection_name="Machine_Learning_Hierarchy")
+        self.create_new_collections(data_base="Data_Science", collection_name="Machine_Learning", edge_coll=False)
+        self.create_new_collections(data_base="Data_Science", collection_name="Machine_Learning_Hierarchy", edge_coll=True)
 
     def transform_json_data(self):
         
-        for index, section in self.books_index_dict.items():
+        for i, keys in enumerate(self.books_index_dict.keys(), start=1):
           
-            #print(section["Title"])
-            document = self.create_arango_object(section["Title"], index)
-            document_handle_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
-                
-            for index_sub_section, sub_section in section["Sub Topics"].items():
-                
-                print(sub_section["Title"])
-                document = self.create_arango_object(sub_section["Title"], index_sub_section)
-                document_handle_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
-                #print("Document handle", document_handle_sub_sec_id)
-                document_rel_sub_sec = self.create_arango_relation_object(document_handle_sec_id, document_handle_sub_sec_id, "Sub_topic")
-                self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sec)
+            if (self.title_kw in keys):
+                #print("Title", self.books_index_dict[self.title_kw], i)
+                document = self.create_arango_object(self.books_index_dict[self.title_kw], i)
+                document_handle_main_title = self.add_document(collection="Machine_Learning", document_to_add=document)
+                #print("document_handle_main_title", document_handle_main_title)
+            
+                for index, section in  self.books_index_dict["Sub Topics"].items():
+                    #print(section["Title"])
+                    document = self.create_arango_object(section["Title"], index)
+                    document_handle_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
+                    document_main_title = self.create_arango_relation_object(document_handle_sec_id, document_handle_main_title,"depends_on" )
+                    self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_main_title)
 
-                for index_sub_sub_section, sub_sub_section in sub_section["Sub Topics"].items():
-                    
-                    print(sub_sub_section["Title"])
-                    document = self.create_arango_object(sub_sub_section["Title"], index_sub_sub_section)
-                    document_handle_sub_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
-                    document_rel_sub_sub_sec = self.create_arango_relation_object(document_handle_sub_sec_id, document_handle_sub_sub_sec_id, "Sub_sub_topic")
-                    self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sub_sec)
 
+                    for index_sub_section, sub_section in section["Sub Topics"].items():
+                        
+                        print(sub_section["Title"])
+                        document = self.create_arango_object(sub_section["Title"], index_sub_section)
+                        document_handle_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
+                        #print("Document handle", document_handle_sub_sec_id)
+                        document_rel_sub_sec = self.create_arango_relation_object(document_handle_sub_sec_id, document_handle_sec_id, "depends_on" )
+                        self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sec)
+
+                        for index_sub_sub_section, sub_sub_section in sub_section["Sub Topics"].items():
+                            
+                            print(sub_sub_section["Title"])
+                            document = self.create_arango_object(sub_sub_section["Title"], index_sub_sub_section)
+                            document_handle_sub_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
+                            document_rel_sub_sub_sec = self.create_arango_relation_object(document_handle_sub_sub_sec_id, document_handle_sub_sec_id, "depends_on" )
+                            self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sub_sec)
+            
 
 def main():
         
