@@ -1,0 +1,4778 @@
+{
+    "1": {
+        "section_name": "Introduction",
+        "page_number": "1",
+        "subsections": {
+            "1.1": {
+                "section_name": "Machine learning: what and why?",
+                "page_number": "1",
+                "subsections": {}
+            },
+            "1.2": {
+                "section_name": "Supervised learning",
+                "page_number": "3",
+                "subsections": {}
+            },
+            "1.3": {
+                "section_name": "Unsupervised learning",
+                "page_number": "9",
+                "subsections": {}
+            },
+            "1.4": {
+                "section_name": "Some basic concepts in machine learning",
+                "page_number": "16",
+                "subsections": {}
+            }
+        }
+    },
+    "1.1": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "1.1.1": {
+                "section_name": "Types of machine learning",
+                "page_number": "2",
+                "subsections": {}
+            }
+        }
+    },
+    "1.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "1.2.1": {
+                "section_name": "Classification",
+                "page_number": "3",
+                "subsections": {}
+            },
+            "1.2.2": {
+                "section_name": "Regression",
+                "page_number": "8",
+                "subsections": {}
+            }
+        }
+    },
+    "1.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "1.3.1": {
+                "section_name": "Discovering clusters",
+                "page_number": "10",
+                "subsections": {}
+            },
+            "1.3.2": {
+                "section_name": "Discovering latent factors",
+                "page_number": "11",
+                "subsections": {}
+            },
+            "1.3.3": {
+                "section_name": "Discovering graph structure",
+                "page_number": "13",
+                "subsections": {}
+            },
+            "1.3.4": {
+                "section_name": "Matrix completion",
+                "page_number": "14",
+                "subsections": {}
+            }
+        }
+    },
+    "1.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "1.4.1": {
+                "section_name": "Parametric vs non-parametric models",
+                "page_number": "16",
+                "subsections": {}
+            },
+            "1.4.2": {
+                "section_name": "A simple non-parametric classifier: K-nearest neighbors",
+                "page_number": "16",
+                "subsections": {}
+            },
+            "1.4.3": {
+                "section_name": "The curse of dimensionality",
+                "page_number": "18",
+                "subsections": {}
+            },
+            "1.4.4": {
+                "section_name": "Parametric models for classification and regression",
+                "page_number": "19",
+                "subsections": {}
+            },
+            "1.4.5": {
+                "section_name": "Linear regression",
+                "page_number": "19",
+                "subsections": {}
+            },
+            "1.4.6": {
+                "section_name": "Logistic regression",
+                "page_number": "21",
+                "subsections": {}
+            },
+            "1.4.7": {
+                "section_name": "Overfitting",
+                "page_number": "22",
+                "subsections": {}
+            },
+            "1.4.8": {
+                "section_name": "Model selection",
+                "page_number": "22",
+                "subsections": {}
+            },
+            "1.4.9": {
+                "section_name": "No free lunch theorem",
+                "page_number": "24",
+                "subsections": {}
+            }
+        }
+    },
+    "2": {
+        "section_name": "Probability",
+        "page_number": "27",
+        "subsections": {
+            "2.1": {
+                "section_name": "Introduction",
+                "page_number": "27",
+                "subsections": {}
+            },
+            "2.2": {
+                "section_name": "A brief review of probability theory",
+                "page_number": "28",
+                "subsections": {}
+            },
+            "2.3": {
+                "section_name": "Some common discrete distributions",
+                "page_number": "34",
+                "subsections": {}
+            },
+            "2.4": {
+                "section_name": "Some common continuous distributions",
+                "page_number": "38",
+                "subsections": {}
+            },
+            "2.5": {
+                "section_name": "Joint probability distributions",
+                "page_number": "44",
+                "subsections": {}
+            },
+            "2.6": {
+                "section_name": "Transformations of random variables",
+                "page_number": "49",
+                "subsections": {}
+            },
+            "2.7": {
+                "section_name": "Monte Carlo approximation",
+                "page_number": "52",
+                "subsections": {}
+            },
+            "2.8": {
+                "section_name": "Information theory",
+                "page_number": "56",
+                "subsections": {}
+            }
+        }
+    },
+    "2.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "2.2.1": {
+                "section_name": "Discrete random variables",
+                "page_number": "28",
+                "subsections": {}
+            },
+            "2.2.2": {
+                "section_name": "Fundamental rules",
+                "page_number": "28",
+                "subsections": {}
+            },
+            "2.2.3": {
+                "section_name": "Bayes rule",
+                "page_number": "29",
+                "subsections": {}
+            },
+            "2.2.4": {
+                "section_name": "Independence and conditional independence",
+                "page_number": "30",
+                "subsections": {}
+            },
+            "2.2.5": {
+                "section_name": "Continuous random variables",
+                "page_number": "32",
+                "subsections": {}
+            },
+            "2.2.6": {
+                "section_name": "Quantiles",
+                "page_number": "33",
+                "subsections": {}
+            },
+            "2.2.7": {
+                "section_name": "Mean and variance",
+                "page_number": "33",
+                "subsections": {}
+            }
+        }
+    },
+    "2.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "2.3.1": {
+                "section_name": "The binomial and Bernoulli distributions",
+                "page_number": "34",
+                "subsections": {}
+            },
+            "2.3.2": {
+                "section_name": "The multinomial and multinoulli distributions",
+                "page_number": "35",
+                "subsections": {}
+            },
+            "2.3.3": {
+                "section_name": "The Poisson distribution",
+                "page_number": "37",
+                "subsections": {}
+            },
+            "2.3.4": {
+                "section_name": "The empirical distribution",
+                "page_number": "37",
+                "subsections": {}
+            }
+        }
+    },
+    "2.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "2.4.1": {
+                "section_name": "Gaussian (normal) distribution",
+                "page_number": "38",
+                "subsections": {}
+            },
+            "2.4.2": {
+                "section_name": "Degenerate pdf",
+                "page_number": "39",
+                "subsections": {}
+            },
+            "2.4.3": {
+                "section_name": "The Laplace distribution",
+                "page_number": "41",
+                "subsections": {}
+            },
+            "2.4.4": {
+                "section_name": "The gamma distribution",
+                "page_number": "41",
+                "subsections": {}
+            },
+            "2.4.5": {
+                "section_name": "The beta distribution",
+                "page_number": "42",
+                "subsections": {}
+            },
+            "2.4.6": {
+                "section_name": "Pareto distribution",
+                "page_number": "43",
+                "subsections": {}
+            }
+        }
+    },
+    "2.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "2.5.1": {
+                "section_name": "Covariance and correlation",
+                "page_number": "44",
+                "subsections": {}
+            },
+            "2.5.2": {
+                "section_name": "The multivariate Gaussian",
+                "page_number": "46",
+                "subsections": {}
+            },
+            "2.5.3": {
+                "section_name": "Multivariate Student t distribution",
+                "page_number": "46",
+                "subsections": {}
+            },
+            "2.5.4": {
+                "section_name": "Dirichlet distribution",
+                "page_number": "47",
+                "subsections": {}
+            }
+        }
+    },
+    "2.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "2.6.1": {
+                "section_name": "Linear transformations",
+                "page_number": "49",
+                "subsections": {}
+            },
+            "2.6.2": {
+                "section_name": "General transformations",
+                "page_number": "50",
+                "subsections": {}
+            },
+            "2.6.3": {
+                "section_name": "Central limit theorem",
+                "page_number": "51",
+                "subsections": {}
+            }
+        }
+    },
+    "2.7": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "2.7.1": {
+                "section_name": "Example: change of variables, the MC way",
+                "page_number": "53",
+                "subsections": {}
+            },
+            "2.7.2": {
+                "section_name": "Example: estimating \u03c0 by Monte Carlo integration",
+                "page_number": "54",
+                "subsections": {}
+            },
+            "2.7.3": {
+                "section_name": "Accuracy of Monte Carlo approximation",
+                "page_number": "54",
+                "subsections": {}
+            }
+        }
+    },
+    "2.8": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "2.8.1": {
+                "section_name": "Entropy",
+                "page_number": "56",
+                "subsections": {}
+            },
+            "2.8.2": {
+                "section_name": "KL divergence",
+                "page_number": "57",
+                "subsections": {}
+            },
+            "2.8.3": {
+                "section_name": "Mutual information",
+                "page_number": "59",
+                "subsections": {}
+            }
+        }
+    },
+    "3": {
+        "section_name": "Generative models for discrete data",
+        "page_number": "65",
+        "subsections": {
+            "3.1": {
+                "section_name": "Introduction",
+                "page_number": "65",
+                "subsections": {}
+            },
+            "3.2": {
+                "section_name": "Bayesian concept learning",
+                "page_number": "65",
+                "subsections": {}
+            },
+            "3.3": {
+                "section_name": "The beta-binomial model",
+                "page_number": "72",
+                "subsections": {}
+            },
+            "3.4": {
+                "section_name": "The Dirichlet-multinomial model",
+                "page_number": "78",
+                "subsections": {}
+            },
+            "3.5": {
+                "section_name": "Naive Bayes classifiers",
+                "page_number": "82",
+                "subsections": {}
+            }
+        }
+    },
+    "3.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "3.2.1": {
+                "section_name": "Likelihood",
+                "page_number": "67",
+                "subsections": {}
+            },
+            "3.2.2": {
+                "section_name": "Prior",
+                "page_number": "67",
+                "subsections": {}
+            },
+            "3.2.3": {
+                "section_name": "Posterior",
+                "page_number": "68",
+                "subsections": {}
+            },
+            "3.2.4": {
+                "section_name": "Posterior predictive distribution",
+                "page_number": "71",
+                "subsections": {}
+            },
+            "3.2.5": {
+                "section_name": "A more complex prior",
+                "page_number": "72",
+                "subsections": {}
+            }
+        }
+    },
+    "3.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "3.3.1": {
+                "section_name": "Likelihood",
+                "page_number": "73",
+                "subsections": {}
+            },
+            "3.3.2": {
+                "section_name": "Prior",
+                "page_number": "74",
+                "subsections": {}
+            },
+            "3.3.3": {
+                "section_name": "Posterior",
+                "page_number": "75",
+                "subsections": {}
+            },
+            "3.3.4": {
+                "section_name": "Posterior predictive distribution",
+                "page_number": "77",
+                "subsections": {}
+            }
+        }
+    },
+    "3.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "3.4.1": {
+                "section_name": "Likelihood",
+                "page_number": "79",
+                "subsections": {}
+            },
+            "3.4.2": {
+                "section_name": "Prior",
+                "page_number": "79",
+                "subsections": {}
+            },
+            "3.4.3": {
+                "section_name": "Posterior",
+                "page_number": "79",
+                "subsections": {}
+            },
+            "3.4.4": {
+                "section_name": "Posterior predictive",
+                "page_number": "81",
+                "subsections": {}
+            }
+        }
+    },
+    "3.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "3.5.1": {
+                "section_name": "Model fitting",
+                "page_number": "83",
+                "subsections": {}
+            },
+            "3.5.2": {
+                "section_name": "Using the model for prediction",
+                "page_number": "85",
+                "subsections": {}
+            },
+            "3.5.3": {
+                "section_name": "The log-sum-exp trick",
+                "page_number": "86",
+                "subsections": {}
+            },
+            "3.5.4": {
+                "section_name": "Feature selection using mutual information",
+                "page_number": "86",
+                "subsections": {}
+            },
+            "3.5.5": {
+                "section_name": "Classifying documents using bag of words",
+                "page_number": "87",
+                "subsections": {}
+            }
+        }
+    },
+    "4": {
+        "section_name": "Gaussian models",
+        "page_number": "97",
+        "subsections": {
+            "4.1": {
+                "section_name": "Introduction",
+                "page_number": "97",
+                "subsections": {}
+            },
+            "4.2": {
+                "section_name": "Gaussian discriminant analysis",
+                "page_number": "101",
+                "subsections": {}
+            },
+            "4.3": {
+                "section_name": "Inference in jointly Gaussian distributions",
+                "page_number": "110",
+                "subsections": {}
+            },
+            "4.4": {
+                "section_name": "Linear Gaussian systems",
+                "page_number": "119",
+                "subsections": {}
+            },
+            "4.5": {
+                "section_name": "Digression: The Wishart distribution *",
+                "page_number": "125",
+                "subsections": {}
+            },
+            "4.6": {
+                "section_name": "Inferring the parameters of an MVN",
+                "page_number": "127",
+                "subsections": {}
+            }
+        }
+    },
+    "4.1": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "4.1.1": {
+                "section_name": "Notation",
+                "page_number": "97",
+                "subsections": {}
+            },
+            "4.1.2": {
+                "section_name": "Basics",
+                "page_number": "97",
+                "subsections": {}
+            },
+            "4.1.3": {
+                "section_name": "MLE for an MVN",
+                "page_number": "99",
+                "subsections": {}
+            },
+            "4.1.4": {
+                "section_name": "Maximum entropy derivation of the Gaussian *",
+                "page_number": "101",
+                "subsections": {}
+            }
+        }
+    },
+    "4.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "4.2.1": {
+                "section_name": "Quadratic discriminant analysis (QDA)",
+                "page_number": "102",
+                "subsections": {}
+            },
+            "4.2.2": {
+                "section_name": "Linear discriminant analysis (LDA)",
+                "page_number": "103",
+                "subsections": {}
+            },
+            "4.2.3": {
+                "section_name": "Two-class LDA",
+                "page_number": "104",
+                "subsections": {}
+            },
+            "4.2.4": {
+                "section_name": "MLE for discriminant analysis",
+                "page_number": "106",
+                "subsections": {}
+            },
+            "4.2.5": {
+                "section_name": "Strategies for preventing overfitting",
+                "page_number": "106",
+                "subsections": {}
+            },
+            "4.2.6": {
+                "section_name": "Regularized LDA *",
+                "page_number": "107",
+                "subsections": {}
+            },
+            "4.2.7": {
+                "section_name": "Diagonal LDA",
+                "page_number": "108",
+                "subsections": {}
+            },
+            "4.2.8": {
+                "section_name": "Nearest shrunken centroids classifier *",
+                "page_number": "109",
+                "subsections": {}
+            }
+        }
+    },
+    "4.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "4.3.1": {
+                "section_name": "Statement of the result",
+                "page_number": "111",
+                "subsections": {}
+            },
+            "4.3.2": {
+                "section_name": "Examples",
+                "page_number": "111",
+                "subsections": {}
+            },
+            "4.3.3": {
+                "section_name": "Information form",
+                "page_number": "115",
+                "subsections": {}
+            },
+            "4.3.4": {
+                "section_name": "Proof of the result *",
+                "page_number": "116",
+                "subsections": {}
+            }
+        }
+    },
+    "4.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "4.4.1": {
+                "section_name": "Statement of the result",
+                "page_number": "119",
+                "subsections": {}
+            },
+            "4.4.2": {
+                "section_name": "Examples",
+                "page_number": "120",
+                "subsections": {}
+            },
+            "4.4.3": {
+                "section_name": "Proof of the result *",
+                "page_number": "124",
+                "subsections": {}
+            }
+        }
+    },
+    "4.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "4.5.1": {
+                "section_name": "Inverse Wishart distribution",
+                "page_number": "126",
+                "subsections": {}
+            },
+            "4.5.2": {
+                "section_name": "Visualizing the Wishart distribution *",
+                "page_number": "127",
+                "subsections": {}
+            }
+        }
+    },
+    "4.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "4.6.1": {
+                "section_name": "Posterior distribution of \u03bc",
+                "page_number": "128",
+                "subsections": {}
+            },
+            "4.6.2": {
+                "section_name": "Posterior distribution of \u03a3 *",
+                "page_number": "128",
+                "subsections": {}
+            },
+            "4.6.3": {
+                "section_name": "Posterior distribution of \u03bc and \u03a3 *",
+                "page_number": "132",
+                "subsections": {}
+            },
+            "4.6.4": {
+                "section_name": "Sensor fusion with unknown precisions *",
+                "page_number": "138",
+                "subsections": {}
+            }
+        }
+    },
+    "5": {
+        "section_name": "Bayesian statistics",
+        "page_number": "149",
+        "subsections": {
+            "5.1": {
+                "section_name": "Introduction",
+                "page_number": "149",
+                "subsections": {}
+            },
+            "5.2": {
+                "section_name": "Summarizing posterior distributions",
+                "page_number": "149",
+                "subsections": {}
+            },
+            "5.3": {
+                "section_name": "Bayesian model selection",
+                "page_number": "155",
+                "subsections": {}
+            },
+            "5.4": {
+                "section_name": "Priors",
+                "page_number": "165",
+                "subsections": {}
+            },
+            "5.5": {
+                "section_name": "Hierarchical Bayes",
+                "page_number": "171",
+                "subsections": {}
+            },
+            "5.6": {
+                "section_name": "Empirical Bayes",
+                "page_number": "172",
+                "subsections": {}
+            },
+            "5.7": {
+                "section_name": "Bayesian decision theory",
+                "page_number": "176",
+                "subsections": {}
+            }
+        }
+    },
+    "5.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "5.2.1": {
+                "section_name": "MAP estimation",
+                "page_number": "149",
+                "subsections": {}
+            },
+            "5.2.2": {
+                "section_name": "Credible intervals",
+                "page_number": "152",
+                "subsections": {}
+            },
+            "5.2.3": {
+                "section_name": "Inference for a difference in proportions",
+                "page_number": "154",
+                "subsections": {}
+            }
+        }
+    },
+    "5.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "5.3.1": {
+                "section_name": "Bayesian Occam\u2019s razor",
+                "page_number": "156",
+                "subsections": {}
+            },
+            "5.3.2": {
+                "section_name": "Computing the marginal likelihood (evidence)",
+                "page_number": "158",
+                "subsections": {}
+            },
+            "5.3.3": {
+                "section_name": "Bayes factors",
+                "page_number": "163",
+                "subsections": {}
+            },
+            "5.3.4": {
+                "section_name": "Jeffreys-Lindley paradox *",
+                "page_number": "164",
+                "subsections": {}
+            }
+        }
+    },
+    "5.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "5.4.1": {
+                "section_name": "Uninformative priors",
+                "page_number": "165",
+                "subsections": {}
+            },
+            "5.4.2": {
+                "section_name": "Jeffreys priors *",
+                "page_number": "166",
+                "subsections": {}
+            },
+            "5.4.3": {
+                "section_name": "Robust priors",
+                "page_number": "168",
+                "subsections": {}
+            },
+            "5.4.4": {
+                "section_name": "Mixtures of conjugate priors",
+                "page_number": "168",
+                "subsections": {}
+            }
+        }
+    },
+    "5.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "5.5.1": {
+                "section_name": "Example: modeling related cancer rates",
+                "page_number": "171",
+                "subsections": {}
+            }
+        }
+    },
+    "5.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "5.6.1": {
+                "section_name": "Example: beta-binomial model",
+                "page_number": "173",
+                "subsections": {}
+            },
+            "5.6.2": {
+                "section_name": "Example: Gaussian-Gaussian model",
+                "page_number": "173",
+                "subsections": {}
+            }
+        }
+    },
+    "5.7": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "5.7.1": {
+                "section_name": "Bayes estimators for common loss functions",
+                "page_number": "177",
+                "subsections": {}
+            },
+            "5.7.2": {
+                "section_name": "The false positive vs false negative tradeoff",
+                "page_number": "180",
+                "subsections": {}
+            },
+            "5.7.3": {
+                "section_name": "Other topics *",
+                "page_number": "184",
+                "subsections": {}
+            }
+        }
+    },
+    "6": {
+        "section_name": "Frequentist statistics",
+        "page_number": "191",
+        "subsections": {
+            "6.1": {
+                "section_name": "Introduction",
+                "page_number": "191",
+                "subsections": {}
+            },
+            "6.2": {
+                "section_name": "Sampling distribution of an estimator",
+                "page_number": "191",
+                "subsections": {}
+            },
+            "6.3": {
+                "section_name": "Frequentist decision theory",
+                "page_number": "194",
+                "subsections": {}
+            },
+            "6.4": {
+                "section_name": "Desirable properties of estimators",
+                "page_number": "200",
+                "subsections": {}
+            },
+            "6.5": {
+                "section_name": "Empirical risk minimization",
+                "page_number": "204",
+                "subsections": {}
+            },
+            "6.6": {
+                "section_name": "Pathologies of frequentist statistics *",
+                "page_number": "211",
+                "subsections": {}
+            }
+        }
+    },
+    "6.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "6.2.1": {
+                "section_name": "Bootstrap",
+                "page_number": "192",
+                "subsections": {}
+            },
+            "6.2.2": {
+                "section_name": "Large sample theory for the MLE *",
+                "page_number": "193",
+                "subsections": {}
+            }
+        }
+    },
+    "6.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "6.3.1": {
+                "section_name": "Bayes risk",
+                "page_number": "195",
+                "subsections": {}
+            },
+            "6.3.2": {
+                "section_name": "Minimax risk",
+                "page_number": "196",
+                "subsections": {}
+            },
+            "6.3.3": {
+                "section_name": "Admissible estimators",
+                "page_number": "197",
+                "subsections": {}
+            }
+        }
+    },
+    "6.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "6.4.1": {
+                "section_name": "Consistent estimators",
+                "page_number": "200",
+                "subsections": {}
+            },
+            "6.4.2": {
+                "section_name": "Unbiased estimators",
+                "page_number": "200",
+                "subsections": {}
+            },
+            "6.4.3": {
+                "section_name": "Minimum variance estimators",
+                "page_number": "201",
+                "subsections": {}
+            },
+            "6.4.4": {
+                "section_name": "The bias-variance tradeoff",
+                "page_number": "202",
+                "subsections": {}
+            }
+        }
+    },
+    "6.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "6.5.1": {
+                "section_name": "Regularized risk minimization",
+                "page_number": "205",
+                "subsections": {}
+            },
+            "6.5.2": {
+                "section_name": "Structural risk minimization",
+                "page_number": "206",
+                "subsections": {}
+            },
+            "6.5.3": {
+                "section_name": "Estimating the risk using cross validation",
+                "page_number": "206",
+                "subsections": {}
+            },
+            "6.5.4": {
+                "section_name": "Upper bounding the risk using statistical learning theory *",
+                "page_number": "209",
+                "subsections": {}
+            },
+            "6.5.5": {
+                "section_name": "Surrogate loss functions",
+                "page_number": "210",
+                "subsections": {}
+            }
+        }
+    },
+    "6.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "6.6.1": {
+                "section_name": "Counter-intuitive behavior of confidence intervals",
+                "page_number": "212",
+                "subsections": {}
+            },
+            "6.6.2": {
+                "section_name": "p-values considered harmful",
+                "page_number": "213",
+                "subsections": {}
+            },
+            "6.6.3": {
+                "section_name": "The likelihood principle",
+                "page_number": "214",
+                "subsections": {}
+            },
+            "6.6.4": {
+                "section_name": "Why isn\u2019t everyone a Bayesian?",
+                "page_number": "215",
+                "subsections": {}
+            }
+        }
+    },
+    "7": {
+        "section_name": "Linear regression",
+        "page_number": "217",
+        "subsections": {
+            "7.1": {
+                "section_name": "Introduction",
+                "page_number": "217",
+                "subsections": {}
+            },
+            "7.2": {
+                "section_name": "Model specification",
+                "page_number": "217",
+                "subsections": {}
+            },
+            "7.3": {
+                "section_name": "Maximum likelihood estimation (least squares)",
+                "page_number": "217",
+                "subsections": {}
+            },
+            "7.4": {
+                "section_name": "Robust linear regression *",
+                "page_number": "223",
+                "subsections": {}
+            },
+            "7.5": {
+                "section_name": "Ridge regression",
+                "page_number": "225",
+                "subsections": {}
+            },
+            "7.6": {
+                "section_name": "Bayesian linear regression",
+                "page_number": "231",
+                "subsections": {}
+            }
+        }
+    },
+    "7.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "7.3.1": {
+                "section_name": "Derivation of the MLE",
+                "page_number": "219",
+                "subsections": {}
+            },
+            "7.3.2": {
+                "section_name": "Geometric interpretation",
+                "page_number": "220",
+                "subsections": {}
+            },
+            "7.3.3": {
+                "section_name": "Convexity",
+                "page_number": "221",
+                "subsections": {}
+            }
+        }
+    },
+    "7.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "7.5.1": {
+                "section_name": "Basic idea",
+                "page_number": "225",
+                "subsections": {}
+            },
+            "7.5.2": {
+                "section_name": "Numerically stable computation *",
+                "page_number": "227",
+                "subsections": {}
+            },
+            "7.5.3": {
+                "section_name": "Connection with PCA *",
+                "page_number": "228",
+                "subsections": {}
+            },
+            "7.5.4": {
+                "section_name": "Regularization effects of big data",
+                "page_number": "230",
+                "subsections": {}
+            }
+        }
+    },
+    "7.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "7.6.1": {
+                "section_name": "Computing the posterior",
+                "page_number": "232",
+                "subsections": {}
+            },
+            "7.6.2": {
+                "section_name": "Computing the posterior predictive",
+                "page_number": "233",
+                "subsections": {}
+            },
+            "7.6.3": {
+                "section_name": "Bayesian inference when \u03c32 is unknown *",
+                "page_number": "234",
+                "subsections": {}
+            },
+            "7.6.4": {
+                "section_name": "EB for linear regression (evidence procedure)",
+                "page_number": "238",
+                "subsections": {}
+            }
+        }
+    },
+    "8": {
+        "section_name": "Logistic regression",
+        "page_number": "245",
+        "subsections": {
+            "8.1": {
+                "section_name": "Introduction",
+                "page_number": "245",
+                "subsections": {}
+            },
+            "8.2": {
+                "section_name": "Model specification",
+                "page_number": "245",
+                "subsections": {}
+            },
+            "8.3": {
+                "section_name": "Model fitting",
+                "page_number": "245",
+                "subsections": {}
+            },
+            "8.4": {
+                "section_name": "Bayesian logistic regression",
+                "page_number": "254",
+                "subsections": {}
+            },
+            "8.5": {
+                "section_name": "Online learning and stochastic optimization",
+                "page_number": "261",
+                "subsections": {}
+            },
+            "8.6": {
+                "section_name": "Generative vs discriminative classifiers",
+                "page_number": "267",
+                "subsections": {}
+            }
+        }
+    },
+    "8.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "8.3.1": {
+                "section_name": "MLE",
+                "page_number": "246",
+                "subsections": {}
+            },
+            "8.3.2": {
+                "section_name": "Steepest descent",
+                "page_number": "247",
+                "subsections": {}
+            },
+            "8.3.3": {
+                "section_name": "Newton\u2019s method",
+                "page_number": "249",
+                "subsections": {}
+            },
+            "8.3.4": {
+                "section_name": "Iteratively reweighted least squares (IRLS)",
+                "page_number": "250",
+                "subsections": {}
+            },
+            "8.3.5": {
+                "section_name": "Quasi-Newton (variable metric) methods",
+                "page_number": "251",
+                "subsections": {}
+            },
+            "8.3.6": {
+                "section_name": "\u00042 regularization",
+                "page_number": "252",
+                "subsections": {}
+            },
+            "8.3.7": {
+                "section_name": "Multi-class logistic regression",
+                "page_number": "252",
+                "subsections": {}
+            }
+        }
+    },
+    "8.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "8.4.1": {
+                "section_name": "Laplace approximation",
+                "page_number": "255",
+                "subsections": {}
+            },
+            "8.4.2": {
+                "section_name": "Derivation of the BIC",
+                "page_number": "255",
+                "subsections": {}
+            },
+            "8.4.3": {
+                "section_name": "Gaussian approximation for logistic regression",
+                "page_number": "256",
+                "subsections": {}
+            },
+            "8.4.4": {
+                "section_name": "Approximating the posterior predictive",
+                "page_number": "256",
+                "subsections": {}
+            },
+            "8.4.5": {
+                "section_name": "Residual analysis (outlier detection) *",
+                "page_number": "260",
+                "subsections": {}
+            }
+        }
+    },
+    "8.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "8.5.1": {
+                "section_name": "Online learning and regret minimization",
+                "page_number": "262",
+                "subsections": {}
+            },
+            "8.5.2": {
+                "section_name": "Stochastic optimization and risk minimization",
+                "page_number": "262",
+                "subsections": {}
+            },
+            "8.5.3": {
+                "section_name": "The LMS algorithm",
+                "page_number": "264",
+                "subsections": {}
+            },
+            "8.5.4": {
+                "section_name": "The perceptron algorithm",
+                "page_number": "265",
+                "subsections": {}
+            },
+            "8.5.5": {
+                "section_name": "A Bayesian view",
+                "page_number": "266",
+                "subsections": {}
+            }
+        }
+    },
+    "8.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "8.6.1": {
+                "section_name": "Pros and cons of each approach",
+                "page_number": "268",
+                "subsections": {}
+            },
+            "8.6.2": {
+                "section_name": "Dealing with missing data",
+                "page_number": "269",
+                "subsections": {}
+            },
+            "8.6.3": {
+                "section_name": "Fisher\u2019s linear discriminant analysis (FLDA) *",
+                "page_number": "271",
+                "subsections": {}
+            }
+        }
+    },
+    "9": {
+        "section_name": "Generalized linear models and the exponential family",
+        "page_number": "281",
+        "subsections": {
+            "9.1": {
+                "section_name": "Introduction",
+                "page_number": "281",
+                "subsections": {}
+            },
+            "9.2": {
+                "section_name": "The exponential family",
+                "page_number": "281",
+                "subsections": {}
+            },
+            "9.3": {
+                "section_name": "Generalized linear models (GLMs)",
+                "page_number": "290",
+                "subsections": {}
+            },
+            "9.4": {
+                "section_name": "Probit regression",
+                "page_number": "293",
+                "subsections": {}
+            },
+            "9.5": {
+                "section_name": "Multi-task learning",
+                "page_number": "296",
+                "subsections": {}
+            },
+            "9.6": {
+                "section_name": "Generalized linear mixed models *",
+                "page_number": "298",
+                "subsections": {}
+            },
+            "9.7": {
+                "section_name": "Learning to rank *",
+                "page_number": "300",
+                "subsections": {}
+            }
+        }
+    },
+    "9.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "9.2.1": {
+                "section_name": "Definition",
+                "page_number": "282",
+                "subsections": {}
+            },
+            "9.2.2": {
+                "section_name": "Examples",
+                "page_number": "282",
+                "subsections": {}
+            },
+            "9.2.3": {
+                "section_name": "Log partition function",
+                "page_number": "284",
+                "subsections": {}
+            },
+            "9.2.4": {
+                "section_name": "MLE for the exponential family",
+                "page_number": "286",
+                "subsections": {}
+            },
+            "9.2.5": {
+                "section_name": "Bayes for the exponential family *",
+                "page_number": "287",
+                "subsections": {}
+            },
+            "9.2.6": {
+                "section_name": "Maximum entropy derivation of the exponential family *",
+                "page_number": "289",
+                "subsections": {}
+            }
+        }
+    },
+    "9.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "9.3.1": {
+                "section_name": "Basics",
+                "page_number": "290",
+                "subsections": {}
+            },
+            "9.3.2": {
+                "section_name": "ML and MAP estimation",
+                "page_number": "292",
+                "subsections": {}
+            },
+            "9.3.3": {
+                "section_name": "Bayesian inference",
+                "page_number": "293",
+                "subsections": {}
+            }
+        }
+    },
+    "9.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "9.4.1": {
+                "section_name": "ML/MAP estimation using gradient-based optimization",
+                "page_number": "294",
+                "subsections": {}
+            },
+            "9.4.2": {
+                "section_name": "Latent variable interpretation",
+                "page_number": "294",
+                "subsections": {}
+            },
+            "9.4.3": {
+                "section_name": "Ordinal probit regression *",
+                "page_number": "295",
+                "subsections": {}
+            },
+            "9.4.4": {
+                "section_name": "Multinomial probit models *",
+                "page_number": "295",
+                "subsections": {}
+            }
+        }
+    },
+    "9.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "9.5.1": {
+                "section_name": "Hierarchical Bayes for multi-task learning",
+                "page_number": "296",
+                "subsections": {}
+            },
+            "9.5.2": {
+                "section_name": "Application to personalized email spam filtering",
+                "page_number": "296",
+                "subsections": {}
+            },
+            "9.5.3": {
+                "section_name": "Application to domain adaptation",
+                "page_number": "297",
+                "subsections": {}
+            },
+            "9.5.4": {
+                "section_name": "Other kinds of prior",
+                "page_number": "297",
+                "subsections": {}
+            }
+        }
+    },
+    "9.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "9.6.1": {
+                "section_name": "Example: semi-parametric GLMMs for medical data",
+                "page_number": "298",
+                "subsections": {}
+            },
+            "9.6.2": {
+                "section_name": "Computational issues",
+                "page_number": "300",
+                "subsections": {}
+            }
+        }
+    },
+    "9.7": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "9.7.1": {
+                "section_name": "The pointwise approach",
+                "page_number": "301",
+                "subsections": {}
+            },
+            "9.7.2": {
+                "section_name": "The pairwise approach",
+                "page_number": "301",
+                "subsections": {}
+            },
+            "9.7.3": {
+                "section_name": "The listwise approach",
+                "page_number": "302",
+                "subsections": {}
+            },
+            "9.7.4": {
+                "section_name": "Loss functions for ranking",
+                "page_number": "303",
+                "subsections": {}
+            }
+        }
+    },
+    "10": {
+        "section_name": "Directed graphical models (Bayes nets)",
+        "page_number": "307",
+        "subsections": {
+            "10.1": {
+                "section_name": "Introduction",
+                "page_number": "307",
+                "subsections": {}
+            },
+            "10.2": {
+                "section_name": "Examples",
+                "page_number": "311",
+                "subsections": {}
+            },
+            "10.3": {
+                "section_name": "Inference",
+                "page_number": "319",
+                "subsections": {}
+            },
+            "10.4": {
+                "section_name": "Learning",
+                "page_number": "320",
+                "subsections": {}
+            },
+            "10.5": {
+                "section_name": "Conditional independence properties of DGMs",
+                "page_number": "324",
+                "subsections": {}
+            },
+            "10.6": {
+                "section_name": "Influence (decision) diagrams *",
+                "page_number": "328",
+                "subsections": {}
+            }
+        }
+    },
+    "10.1": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "10.1.1": {
+                "section_name": "Chain rule",
+                "page_number": "307",
+                "subsections": {}
+            },
+            "10.1.2": {
+                "section_name": "Conditional independence",
+                "page_number": "308",
+                "subsections": {}
+            },
+            "10.1.3": {
+                "section_name": "Graphical models",
+                "page_number": "308",
+                "subsections": {}
+            },
+            "10.1.4": {
+                "section_name": "Graph terminology",
+                "page_number": "309",
+                "subsections": {}
+            },
+            "10.1.5": {
+                "section_name": "Directed graphical models",
+                "page_number": "310",
+                "subsections": {}
+            }
+        }
+    },
+    "10.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "10.2.1": {
+                "section_name": "Naive Bayes classifiers",
+                "page_number": "311",
+                "subsections": {}
+            },
+            "10.2.2": {
+                "section_name": "Markov and hidden Markov models",
+                "page_number": "312",
+                "subsections": {}
+            },
+            "10.2.3": {
+                "section_name": "Medical diagnosis",
+                "page_number": "313",
+                "subsections": {}
+            },
+            "10.2.4": {
+                "section_name": "Genetic linkage analysis *",
+                "page_number": "315",
+                "subsections": {}
+            },
+            "10.2.5": {
+                "section_name": "Directed Gaussian graphical models *",
+                "page_number": "318",
+                "subsections": {}
+            }
+        }
+    },
+    "10.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "10.4.1": {
+                "section_name": "Plate notation",
+                "page_number": "320",
+                "subsections": {}
+            },
+            "10.4.2": {
+                "section_name": "Learning from complete data",
+                "page_number": "322",
+                "subsections": {}
+            },
+            "10.4.3": {
+                "section_name": "Learning with missing and/or latent variables",
+                "page_number": "323",
+                "subsections": {}
+            }
+        }
+    },
+    "10.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "10.5.1": {
+                "section_name": "d-separation and the Bayes Ball algorithm (global",
+                "page_number": "Markov",
+                "subsections": {}
+            },
+            "10.5.2": {
+                "section_name": "Other Markov properties of DGMs",
+                "page_number": "327",
+                "subsections": {}
+            },
+            "10.5.3": {
+                "section_name": "Markov blanket and full conditionals",
+                "page_number": "327",
+                "subsections": {}
+            }
+        }
+    },
+    "properties)": {
+        "section_name": "",
+        "page_number": "324",
+        "subsections": {}
+    },
+    "11": {
+        "section_name": "Mixture models and the EM algorithm",
+        "page_number": "337",
+        "subsections": {
+            "11.1": {
+                "section_name": "Latent variable models",
+                "page_number": "337",
+                "subsections": {}
+            },
+            "11.2": {
+                "section_name": "Mixture models",
+                "page_number": "337",
+                "subsections": {}
+            },
+            "11.3": {
+                "section_name": "Parameter estimation for mixture models",
+                "page_number": "345",
+                "subsections": {}
+            },
+            "11.4": {
+                "section_name": "The EM algorithm",
+                "page_number": "348",
+                "subsections": {}
+            },
+            "11.5": {
+                "section_name": "Model selection for latent variable models",
+                "page_number": "370",
+                "subsections": {}
+            },
+            "11.6": {
+                "section_name": "Fitting models with missing data",
+                "page_number": "372",
+                "subsections": {}
+            }
+        }
+    },
+    "11.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "11.2.1": {
+                "section_name": "Mixtures of Gaussians",
+                "page_number": "339",
+                "subsections": {}
+            },
+            "11.2.2": {
+                "section_name": "Mixture of multinoullis",
+                "page_number": "340",
+                "subsections": {}
+            },
+            "11.2.3": {
+                "section_name": "Using mixture models for clustering",
+                "page_number": "340",
+                "subsections": {}
+            },
+            "11.2.4": {
+                "section_name": "Mixtures of experts",
+                "page_number": "342",
+                "subsections": {}
+            }
+        }
+    },
+    "11.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "11.3.1": {
+                "section_name": "Unidentifiability",
+                "page_number": "346",
+                "subsections": {}
+            },
+            "11.3.2": {
+                "section_name": "Computing a MAP estimate is non-convex",
+                "page_number": "347",
+                "subsections": {}
+            }
+        }
+    },
+    "11.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "11.4.1": {
+                "section_name": "Basic idea",
+                "page_number": "349",
+                "subsections": {}
+            },
+            "11.4.2": {
+                "section_name": "EM for GMMs",
+                "page_number": "350",
+                "subsections": {}
+            },
+            "11.4.3": {
+                "section_name": "EM for mixture of experts",
+                "page_number": "357",
+                "subsections": {}
+            },
+            "11.4.4": {
+                "section_name": "EM for DGMs with hidden variables",
+                "page_number": "358",
+                "subsections": {}
+            },
+            "11.4.5": {
+                "section_name": "EM for the Student distribution *",
+                "page_number": "359",
+                "subsections": {}
+            },
+            "11.4.6": {
+                "section_name": "EM for probit regression *",
+                "page_number": "362",
+                "subsections": {}
+            },
+            "11.4.7": {
+                "section_name": "Theoretical basis for EM *",
+                "page_number": "363",
+                "subsections": {}
+            },
+            "11.4.8": {
+                "section_name": "Online EM",
+                "page_number": "365",
+                "subsections": {}
+            },
+            "11.4.9": {
+                "section_name": "Other EM variants *",
+                "page_number": "367",
+                "subsections": {}
+            }
+        }
+    },
+    "11.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "11.5.1": {
+                "section_name": "Model selection for probabilistic models",
+                "page_number": "370",
+                "subsections": {}
+            },
+            "11.5.2": {
+                "section_name": "Model selection for non-probabilistic methods",
+                "page_number": "370",
+                "subsections": {}
+            }
+        }
+    },
+    "11.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "11.6.1": {
+                "section_name": "EM for the MLE of an MVN with missing data",
+                "page_number": "373",
+                "subsections": {}
+            }
+        }
+    },
+    "12": {
+        "section_name": "Latent linear models",
+        "page_number": "381",
+        "subsections": {
+            "12.1": {
+                "section_name": "Factor analysis",
+                "page_number": "381",
+                "subsections": {}
+            },
+            "12.2": {
+                "section_name": "Principal components analysis (PCA)",
+                "page_number": "387",
+                "subsections": {}
+            },
+            "12.3": {
+                "section_name": "Choosing the number of latent dimensions",
+                "page_number": "398",
+                "subsections": {}
+            },
+            "12.4": {
+                "section_name": "PCA for categorical data",
+                "page_number": "402",
+                "subsections": {}
+            },
+            "12.5": {
+                "section_name": "PCA for paired and multi-view data",
+                "page_number": "404",
+                "subsections": {}
+            },
+            "12.6": {
+                "section_name": "Independent Component Analysis (ICA)",
+                "page_number": "407",
+                "subsections": {}
+            }
+        }
+    },
+    "12.1": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "12.1.1": {
+                "section_name": "FA is a low rank parameterization of an MVN",
+                "page_number": "381",
+                "subsections": {}
+            },
+            "12.1.2": {
+                "section_name": "Inference of the latent factors",
+                "page_number": "382",
+                "subsections": {}
+            },
+            "12.1.3": {
+                "section_name": "Unidentifiability",
+                "page_number": "383",
+                "subsections": {}
+            },
+            "12.1.4": {
+                "section_name": "Mixtures of factor analysers",
+                "page_number": "385",
+                "subsections": {}
+            },
+            "12.1.5": {
+                "section_name": "EM for factor analysis models",
+                "page_number": "386",
+                "subsections": {}
+            },
+            "12.1.6": {
+                "section_name": "Fitting FA models with missing data",
+                "page_number": "387",
+                "subsections": {}
+            }
+        }
+    },
+    "12.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "12.2.1": {
+                "section_name": "Classical PCA: statement of the theorem",
+                "page_number": "387",
+                "subsections": {}
+            },
+            "12.2.2": {
+                "section_name": "Proof *",
+                "page_number": "389",
+                "subsections": {}
+            },
+            "12.2.3": {
+                "section_name": "Singular value decomposition (SVD)",
+                "page_number": "392",
+                "subsections": {}
+            },
+            "12.2.4": {
+                "section_name": "Probabilistic PCA",
+                "page_number": "395",
+                "subsections": {}
+            },
+            "12.2.5": {
+                "section_name": "EM algorithm for PCA",
+                "page_number": "396",
+                "subsections": {}
+            }
+        }
+    },
+    "12.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "12.3.1": {
+                "section_name": "Model selection for FA/PPCA",
+                "page_number": "398",
+                "subsections": {}
+            },
+            "12.3.2": {
+                "section_name": "Model selection for PCA",
+                "page_number": "399",
+                "subsections": {}
+            }
+        }
+    },
+    "12.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "12.5.1": {
+                "section_name": "Supervised PCA (latent factor regression)",
+                "page_number": "405",
+                "subsections": {}
+            },
+            "12.5.2": {
+                "section_name": "Partial least squares",
+                "page_number": "406",
+                "subsections": {}
+            },
+            "12.5.3": {
+                "section_name": "Canonical correlation analysis",
+                "page_number": "407",
+                "subsections": {}
+            }
+        }
+    },
+    "12.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "12.6.1": {
+                "section_name": "Maximum likelihood estimation",
+                "page_number": "410",
+                "subsections": {}
+            },
+            "12.6.2": {
+                "section_name": "The FastICA algorithm",
+                "page_number": "411",
+                "subsections": {}
+            },
+            "12.6.3": {
+                "section_name": "Using EM",
+                "page_number": "414",
+                "subsections": {}
+            },
+            "12.6.4": {
+                "section_name": "Other estimation principles *",
+                "page_number": "415",
+                "subsections": {}
+            }
+        }
+    },
+    "13": {
+        "section_name": "Sparse linear models",
+        "page_number": "421",
+        "subsections": {
+            "13.1": {
+                "section_name": "Introduction",
+                "page_number": "421",
+                "subsections": {}
+            },
+            "13.2": {
+                "section_name": "Bayesian variable selection",
+                "page_number": "422",
+                "subsections": {}
+            },
+            "13.3": {
+                "section_name": "\u00041 regularization: basics",
+                "page_number": "429",
+                "subsections": {}
+            },
+            "13.4": {
+                "section_name": "\u00041 regularization: algorithms",
+                "page_number": "441",
+                "subsections": {}
+            },
+            "13.5": {
+                "section_name": "\u00041 regularization: extensions",
+                "page_number": "449",
+                "subsections": {}
+            },
+            "13.6": {
+                "section_name": "Non-convex regularizers",
+                "page_number": "457",
+                "subsections": {}
+            },
+            "13.7": {
+                "section_name": "Automatic relevance determination (ARD)/sparse Bayesian learning (SBL)",
+                "page_number": "463",
+                "subsections": {}
+            },
+            "13.8": {
+                "section_name": "Sparse coding *",
+                "page_number": "468",
+                "subsections": {}
+            }
+        }
+    },
+    "13.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "13.2.1": {
+                "section_name": "The spike and slab model",
+                "page_number": "424",
+                "subsections": {}
+            },
+            "13.2.2": {
+                "section_name": "From the Bernoulli-Gaussian model to \u00040 regularization",
+                "page_number": "425",
+                "subsections": {}
+            },
+            "13.2.3": {
+                "section_name": "Algorithms",
+                "page_number": "426",
+                "subsections": {}
+            }
+        }
+    },
+    "13.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "13.3.1": {
+                "section_name": "Why does \u00041 regularization yield sparse solutions?",
+                "page_number": "430",
+                "subsections": {}
+            },
+            "13.3.2": {
+                "section_name": "Optimality conditions for lasso",
+                "page_number": "431",
+                "subsections": {}
+            },
+            "13.3.3": {
+                "section_name": "Comparison of least squares, lasso, ridge and subset selection",
+                "page_number": "435",
+                "subsections": {}
+            },
+            "13.3.4": {
+                "section_name": "Regularization path",
+                "page_number": "436",
+                "subsections": {}
+            },
+            "13.3.5": {
+                "section_name": "Model selection",
+                "page_number": "439",
+                "subsections": {}
+            },
+            "13.3.6": {
+                "section_name": "Bayesian inference for linear models with Laplace priors",
+                "page_number": "440",
+                "subsections": {}
+            }
+        }
+    },
+    "13.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "13.4.1": {
+                "section_name": "Coordinate descent",
+                "page_number": "441",
+                "subsections": {}
+            },
+            "13.4.2": {
+                "section_name": "LARS and other homotopy methods",
+                "page_number": "441",
+                "subsections": {}
+            },
+            "13.4.3": {
+                "section_name": "Proximal and gradient projection methods",
+                "page_number": "442",
+                "subsections": {}
+            },
+            "13.4.4": {
+                "section_name": "EM for lasso",
+                "page_number": "447",
+                "subsections": {}
+            }
+        }
+    },
+    "13.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "13.5.1": {
+                "section_name": "Group Lasso",
+                "page_number": "449",
+                "subsections": {}
+            },
+            "13.5.2": {
+                "section_name": "Fused lasso",
+                "page_number": "454",
+                "subsections": {}
+            },
+            "13.5.3": {
+                "section_name": "Elastic net (ridge and lasso combined)",
+                "page_number": "455",
+                "subsections": {}
+            }
+        }
+    },
+    "13.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "13.6.1": {
+                "section_name": "Bridge regression",
+                "page_number": "458",
+                "subsections": {}
+            },
+            "13.6.2": {
+                "section_name": "Hierarchical adaptive lasso",
+                "page_number": "458",
+                "subsections": {}
+            },
+            "13.6.3": {
+                "section_name": "Other hierarchical priors",
+                "page_number": "462",
+                "subsections": {}
+            }
+        }
+    },
+    "13.7": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "13.7.1": {
+                "section_name": "ARD for linear regression",
+                "page_number": "463",
+                "subsections": {}
+            },
+            "13.7.2": {
+                "section_name": "Whence sparsity?",
+                "page_number": "465",
+                "subsections": {}
+            },
+            "13.7.3": {
+                "section_name": "Connection to MAP estimation",
+                "page_number": "465",
+                "subsections": {}
+            },
+            "13.7.4": {
+                "section_name": "Algorithms for ARD *",
+                "page_number": "466",
+                "subsections": {}
+            },
+            "13.7.5": {
+                "section_name": "ARD for logistic regression",
+                "page_number": "468",
+                "subsections": {}
+            }
+        }
+    },
+    "13.8": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "13.8.1": {
+                "section_name": "Learning a sparse coding dictionary",
+                "page_number": "469",
+                "subsections": {}
+            },
+            "13.8.2": {
+                "section_name": "Results of dictionary learning from image patches",
+                "page_number": "470",
+                "subsections": {}
+            },
+            "13.8.3": {
+                "section_name": "Compressed sensing",
+                "page_number": "472",
+                "subsections": {}
+            },
+            "13.8.4": {
+                "section_name": "Image inpainting and denoising",
+                "page_number": "472",
+                "subsections": {}
+            }
+        }
+    },
+    "14": {
+        "section_name": "Kernels",
+        "page_number": "479",
+        "subsections": {
+            "14.1": {
+                "section_name": "Introduction",
+                "page_number": "479",
+                "subsections": {}
+            },
+            "14.2": {
+                "section_name": "Kernel functions",
+                "page_number": "479",
+                "subsections": {}
+            },
+            "14.3": {
+                "section_name": "Using kernels inside GLMs",
+                "page_number": "486",
+                "subsections": {}
+            },
+            "14.4": {
+                "section_name": "The kernel trick",
+                "page_number": "488",
+                "subsections": {}
+            },
+            "14.5": {
+                "section_name": "Support vector machines (SVMs)",
+                "page_number": "496",
+                "subsections": {}
+            },
+            "14.6": {
+                "section_name": "Comparison of discriminative kernel methods",
+                "page_number": "505",
+                "subsections": {}
+            },
+            "14.7": {
+                "section_name": "Kernels for building generative models",
+                "page_number": "507",
+                "subsections": {}
+            }
+        }
+    },
+    "14.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "14.2.1": {
+                "section_name": "RBF kernels",
+                "page_number": "480",
+                "subsections": {}
+            },
+            "14.2.2": {
+                "section_name": "Kernels for comparing documents",
+                "page_number": "480",
+                "subsections": {}
+            },
+            "14.2.3": {
+                "section_name": "Mercer (positive definite) kernels",
+                "page_number": "481",
+                "subsections": {}
+            },
+            "14.2.4": {
+                "section_name": "Linear kernels",
+                "page_number": "482",
+                "subsections": {}
+            },
+            "14.2.5": {
+                "section_name": "Matern kernels",
+                "page_number": "482",
+                "subsections": {}
+            },
+            "14.2.6": {
+                "section_name": "String kernels",
+                "page_number": "483",
+                "subsections": {}
+            },
+            "14.2.7": {
+                "section_name": "Pyramid match kernels",
+                "page_number": "484",
+                "subsections": {}
+            },
+            "14.2.8": {
+                "section_name": "Kernels derived from probabilistic generative models",
+                "page_number": "485",
+                "subsections": {}
+            }
+        }
+    },
+    "14.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "14.3.1": {
+                "section_name": "Kernel machines",
+                "page_number": "486",
+                "subsections": {}
+            },
+            "14.3.2": {
+                "section_name": "L1VMs, RVMs, and other sparse vector machines",
+                "page_number": "487",
+                "subsections": {}
+            }
+        }
+    },
+    "14.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "14.4.1": {
+                "section_name": "Kernelized nearest neighbor classification",
+                "page_number": "489",
+                "subsections": {}
+            },
+            "14.4.2": {
+                "section_name": "Kernelized K-medoids clustering",
+                "page_number": "489",
+                "subsections": {}
+            },
+            "14.4.3": {
+                "section_name": "Kernelized ridge regression",
+                "page_number": "492",
+                "subsections": {}
+            },
+            "14.4.4": {
+                "section_name": "Kernel PCA",
+                "page_number": "493",
+                "subsections": {}
+            }
+        }
+    },
+    "14.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "14.5.1": {
+                "section_name": "SVMs for regression",
+                "page_number": "497",
+                "subsections": {}
+            },
+            "14.5.2": {
+                "section_name": "SVMs for classification",
+                "page_number": "498",
+                "subsections": {}
+            },
+            "14.5.3": {
+                "section_name": "Choosing C",
+                "page_number": "504",
+                "subsections": {}
+            },
+            "14.5.4": {
+                "section_name": "Summary of key points",
+                "page_number": "504",
+                "subsections": {}
+            },
+            "14.5.5": {
+                "section_name": "A probabilistic interpretation of SVMs",
+                "page_number": "505",
+                "subsections": {}
+            }
+        }
+    },
+    "14.7": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "14.7.1": {
+                "section_name": "Smoothing kernels",
+                "page_number": "507",
+                "subsections": {}
+            },
+            "14.7.2": {
+                "section_name": "Kernel density estimation (KDE)",
+                "page_number": "508",
+                "subsections": {}
+            },
+            "14.7.3": {
+                "section_name": "From KDE to KNN",
+                "page_number": "509",
+                "subsections": {}
+            },
+            "14.7.4": {
+                "section_name": "Kernel regression",
+                "page_number": "510",
+                "subsections": {}
+            },
+            "14.7.5": {
+                "section_name": "Locally weighted regression",
+                "page_number": "512",
+                "subsections": {}
+            }
+        }
+    },
+    "15": {
+        "section_name": "Gaussian processes",
+        "page_number": "515",
+        "subsections": {
+            "15.1": {
+                "section_name": "Introduction",
+                "page_number": "515",
+                "subsections": {}
+            },
+            "15.2": {
+                "section_name": "GPs for regression",
+                "page_number": "516",
+                "subsections": {}
+            },
+            "15.3": {
+                "section_name": "GPs meet GLMs",
+                "page_number": "525",
+                "subsections": {}
+            },
+            "15.4": {
+                "section_name": "Connection with other methods",
+                "page_number": "532",
+                "subsections": {}
+            },
+            "15.5": {
+                "section_name": "GP latent variable model",
+                "page_number": "540",
+                "subsections": {}
+            },
+            "15.6": {
+                "section_name": "Approximation methods for large datasets",
+                "page_number": "542",
+                "subsections": {}
+            }
+        }
+    },
+    "15.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "15.2.1": {
+                "section_name": "Predictions using noise-free observations",
+                "page_number": "517",
+                "subsections": {}
+            },
+            "15.2.2": {
+                "section_name": "Predictions using noisy observations",
+                "page_number": "518",
+                "subsections": {}
+            },
+            "15.2.3": {
+                "section_name": "Effect of the kernel parameters",
+                "page_number": "519",
+                "subsections": {}
+            },
+            "15.2.4": {
+                "section_name": "Estimating the kernel parameters",
+                "page_number": "521",
+                "subsections": {}
+            },
+            "15.2.5": {
+                "section_name": "Computational and numerical issues *",
+                "page_number": "524",
+                "subsections": {}
+            },
+            "15.2.6": {
+                "section_name": "Semi-parametric GPs *",
+                "page_number": "524",
+                "subsections": {}
+            }
+        }
+    },
+    "15.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "15.3.1": {
+                "section_name": "Binary classification",
+                "page_number": "525",
+                "subsections": {}
+            },
+            "15.3.2": {
+                "section_name": "Multi-class classification",
+                "page_number": "528",
+                "subsections": {}
+            },
+            "15.3.3": {
+                "section_name": "GPs for Poisson regression",
+                "page_number": "531",
+                "subsections": {}
+            }
+        }
+    },
+    "15.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "15.4.1": {
+                "section_name": "Linear models compared to GPs",
+                "page_number": "532",
+                "subsections": {}
+            },
+            "15.4.2": {
+                "section_name": "Linear smoothers compared to GPs",
+                "page_number": "533",
+                "subsections": {}
+            },
+            "15.4.3": {
+                "section_name": "SVMs compared to GPs",
+                "page_number": "534",
+                "subsections": {}
+            },
+            "15.4.4": {
+                "section_name": "L1VM and RVMs compared to GPs",
+                "page_number": "534",
+                "subsections": {}
+            },
+            "15.4.5": {
+                "section_name": "Neural networks compared to GPs",
+                "page_number": "535",
+                "subsections": {}
+            },
+            "15.4.6": {
+                "section_name": "Smoothing splines compared to GPs *",
+                "page_number": "536",
+                "subsections": {}
+            },
+            "15.4.7": {
+                "section_name": "RKHS methods compared to GPs *",
+                "page_number": "538",
+                "subsections": {}
+            }
+        }
+    },
+    "16": {
+        "section_name": "Adaptive basis function models",
+        "page_number": "543",
+        "subsections": {
+            "16.1": {
+                "section_name": "Introduction",
+                "page_number": "543",
+                "subsections": {}
+            },
+            "16.2": {
+                "section_name": "Classification and regression trees (CART)",
+                "page_number": "544",
+                "subsections": {}
+            },
+            "16.3": {
+                "section_name": "Generalized additive models",
+                "page_number": "552",
+                "subsections": {}
+            },
+            "16.4": {
+                "section_name": "Boosting",
+                "page_number": "554",
+                "subsections": {}
+            },
+            "16.5": {
+                "section_name": "Feedforward neural networks (multilayer perceptrons)",
+                "page_number": "563",
+                "subsections": {}
+            },
+            "16.6": {
+                "section_name": "Ensemble learning",
+                "page_number": "580",
+                "subsections": {}
+            },
+            "16.7": {
+                "section_name": "Experimental comparison",
+                "page_number": "582",
+                "subsections": {}
+            },
+            "16.8": {
+                "section_name": "Interpreting black-box models",
+                "page_number": "585",
+                "subsections": {}
+            }
+        }
+    },
+    "16.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "16.2.1": {
+                "section_name": "Basics",
+                "page_number": "544",
+                "subsections": {}
+            },
+            "16.2.2": {
+                "section_name": "Growing a tree",
+                "page_number": "545",
+                "subsections": {}
+            },
+            "16.2.3": {
+                "section_name": "Pruning a tree",
+                "page_number": "549",
+                "subsections": {}
+            },
+            "16.2.4": {
+                "section_name": "Pros and cons of trees",
+                "page_number": "550",
+                "subsections": {}
+            },
+            "16.2.5": {
+                "section_name": "Random forests",
+                "page_number": "550",
+                "subsections": {}
+            },
+            "16.2.6": {
+                "section_name": "CART compared to hierarchical mixture of experts *",
+                "page_number": "551",
+                "subsections": {}
+            }
+        }
+    },
+    "16.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "16.3.1": {
+                "section_name": "Backfitting",
+                "page_number": "552",
+                "subsections": {}
+            },
+            "16.3.2": {
+                "section_name": "Computational efficiency",
+                "page_number": "553",
+                "subsections": {}
+            },
+            "16.3.3": {
+                "section_name": "Multivariate adaptive regression splines (MARS)",
+                "page_number": "553",
+                "subsections": {}
+            }
+        }
+    },
+    "16.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "16.4.1": {
+                "section_name": "Forward stagewise additive modeling",
+                "page_number": "555",
+                "subsections": {}
+            },
+            "16.4.2": {
+                "section_name": "L2boosting",
+                "page_number": "557",
+                "subsections": {}
+            },
+            "16.4.3": {
+                "section_name": "AdaBoost",
+                "page_number": "558",
+                "subsections": {}
+            },
+            "16.4.4": {
+                "section_name": "LogitBoost",
+                "page_number": "559",
+                "subsections": {}
+            },
+            "16.4.5": {
+                "section_name": "Boosting as functional gradient descent",
+                "page_number": "560",
+                "subsections": {}
+            },
+            "16.4.6": {
+                "section_name": "Sparse boosting",
+                "page_number": "561",
+                "subsections": {}
+            },
+            "16.4.7": {
+                "section_name": "Multivariate adaptive regression trees (MART)",
+                "page_number": "562",
+                "subsections": {}
+            },
+            "16.4.8": {
+                "section_name": "Why does boosting work so well?",
+                "page_number": "562",
+                "subsections": {}
+            },
+            "16.4.9": {
+                "section_name": "A Bayesian view",
+                "page_number": "563",
+                "subsections": {}
+            }
+        }
+    },
+    "16.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "16.5.1": {
+                "section_name": "Convolutional neural networks",
+                "page_number": "564",
+                "subsections": {}
+            },
+            "16.5.2": {
+                "section_name": "Other kinds of neural networks",
+                "page_number": "568",
+                "subsections": {}
+            },
+            "16.5.3": {
+                "section_name": "A brief history of the field",
+                "page_number": "568",
+                "subsections": {}
+            },
+            "16.5.4": {
+                "section_name": "The backpropagation algorithm",
+                "page_number": "569",
+                "subsections": {}
+            },
+            "16.5.5": {
+                "section_name": "Identifiability",
+                "page_number": "572",
+                "subsections": {}
+            },
+            "16.5.6": {
+                "section_name": "Regularization",
+                "page_number": "572",
+                "subsections": {}
+            },
+            "16.5.7": {
+                "section_name": "Bayesian inference *",
+                "page_number": "576",
+                "subsections": {}
+            }
+        }
+    },
+    "16.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "16.6.1": {
+                "section_name": "Stacking",
+                "page_number": "580",
+                "subsections": {}
+            },
+            "16.6.2": {
+                "section_name": "Error-correcting output codes",
+                "page_number": "581",
+                "subsections": {}
+            },
+            "16.6.3": {
+                "section_name": "Ensemble learning is not equivalent to Bayes model averaging",
+                "page_number": "581",
+                "subsections": {}
+            }
+        }
+    },
+    "16.7": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "16.7.1": {
+                "section_name": "Low-dimensional features",
+                "page_number": "582",
+                "subsections": {}
+            },
+            "16.7.2": {
+                "section_name": "High-dimensional features",
+                "page_number": "583",
+                "subsections": {}
+            }
+        }
+    },
+    "17": {
+        "section_name": "Markov and hidden Markov models",
+        "page_number": "589",
+        "subsections": {
+            "17.1": {
+                "section_name": "Introduction",
+                "page_number": "589",
+                "subsections": {}
+            },
+            "17.2": {
+                "section_name": "Markov models",
+                "page_number": "589",
+                "subsections": {}
+            },
+            "17.3": {
+                "section_name": "Hidden Markov models",
+                "page_number": "603",
+                "subsections": {}
+            },
+            "17.4": {
+                "section_name": "Inference in HMMs",
+                "page_number": "606",
+                "subsections": {}
+            },
+            "17.5": {
+                "section_name": "Learning for HMMs",
+                "page_number": "617",
+                "subsections": {}
+            },
+            "17.6": {
+                "section_name": "Generalizations of HMMs",
+                "page_number": "621",
+                "subsections": {}
+            }
+        }
+    },
+    "17.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "17.2.1": {
+                "section_name": "Transition matrix",
+                "page_number": "589",
+                "subsections": {}
+            },
+            "17.2.2": {
+                "section_name": "Application: Language modeling",
+                "page_number": "591",
+                "subsections": {}
+            },
+            "17.2.3": {
+                "section_name": "Stationary distribution of a Markov chain *",
+                "page_number": "596",
+                "subsections": {}
+            },
+            "17.2.4": {
+                "section_name": "Application: Google\u2019s PageRank algorithm for web page ranking *",
+                "page_number": "600",
+                "subsections": {}
+            }
+        }
+    },
+    "17.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "17.3.1": {
+                "section_name": "Applications of HMMs",
+                "page_number": "604",
+                "subsections": {}
+            }
+        }
+    },
+    "17.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "17.4.1": {
+                "section_name": "Types of inference problems for temporal models",
+                "page_number": "606",
+                "subsections": {}
+            },
+            "17.4.2": {
+                "section_name": "The forwards algorithm",
+                "page_number": "609",
+                "subsections": {}
+            },
+            "17.4.3": {
+                "section_name": "The forwards-backwards algorithm",
+                "page_number": "610",
+                "subsections": {}
+            },
+            "17.4.4": {
+                "section_name": "The Viterbi algorithm",
+                "page_number": "612",
+                "subsections": {}
+            },
+            "17.4.5": {
+                "section_name": "Forwards filtering, backwards sampling",
+                "page_number": "616",
+                "subsections": {}
+            }
+        }
+    },
+    "17.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "17.5.1": {
+                "section_name": "Training with fully observed data",
+                "page_number": "617",
+                "subsections": {}
+            },
+            "17.5.2": {
+                "section_name": "EM for HMMs (the Baum-Welch algorithm)",
+                "page_number": "618",
+                "subsections": {}
+            },
+            "17.5.3": {
+                "section_name": "Bayesian methods for \u201cfitting\u201d HMMs *",
+                "page_number": "620",
+                "subsections": {}
+            },
+            "17.5.4": {
+                "section_name": "Discriminative training",
+                "page_number": "620",
+                "subsections": {}
+            },
+            "17.5.5": {
+                "section_name": "Model selection",
+                "page_number": "621",
+                "subsections": {}
+            }
+        }
+    },
+    "17.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "17.6.1": {
+                "section_name": "Variable duration (semi-Markov) HMMs",
+                "page_number": "622",
+                "subsections": {}
+            },
+            "17.6.2": {
+                "section_name": "Hierarchical HMMs",
+                "page_number": "624",
+                "subsections": {}
+            },
+            "17.6.3": {
+                "section_name": "Input-output HMMs",
+                "page_number": "625",
+                "subsections": {}
+            },
+            "17.6.4": {
+                "section_name": "Auto-regressive and buried HMMs",
+                "page_number": "626",
+                "subsections": {}
+            },
+            "17.6.5": {
+                "section_name": "Factorial HMM",
+                "page_number": "627",
+                "subsections": {}
+            },
+            "17.6.6": {
+                "section_name": "Coupled HMM and the influence model",
+                "page_number": "628",
+                "subsections": {}
+            },
+            "17.6.7": {
+                "section_name": "Dynamic Bayesian networks (DBNs)",
+                "page_number": "628",
+                "subsections": {}
+            }
+        }
+    },
+    "18": {
+        "section_name": "State space models",
+        "page_number": "631",
+        "subsections": {
+            "18.1": {
+                "section_name": "Introduction",
+                "page_number": "631",
+                "subsections": {}
+            },
+            "18.2": {
+                "section_name": "Applications of SSMs",
+                "page_number": "632",
+                "subsections": {}
+            },
+            "18.3": {
+                "section_name": "Inference in LG-SSM",
+                "page_number": "640",
+                "subsections": {}
+            },
+            "18.4": {
+                "section_name": "Learning for LG-SSM",
+                "page_number": "646",
+                "subsections": {}
+            },
+            "18.5": {
+                "section_name": "Approximate online inference for non-linear, non-Gaussian SSMs",
+                "page_number": "647",
+                "subsections": {}
+            },
+            "18.6": {
+                "section_name": "Hybrid discrete/continuous SSMs",
+                "page_number": "655",
+                "subsections": {}
+            }
+        }
+    },
+    "18.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "18.2.1": {
+                "section_name": "SSMs for object tracking",
+                "page_number": "632",
+                "subsections": {}
+            },
+            "18.2.2": {
+                "section_name": "Robotic SLAM",
+                "page_number": "633",
+                "subsections": {}
+            },
+            "18.2.3": {
+                "section_name": "Online parameter learning using recursive least squares",
+                "page_number": "636",
+                "subsections": {}
+            },
+            "18.2.4": {
+                "section_name": "SSM for time series forecasting *",
+                "page_number": "637",
+                "subsections": {}
+            }
+        }
+    },
+    "18.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "18.3.1": {
+                "section_name": "The Kalman filtering algorithm",
+                "page_number": "640",
+                "subsections": {}
+            },
+            "18.3.2": {
+                "section_name": "The Kalman smoothing algorithm",
+                "page_number": "643",
+                "subsections": {}
+            }
+        }
+    },
+    "18.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "18.4.1": {
+                "section_name": "Identifiability and numerical stability",
+                "page_number": "646",
+                "subsections": {}
+            },
+            "18.4.2": {
+                "section_name": "Training with fully observed data",
+                "page_number": "647",
+                "subsections": {}
+            },
+            "18.4.3": {
+                "section_name": "EM for LG-SSM",
+                "page_number": "647",
+                "subsections": {}
+            },
+            "18.4.4": {
+                "section_name": "Subspace methods",
+                "page_number": "647",
+                "subsections": {}
+            },
+            "18.4.5": {
+                "section_name": "Bayesian methods for \u201cfitting\u201d LG-SSMs",
+                "page_number": "647",
+                "subsections": {}
+            }
+        }
+    },
+    "18.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "18.5.1": {
+                "section_name": "Extended Kalman filter (EKF)",
+                "page_number": "648",
+                "subsections": {}
+            },
+            "18.5.2": {
+                "section_name": "Unscented Kalman filter (UKF)",
+                "page_number": "650",
+                "subsections": {}
+            },
+            "18.5.3": {
+                "section_name": "Assumed density filtering (ADF)",
+                "page_number": "652",
+                "subsections": {}
+            }
+        }
+    },
+    "18.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "18.6.1": {
+                "section_name": "Inference",
+                "page_number": "656",
+                "subsections": {}
+            },
+            "18.6.2": {
+                "section_name": "Application: data association and multi-target tracking",
+                "page_number": "658",
+                "subsections": {}
+            },
+            "18.6.3": {
+                "section_name": "Application: fault diagnosis",
+                "page_number": "659",
+                "subsections": {}
+            },
+            "18.6.4": {
+                "section_name": "Application: econometric forecasting",
+                "page_number": "660",
+                "subsections": {}
+            }
+        }
+    },
+    "19": {
+        "section_name": "Undirected graphical models (Markov random fields)",
+        "page_number": "661",
+        "subsections": {
+            "19.1": {
+                "section_name": "Introduction",
+                "page_number": "661",
+                "subsections": {}
+            },
+            "19.2": {
+                "section_name": "Conditional independence properties of UGMs",
+                "page_number": "661",
+                "subsections": {}
+            },
+            "19.3": {
+                "section_name": "Parameterization of MRFs",
+                "page_number": "665",
+                "subsections": {}
+            },
+            "19.4": {
+                "section_name": "Examples of MRFs",
+                "page_number": "668",
+                "subsections": {}
+            },
+            "19.5": {
+                "section_name": "Learning",
+                "page_number": "676",
+                "subsections": {}
+            },
+            "19.6": {
+                "section_name": "Conditional random fields (CRFs)",
+                "page_number": "684",
+                "subsections": {}
+            },
+            "19.7": {
+                "section_name": "Structural SVMs",
+                "page_number": "693",
+                "subsections": {}
+            }
+        }
+    },
+    "19.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "19.2.1": {
+                "section_name": "Key properties",
+                "page_number": "661",
+                "subsections": {}
+            },
+            "19.2.2": {
+                "section_name": "An undirected alternative to d-separation",
+                "page_number": "663",
+                "subsections": {}
+            },
+            "19.2.3": {
+                "section_name": "Comparing directed and undirected graphical models",
+                "page_number": "664",
+                "subsections": {}
+            }
+        }
+    },
+    "19.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "19.3.1": {
+                "section_name": "The Hammersley-Clifford theorem",
+                "page_number": "665",
+                "subsections": {}
+            },
+            "19.3.2": {
+                "section_name": "Representing potential functions",
+                "page_number": "667",
+                "subsections": {}
+            }
+        }
+    },
+    "19.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "19.4.1": {
+                "section_name": "Ising model",
+                "page_number": "668",
+                "subsections": {}
+            },
+            "19.4.2": {
+                "section_name": "Hopfield networks",
+                "page_number": "669",
+                "subsections": {}
+            },
+            "19.4.3": {
+                "section_name": "Potts model",
+                "page_number": "671",
+                "subsections": {}
+            },
+            "19.4.4": {
+                "section_name": "Gaussian MRFs",
+                "page_number": "672",
+                "subsections": {}
+            },
+            "19.4.5": {
+                "section_name": "Markov logic networks *",
+                "page_number": "674",
+                "subsections": {}
+            }
+        }
+    },
+    "19.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "19.5.1": {
+                "section_name": "Training maxent models using gradient methods",
+                "page_number": "676",
+                "subsections": {}
+            },
+            "19.5.2": {
+                "section_name": "Training partially observed maxent models",
+                "page_number": "677",
+                "subsections": {}
+            },
+            "19.5.3": {
+                "section_name": "Approximate methods for computing the MLEs of MRFs",
+                "page_number": "678",
+                "subsections": {}
+            },
+            "19.5.4": {
+                "section_name": "Pseudo likelihood",
+                "page_number": "678",
+                "subsections": {}
+            },
+            "19.5.5": {
+                "section_name": "Stochastic maximum likelihood",
+                "page_number": "679",
+                "subsections": {}
+            },
+            "19.5.6": {
+                "section_name": "Feature induction for maxent models *",
+                "page_number": "680",
+                "subsections": {}
+            },
+            "19.5.7": {
+                "section_name": "Iterative proportional fitting (IPF) *",
+                "page_number": "681",
+                "subsections": {}
+            }
+        }
+    },
+    "19.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "19.6.1": {
+                "section_name": "Chain-structured CRFs, MEMMs and the label-bias problem",
+                "page_number": "684",
+                "subsections": {}
+            },
+            "19.6.2": {
+                "section_name": "Applications of CRFs",
+                "page_number": "686",
+                "subsections": {}
+            },
+            "19.6.3": {
+                "section_name": "CRF training",
+                "page_number": "692",
+                "subsections": {}
+            }
+        }
+    },
+    "19.7": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "19.7.1": {
+                "section_name": "SSVMs: a probabilistic view",
+                "page_number": "693",
+                "subsections": {}
+            },
+            "19.7.2": {
+                "section_name": "SSVMs: a non-probabilistic view",
+                "page_number": "695",
+                "subsections": {}
+            },
+            "19.7.3": {
+                "section_name": "Cutting plane methods for fitting SSVMs",
+                "page_number": "698",
+                "subsections": {}
+            },
+            "19.7.4": {
+                "section_name": "Online algorithms for fitting SSVMs",
+                "page_number": "700",
+                "subsections": {}
+            },
+            "19.7.5": {
+                "section_name": "Latent structural SVMs",
+                "page_number": "701",
+                "subsections": {}
+            }
+        }
+    },
+    "20": {
+        "section_name": "Exact inference for graphical models",
+        "page_number": "707",
+        "subsections": {
+            "20.1": {
+                "section_name": "Introduction",
+                "page_number": "707",
+                "subsections": {}
+            },
+            "20.2": {
+                "section_name": "Belief propagation for trees",
+                "page_number": "707",
+                "subsections": {}
+            },
+            "20.3": {
+                "section_name": "The variable elimination algorithm",
+                "page_number": "714",
+                "subsections": {}
+            },
+            "20.4": {
+                "section_name": "The junction tree algorithm *",
+                "page_number": "720",
+                "subsections": {}
+            },
+            "20.5": {
+                "section_name": "Computational intractability of exact inference in the worst case",
+                "page_number": "726",
+                "subsections": {}
+            }
+        }
+    },
+    "20.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "20.2.1": {
+                "section_name": "Serial protocol",
+                "page_number": "707",
+                "subsections": {}
+            },
+            "20.2.2": {
+                "section_name": "Parallel protocol",
+                "page_number": "709",
+                "subsections": {}
+            },
+            "20.2.3": {
+                "section_name": "Gaussian BP *",
+                "page_number": "710",
+                "subsections": {}
+            },
+            "20.2.4": {
+                "section_name": "Other BP variants *",
+                "page_number": "712",
+                "subsections": {}
+            }
+        }
+    },
+    "20.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "20.3.1": {
+                "section_name": "The generalized distributive law *",
+                "page_number": "717",
+                "subsections": {}
+            },
+            "20.3.2": {
+                "section_name": "Computational complexity of VE",
+                "page_number": "717",
+                "subsections": {}
+            },
+            "20.3.3": {
+                "section_name": "A weakness of VE",
+                "page_number": "720",
+                "subsections": {}
+            }
+        }
+    },
+    "20.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "20.4.1": {
+                "section_name": "Creating a junction tree",
+                "page_number": "720",
+                "subsections": {}
+            },
+            "20.4.2": {
+                "section_name": "Message passing on a junction tree",
+                "page_number": "722",
+                "subsections": {}
+            },
+            "20.4.3": {
+                "section_name": "Computational complexity of JTA",
+                "page_number": "725",
+                "subsections": {}
+            },
+            "20.4.4": {
+                "section_name": "JTA generalizations *",
+                "page_number": "726",
+                "subsections": {}
+            }
+        }
+    },
+    "20.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "20.5.1": {
+                "section_name": "Approximate inference",
+                "page_number": "727",
+                "subsections": {}
+            }
+        }
+    },
+    "21": {
+        "section_name": "Variational inference",
+        "page_number": "731",
+        "subsections": {
+            "21.1": {
+                "section_name": "Introduction",
+                "page_number": "731",
+                "subsections": {}
+            },
+            "21.2": {
+                "section_name": "Variational inference",
+                "page_number": "732",
+                "subsections": {}
+            },
+            "21.3": {
+                "section_name": "The mean field method",
+                "page_number": "735",
+                "subsections": {}
+            },
+            "21.4": {
+                "section_name": "Structured mean field *",
+                "page_number": "739",
+                "subsections": {}
+            },
+            "21.5": {
+                "section_name": "Variational Bayes",
+                "page_number": "742",
+                "subsections": {}
+            },
+            "21.6": {
+                "section_name": "Variational Bayes EM",
+                "page_number": "749",
+                "subsections": {}
+            },
+            "21.7": {
+                "section_name": "Variational message passing and VIBES",
+                "page_number": "756",
+                "subsections": {}
+            },
+            "21.8": {
+                "section_name": "Local variational bounds *",
+                "page_number": "756",
+                "subsections": {}
+            }
+        }
+    },
+    "21.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "21.2.1": {
+                "section_name": "Alternative interpretations of the variational objective",
+                "page_number": "733",
+                "subsections": {}
+            },
+            "21.2.2": {
+                "section_name": "Forward or reverse KL? *",
+                "page_number": "733",
+                "subsections": {}
+            }
+        }
+    },
+    "21.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "21.3.1": {
+                "section_name": "Derivation of the mean field update equations",
+                "page_number": "736",
+                "subsections": {}
+            },
+            "21.3.2": {
+                "section_name": "Example: mean field for the Ising model",
+                "page_number": "737",
+                "subsections": {}
+            }
+        }
+    },
+    "21.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "21.4.1": {
+                "section_name": "Example: factorial HMM",
+                "page_number": "740",
+                "subsections": {}
+            }
+        }
+    },
+    "21.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "21.5.1": {
+                "section_name": "Example: VB for a univariate Gaussian",
+                "page_number": "742",
+                "subsections": {}
+            },
+            "21.5.2": {
+                "section_name": "Example: VB for linear regression",
+                "page_number": "746",
+                "subsections": {}
+            }
+        }
+    },
+    "21.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "21.6.1": {
+                "section_name": "Example: VBEM for mixtures of Gaussians *",
+                "page_number": "750",
+                "subsections": {}
+            }
+        }
+    },
+    "21.8": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "21.8.1": {
+                "section_name": "Motivating applications",
+                "page_number": "756",
+                "subsections": {}
+            },
+            "21.8.2": {
+                "section_name": "Bohning\u2019s quadratic bound to the log-sum-exp function",
+                "page_number": "758",
+                "subsections": {}
+            },
+            "21.8.3": {
+                "section_name": "Bounds for the sigmoid function",
+                "page_number": "760",
+                "subsections": {}
+            },
+            "21.8.4": {
+                "section_name": "Other bounds and approximations to the log-sum-exp function *",
+                "page_number": "762",
+                "subsections": {}
+            },
+            "21.8.5": {
+                "section_name": "Variational inference based on upper bounds",
+                "page_number": "763",
+                "subsections": {}
+            }
+        }
+    },
+    "22": {
+        "section_name": "More variational inference",
+        "page_number": "767",
+        "subsections": {
+            "22.1": {
+                "section_name": "Introduction",
+                "page_number": "767",
+                "subsections": {}
+            },
+            "22.2": {
+                "section_name": "Loopy belief propagation: algorithmic issues",
+                "page_number": "767",
+                "subsections": {}
+            },
+            "22.3": {
+                "section_name": "Loopy belief propagation: theoretical issues *",
+                "page_number": "776",
+                "subsections": {}
+            },
+            "22.4": {
+                "section_name": "Extensions of belief propagation *",
+                "page_number": "783",
+                "subsections": {}
+            },
+            "22.5": {
+                "section_name": "Expectation propagation",
+                "page_number": "787",
+                "subsections": {}
+            },
+            "22.6": {
+                "section_name": "MAP state estimation",
+                "page_number": "799",
+                "subsections": {}
+            }
+        }
+    },
+    "22.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "22.2.1": {
+                "section_name": "A brief history",
+                "page_number": "767",
+                "subsections": {}
+            },
+            "22.2.2": {
+                "section_name": "LBP on pairwise models",
+                "page_number": "768",
+                "subsections": {}
+            },
+            "22.2.3": {
+                "section_name": "LBP on a factor graph",
+                "page_number": "769",
+                "subsections": {}
+            },
+            "22.2.4": {
+                "section_name": "Convergence",
+                "page_number": "771",
+                "subsections": {}
+            },
+            "22.2.5": {
+                "section_name": "Accuracy of LBP",
+                "page_number": "774",
+                "subsections": {}
+            },
+            "22.2.6": {
+                "section_name": "Other speedup tricks for LBP *",
+                "page_number": "775",
+                "subsections": {}
+            }
+        }
+    },
+    "22.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "22.3.1": {
+                "section_name": "UGMs represented in exponential family form",
+                "page_number": "776",
+                "subsections": {}
+            },
+            "22.3.2": {
+                "section_name": "The marginal polytope",
+                "page_number": "777",
+                "subsections": {}
+            },
+            "22.3.3": {
+                "section_name": "Exact inference as a variational optimization problem",
+                "page_number": "778",
+                "subsections": {}
+            },
+            "22.3.4": {
+                "section_name": "Mean field as a variational optimization problem",
+                "page_number": "779",
+                "subsections": {}
+            },
+            "22.3.5": {
+                "section_name": "LBP as a variational optimization problem",
+                "page_number": "779",
+                "subsections": {}
+            },
+            "22.3.6": {
+                "section_name": "Loopy BP vs mean field",
+                "page_number": "783",
+                "subsections": {}
+            }
+        }
+    },
+    "22.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "22.4.1": {
+                "section_name": "Generalized belief propagation",
+                "page_number": "783",
+                "subsections": {}
+            },
+            "22.4.2": {
+                "section_name": "Convex belief propagation",
+                "page_number": "785",
+                "subsections": {}
+            }
+        }
+    },
+    "22.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "22.5.1": {
+                "section_name": "EP as a variational inference problem",
+                "page_number": "788",
+                "subsections": {}
+            },
+            "22.5.2": {
+                "section_name": "Optimizing the EP objective using moment matching",
+                "page_number": "789",
+                "subsections": {}
+            },
+            "22.5.3": {
+                "section_name": "EP for the clutter problem",
+                "page_number": "791",
+                "subsections": {}
+            },
+            "22.5.4": {
+                "section_name": "LBP is a special case of EP",
+                "page_number": "792",
+                "subsections": {}
+            },
+            "22.5.5": {
+                "section_name": "Ranking players using TrueSkill",
+                "page_number": "793",
+                "subsections": {}
+            },
+            "22.5.6": {
+                "section_name": "Other applications of EP",
+                "page_number": "799",
+                "subsections": {}
+            }
+        }
+    },
+    "22.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "22.6.1": {
+                "section_name": "Linear programming relaxation",
+                "page_number": "799",
+                "subsections": {}
+            },
+            "22.6.2": {
+                "section_name": "Max-product belief propagation",
+                "page_number": "800",
+                "subsections": {}
+            },
+            "22.6.3": {
+                "section_name": "Graphcuts",
+                "page_number": "801",
+                "subsections": {}
+            },
+            "22.6.4": {
+                "section_name": "Experimental comparison of graphcuts and BP",
+                "page_number": "804",
+                "subsections": {}
+            },
+            "22.6.5": {
+                "section_name": "Dual decomposition",
+                "page_number": "806",
+                "subsections": {}
+            }
+        }
+    },
+    "23": {
+        "section_name": "Monte Carlo inference",
+        "page_number": "815",
+        "subsections": {
+            "23.1": {
+                "section_name": "Introduction",
+                "page_number": "815",
+                "subsections": {}
+            },
+            "23.2": {
+                "section_name": "Sampling from standard distributions",
+                "page_number": "815",
+                "subsections": {}
+            },
+            "23.3": {
+                "section_name": "Rejection sampling",
+                "page_number": "817",
+                "subsections": {}
+            },
+            "23.4": {
+                "section_name": "Importance sampling",
+                "page_number": "820",
+                "subsections": {}
+            },
+            "23.5": {
+                "section_name": "Particle filtering",
+                "page_number": "823",
+                "subsections": {}
+            },
+            "23.6": {
+                "section_name": "Rao-Blackwellised particle filtering (RBPF)",
+                "page_number": "831",
+                "subsections": {}
+            }
+        }
+    },
+    "23.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "23.2.1": {
+                "section_name": "Using the cdf",
+                "page_number": "815",
+                "subsections": {}
+            },
+            "23.2.2": {
+                "section_name": "Sampling from a Gaussian (Box-Muller method)",
+                "page_number": "817",
+                "subsections": {}
+            }
+        }
+    },
+    "23.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "23.3.1": {
+                "section_name": "Basic idea",
+                "page_number": "817",
+                "subsections": {}
+            },
+            "23.3.2": {
+                "section_name": "Example",
+                "page_number": "818",
+                "subsections": {}
+            },
+            "23.3.3": {
+                "section_name": "Application to Bayesian statistics",
+                "page_number": "819",
+                "subsections": {}
+            },
+            "23.3.4": {
+                "section_name": "Adaptive rejection sampling",
+                "page_number": "819",
+                "subsections": {}
+            },
+            "23.3.5": {
+                "section_name": "Rejection sampling in high dimensions",
+                "page_number": "820",
+                "subsections": {}
+            }
+        }
+    },
+    "23.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "23.4.1": {
+                "section_name": "Basic idea",
+                "page_number": "820",
+                "subsections": {}
+            },
+            "23.4.2": {
+                "section_name": "Handling unnormalized distributions",
+                "page_number": "821",
+                "subsections": {}
+            },
+            "23.4.3": {
+                "section_name": "Importance sampling for a DGM: likelihood weighting",
+                "page_number": "822",
+                "subsections": {}
+            },
+            "23.4.4": {
+                "section_name": "Sampling importance resampling (SIR)",
+                "page_number": "822",
+                "subsections": {}
+            }
+        }
+    },
+    "23.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "23.5.1": {
+                "section_name": "Sequential importance sampling",
+                "page_number": "824",
+                "subsections": {}
+            },
+            "23.5.2": {
+                "section_name": "The degeneracy problem",
+                "page_number": "825",
+                "subsections": {}
+            },
+            "23.5.3": {
+                "section_name": "The resampling step",
+                "page_number": "825",
+                "subsections": {}
+            },
+            "23.5.4": {
+                "section_name": "The proposal distribution",
+                "page_number": "827",
+                "subsections": {}
+            },
+            "23.5.5": {
+                "section_name": "Application: robot localization",
+                "page_number": "828",
+                "subsections": {}
+            },
+            "23.5.6": {
+                "section_name": "Application: visual object tracking",
+                "page_number": "828",
+                "subsections": {}
+            },
+            "23.5.7": {
+                "section_name": "Application: time series forecasting",
+                "page_number": "831",
+                "subsections": {}
+            }
+        }
+    },
+    "23.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "23.6.1": {
+                "section_name": "RBPF for switching LG-SSMs",
+                "page_number": "831",
+                "subsections": {}
+            },
+            "23.6.2": {
+                "section_name": "Application: tracking a maneuvering target",
+                "page_number": "832",
+                "subsections": {}
+            },
+            "23.6.3": {
+                "section_name": "Application: Fast SLAM",
+                "page_number": "834",
+                "subsections": {}
+            }
+        }
+    },
+    "24": {
+        "section_name": "Markov chain Monte Carlo (MCMC) inference",
+        "page_number": "837",
+        "subsections": {
+            "24.1": {
+                "section_name": "Introduction",
+                "page_number": "837",
+                "subsections": {}
+            },
+            "24.2": {
+                "section_name": "Gibbs sampling",
+                "page_number": "838",
+                "subsections": {}
+            },
+            "24.3": {
+                "section_name": "Metropolis Hastings algorithm",
+                "page_number": "848",
+                "subsections": {}
+            },
+            "24.4": {
+                "section_name": "Speed and accuracy of MCMC",
+                "page_number": "856",
+                "subsections": {}
+            },
+            "24.5": {
+                "section_name": "Auxiliary variable MCMC *",
+                "page_number": "863",
+                "subsections": {}
+            },
+            "24.6": {
+                "section_name": "Annealing methods",
+                "page_number": "868",
+                "subsections": {}
+            },
+            "24.7": {
+                "section_name": "Approximating the marginal likelihood",
+                "page_number": "872",
+                "subsections": {}
+            }
+        }
+    },
+    "24.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "24.2.1": {
+                "section_name": "Basic idea",
+                "page_number": "838",
+                "subsections": {}
+            },
+            "24.2.2": {
+                "section_name": "Example: Gibbs sampling for the Ising model",
+                "page_number": "838",
+                "subsections": {}
+            },
+            "24.2.3": {
+                "section_name": "Example: Gibbs sampling for inferring the parameters of a GMM",
+                "page_number": "840",
+                "subsections": {}
+            },
+            "24.2.4": {
+                "section_name": "Collapsed Gibbs sampling *",
+                "page_number": "841",
+                "subsections": {}
+            },
+            "24.2.5": {
+                "section_name": "Gibbs sampling for hierarchical GLMs",
+                "page_number": "844",
+                "subsections": {}
+            },
+            "24.2.6": {
+                "section_name": "BUGS and JAGS",
+                "page_number": "846",
+                "subsections": {}
+            },
+            "24.2.7": {
+                "section_name": "The Imputation Posterior (IP) algorithm",
+                "page_number": "847",
+                "subsections": {}
+            },
+            "24.2.8": {
+                "section_name": "Blocking Gibbs sampling",
+                "page_number": "847",
+                "subsections": {}
+            }
+        }
+    },
+    "24.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "24.3.1": {
+                "section_name": "Basic idea",
+                "page_number": "848",
+                "subsections": {}
+            },
+            "24.3.2": {
+                "section_name": "Gibbs sampling is a special case of MH",
+                "page_number": "849",
+                "subsections": {}
+            },
+            "24.3.3": {
+                "section_name": "Proposal distributions",
+                "page_number": "850",
+                "subsections": {}
+            },
+            "24.3.4": {
+                "section_name": "Adaptive MCMC",
+                "page_number": "853",
+                "subsections": {}
+            },
+            "24.3.5": {
+                "section_name": "Initialization and mode hopping",
+                "page_number": "854",
+                "subsections": {}
+            },
+            "24.3.6": {
+                "section_name": "Why MH works *",
+                "page_number": "854",
+                "subsections": {}
+            },
+            "24.3.7": {
+                "section_name": "Reversible jump (trans-dimensional) MCMC *",
+                "page_number": "855",
+                "subsections": {}
+            }
+        }
+    },
+    "24.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "24.4.1": {
+                "section_name": "The burn-in phase",
+                "page_number": "856",
+                "subsections": {}
+            },
+            "24.4.2": {
+                "section_name": "Mixing rates of Markov chains *",
+                "page_number": "857",
+                "subsections": {}
+            },
+            "24.4.3": {
+                "section_name": "Practical convergence diagnostics",
+                "page_number": "858",
+                "subsections": {}
+            },
+            "24.4.4": {
+                "section_name": "Accuracy of MCMC",
+                "page_number": "860",
+                "subsections": {}
+            },
+            "24.4.5": {
+                "section_name": "How many chains?",
+                "page_number": "862",
+                "subsections": {}
+            }
+        }
+    },
+    "24.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "24.5.1": {
+                "section_name": "Auxiliary variable sampling for logistic regression",
+                "page_number": "863",
+                "subsections": {}
+            },
+            "24.5.2": {
+                "section_name": "Slice sampling",
+                "page_number": "864",
+                "subsections": {}
+            },
+            "24.5.3": {
+                "section_name": "Swendsen Wang",
+                "page_number": "866",
+                "subsections": {}
+            },
+            "24.5.4": {
+                "section_name": "Hybrid/Hamiltonian MCMC *",
+                "page_number": "868",
+                "subsections": {}
+            }
+        }
+    },
+    "24.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "24.6.1": {
+                "section_name": "Simulated annealing",
+                "page_number": "869",
+                "subsections": {}
+            },
+            "24.6.2": {
+                "section_name": "Annealed importance sampling",
+                "page_number": "871",
+                "subsections": {}
+            },
+            "24.6.3": {
+                "section_name": "Parallel tempering",
+                "page_number": "871",
+                "subsections": {}
+            }
+        }
+    },
+    "24.7": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "24.7.1": {
+                "section_name": "The candidate method",
+                "page_number": "872",
+                "subsections": {}
+            },
+            "24.7.2": {
+                "section_name": "Harmonic mean estimate",
+                "page_number": "872",
+                "subsections": {}
+            },
+            "24.7.3": {
+                "section_name": "Annealed importance sampling",
+                "page_number": "873",
+                "subsections": {}
+            }
+        }
+    },
+    "25": {
+        "section_name": "Clustering",
+        "page_number": "875",
+        "subsections": {
+            "25.1": {
+                "section_name": "Introduction",
+                "page_number": "875",
+                "subsections": {}
+            },
+            "25.2": {
+                "section_name": "Dirichlet process mixture models",
+                "page_number": "879",
+                "subsections": {}
+            },
+            "25.3": {
+                "section_name": "Affinity propagation",
+                "page_number": "887",
+                "subsections": {}
+            },
+            "25.4": {
+                "section_name": "Spectral clustering",
+                "page_number": "890",
+                "subsections": {}
+            },
+            "25.5": {
+                "section_name": "Hierarchical clustering",
+                "page_number": "893",
+                "subsections": {}
+            },
+            "25.6": {
+                "section_name": "Clustering datapoints and features",
+                "page_number": "901",
+                "subsections": {}
+            }
+        }
+    },
+    "25.1": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "25.1.1": {
+                "section_name": "Measuring (dis)similarity",
+                "page_number": "875",
+                "subsections": {}
+            },
+            "25.1.2": {
+                "section_name": "Evaluating the output of clustering methods *",
+                "page_number": "876",
+                "subsections": {}
+            }
+        }
+    },
+    "25.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "25.2.1": {
+                "section_name": "From finite to infinite mixture models",
+                "page_number": "879",
+                "subsections": {}
+            },
+            "25.2.2": {
+                "section_name": "The Dirichlet process",
+                "page_number": "882",
+                "subsections": {}
+            },
+            "25.2.3": {
+                "section_name": "Applying Dirichlet processes to mixture modeling",
+                "page_number": "885",
+                "subsections": {}
+            },
+            "25.2.4": {
+                "section_name": "Fitting a DP mixture model",
+                "page_number": "886",
+                "subsections": {}
+            }
+        }
+    },
+    "25.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "25.4.1": {
+                "section_name": "Graph Laplacian",
+                "page_number": "891",
+                "subsections": {}
+            },
+            "25.4.2": {
+                "section_name": "Normalized graph Laplacian",
+                "page_number": "892",
+                "subsections": {}
+            },
+            "25.4.3": {
+                "section_name": "Example",
+                "page_number": "893",
+                "subsections": {}
+            }
+        }
+    },
+    "25.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "25.5.1": {
+                "section_name": "Agglomerative clustering",
+                "page_number": "895",
+                "subsections": {}
+            },
+            "25.5.2": {
+                "section_name": "Divisive clustering",
+                "page_number": "898",
+                "subsections": {}
+            },
+            "25.5.3": {
+                "section_name": "Choosing the number of clusters",
+                "page_number": "899",
+                "subsections": {}
+            },
+            "25.5.4": {
+                "section_name": "Bayesian hierarchical clustering",
+                "page_number": "899",
+                "subsections": {}
+            }
+        }
+    },
+    "25.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "25.6.1": {
+                "section_name": "Biclustering",
+                "page_number": "903",
+                "subsections": {}
+            },
+            "25.6.2": {
+                "section_name": "Multi-view clustering",
+                "page_number": "903",
+                "subsections": {}
+            }
+        }
+    },
+    "26": {
+        "section_name": "Graphical model structure learning",
+        "page_number": "907",
+        "subsections": {
+            "26.1": {
+                "section_name": "Introduction",
+                "page_number": "907",
+                "subsections": {}
+            },
+            "26.2": {
+                "section_name": "Structure learning for knowledge discovery",
+                "page_number": "908",
+                "subsections": {}
+            },
+            "26.3": {
+                "section_name": "Learning tree structures",
+                "page_number": "910",
+                "subsections": {}
+            },
+            "26.4": {
+                "section_name": "Learning DAG structures",
+                "page_number": "914",
+                "subsections": {}
+            },
+            "26.5": {
+                "section_name": "Learning DAG structure with latent variables",
+                "page_number": "922",
+                "subsections": {}
+            },
+            "26.6": {
+                "section_name": "Learning causal DAGs",
+                "page_number": "931",
+                "subsections": {}
+            },
+            "26.7": {
+                "section_name": "Learning undirected Gaussian graphical models",
+                "page_number": "938",
+                "subsections": {}
+            },
+            "26.8": {
+                "section_name": "Learning undirected discrete graphical models",
+                "page_number": "942",
+                "subsections": {}
+            }
+        }
+    },
+    "26.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "26.2.1": {
+                "section_name": "Relevance networks",
+                "page_number": "908",
+                "subsections": {}
+            },
+            "26.2.2": {
+                "section_name": "Dependency networks",
+                "page_number": "909",
+                "subsections": {}
+            }
+        }
+    },
+    "26.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "26.3.1": {
+                "section_name": "Directed or undirected tree?",
+                "page_number": "911",
+                "subsections": {}
+            },
+            "26.3.2": {
+                "section_name": "Chow-Liu algorithm for finding the ML tree structure",
+                "page_number": "912",
+                "subsections": {}
+            },
+            "26.3.3": {
+                "section_name": "Finding the MAP forest",
+                "page_number": "912",
+                "subsections": {}
+            },
+            "26.3.4": {
+                "section_name": "Mixtures of trees",
+                "page_number": "914",
+                "subsections": {}
+            }
+        }
+    },
+    "26.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "26.4.1": {
+                "section_name": "Markov equivalence",
+                "page_number": "914",
+                "subsections": {}
+            },
+            "26.4.2": {
+                "section_name": "Exact structural inference",
+                "page_number": "916",
+                "subsections": {}
+            },
+            "26.4.3": {
+                "section_name": "Scaling up to larger graphs",
+                "page_number": "920",
+                "subsections": {}
+            }
+        }
+    },
+    "26.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "26.5.1": {
+                "section_name": "Approximating the marginal likelihood when we have missing data",
+                "page_number": "922",
+                "subsections": {}
+            },
+            "26.5.2": {
+                "section_name": "Structural EM",
+                "page_number": "925",
+                "subsections": {}
+            },
+            "26.5.3": {
+                "section_name": "Discovering hidden variables",
+                "page_number": "926",
+                "subsections": {}
+            },
+            "26.5.4": {
+                "section_name": "Case study: Google\u2019s Rephil",
+                "page_number": "928",
+                "subsections": {}
+            },
+            "26.5.5": {
+                "section_name": "Structural equation models *",
+                "page_number": "929",
+                "subsections": {}
+            }
+        }
+    },
+    "26.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "26.6.1": {
+                "section_name": "Causal interpretation of DAGs",
+                "page_number": "931",
+                "subsections": {}
+            },
+            "26.6.2": {
+                "section_name": "Using causal DAGs to resolve Simpson\u2019s paradox",
+                "page_number": "933",
+                "subsections": {}
+            },
+            "26.6.3": {
+                "section_name": "Learning causal DAG structures",
+                "page_number": "935",
+                "subsections": {}
+            }
+        }
+    },
+    "26.7": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "26.7.1": {
+                "section_name": "MLE for a GGM",
+                "page_number": "938",
+                "subsections": {}
+            },
+            "26.7.2": {
+                "section_name": "Graphical lasso",
+                "page_number": "939",
+                "subsections": {}
+            },
+            "26.7.3": {
+                "section_name": "Bayesian inference for GGM structure *",
+                "page_number": "941",
+                "subsections": {}
+            },
+            "26.7.4": {
+                "section_name": "Handling non-Gaussian data using copulas *",
+                "page_number": "942",
+                "subsections": {}
+            }
+        }
+    },
+    "26.8": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "26.8.1": {
+                "section_name": "Graphical lasso for MRFs/CRFs",
+                "page_number": "942",
+                "subsections": {}
+            },
+            "26.8.2": {
+                "section_name": "Thin junction trees",
+                "page_number": "944",
+                "subsections": {}
+            }
+        }
+    },
+    "27": {
+        "section_name": "Latent variable models for discrete data",
+        "page_number": "945",
+        "subsections": {
+            "27.1": {
+                "section_name": "Introduction",
+                "page_number": "945",
+                "subsections": {}
+            },
+            "27.2": {
+                "section_name": "Distributed state LVMs for discrete data",
+                "page_number": "946",
+                "subsections": {}
+            },
+            "27.3": {
+                "section_name": "Latent Dirichlet allocation (LDA)",
+                "page_number": "950",
+                "subsections": {}
+            },
+            "27.4": {
+                "section_name": "Extensions of LDA",
+                "page_number": "961",
+                "subsections": {}
+            },
+            "27.5": {
+                "section_name": "LVMs for graph-structured data",
+                "page_number": "970",
+                "subsections": {}
+            },
+            "27.6": {
+                "section_name": "LVMs for relational data",
+                "page_number": "975",
+                "subsections": {}
+            },
+            "27.7": {
+                "section_name": "Restricted Boltzmann machines (RBMs)",
+                "page_number": "983",
+                "subsections": {}
+            }
+        }
+    },
+    "27.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "27.2.1": {
+                "section_name": "Mixture models",
+                "page_number": "946",
+                "subsections": {}
+            },
+            "27.2.2": {
+                "section_name": "Exponential family PCA",
+                "page_number": "947",
+                "subsections": {}
+            },
+            "27.2.3": {
+                "section_name": "LDA and mPCA",
+                "page_number": "948",
+                "subsections": {}
+            },
+            "27.2.4": {
+                "section_name": "GaP model and non-negative matrix factorization",
+                "page_number": "949",
+                "subsections": {}
+            }
+        }
+    },
+    "27.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "27.3.1": {
+                "section_name": "Basics",
+                "page_number": "950",
+                "subsections": {}
+            },
+            "27.3.2": {
+                "section_name": "Unsupervised discovery of topics",
+                "page_number": "953",
+                "subsections": {}
+            },
+            "27.3.3": {
+                "section_name": "Quantitatively evaluating LDA as a language model",
+                "page_number": "953",
+                "subsections": {}
+            },
+            "27.3.4": {
+                "section_name": "Fitting using (collapsed) Gibbs sampling",
+                "page_number": "955",
+                "subsections": {}
+            },
+            "27.3.5": {
+                "section_name": "Example",
+                "page_number": "956",
+                "subsections": {}
+            },
+            "27.3.6": {
+                "section_name": "Fitting using batch variational inference",
+                "page_number": "957",
+                "subsections": {}
+            },
+            "27.3.7": {
+                "section_name": "Fitting using online variational inference",
+                "page_number": "959",
+                "subsections": {}
+            },
+            "27.3.8": {
+                "section_name": "Determining the number of topics",
+                "page_number": "960",
+                "subsections": {}
+            }
+        }
+    },
+    "27.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "27.4.1": {
+                "section_name": "Correlated topic model",
+                "page_number": "961",
+                "subsections": {}
+            },
+            "27.4.2": {
+                "section_name": "Dynamic topic model",
+                "page_number": "962",
+                "subsections": {}
+            },
+            "27.4.3": {
+                "section_name": "LDA-HMM",
+                "page_number": "963",
+                "subsections": {}
+            },
+            "27.4.4": {
+                "section_name": "Supervised LDA",
+                "page_number": "967",
+                "subsections": {}
+            }
+        }
+    },
+    "27.5": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "27.5.1": {
+                "section_name": "Stochastic block model",
+                "page_number": "971",
+                "subsections": {}
+            },
+            "27.5.2": {
+                "section_name": "Mixed membership stochastic block model",
+                "page_number": "973",
+                "subsections": {}
+            },
+            "27.5.3": {
+                "section_name": "Relational topic model",
+                "page_number": "974",
+                "subsections": {}
+            }
+        }
+    },
+    "27.6": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "27.6.1": {
+                "section_name": "Infinite relational model",
+                "page_number": "976",
+                "subsections": {}
+            },
+            "27.6.2": {
+                "section_name": "Probabilistic matrix factorization for collaborative filtering",
+                "page_number": "979",
+                "subsections": {}
+            }
+        }
+    },
+    "27.7": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "27.7.1": {
+                "section_name": "Varieties of RBMs",
+                "page_number": "985",
+                "subsections": {}
+            },
+            "27.7.2": {
+                "section_name": "Learning RBMs",
+                "page_number": "987",
+                "subsections": {}
+            },
+            "27.7.3": {
+                "section_name": "Applications of RBMs",
+                "page_number": "991",
+                "subsections": {}
+            }
+        }
+    },
+    "28": {
+        "section_name": "Deep learning",
+        "page_number": "995",
+        "subsections": {
+            "28.1": {
+                "section_name": "Introduction",
+                "page_number": "995",
+                "subsections": {}
+            },
+            "28.2": {
+                "section_name": "Deep generative models",
+                "page_number": "995",
+                "subsections": {}
+            },
+            "28.3": {
+                "section_name": "Deep neural networks",
+                "page_number": "999",
+                "subsections": {}
+            },
+            "28.4": {
+                "section_name": "Applications of deep networks",
+                "page_number": "1001",
+                "subsections": {}
+            },
+            "28.5": {
+                "section_name": "Discussion",
+                "page_number": "1005",
+                "subsections": {}
+            }
+        }
+    },
+    "28.2": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "28.2.1": {
+                "section_name": "Deep directed networks",
+                "page_number": "996",
+                "subsections": {}
+            },
+            "28.2.2": {
+                "section_name": "Deep Boltzmann machines",
+                "page_number": "996",
+                "subsections": {}
+            },
+            "28.2.3": {
+                "section_name": "Deep belief networks",
+                "page_number": "997",
+                "subsections": {}
+            },
+            "28.2.4": {
+                "section_name": "Greedy layer-wise learning of DBNs",
+                "page_number": "998",
+                "subsections": {}
+            }
+        }
+    },
+    "28.3": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "28.3.1": {
+                "section_name": "Deep multi-layer perceptrons",
+                "page_number": "999",
+                "subsections": {}
+            },
+            "28.3.2": {
+                "section_name": "Deep auto-encoders",
+                "page_number": "1000",
+                "subsections": {}
+            },
+            "28.3.3": {
+                "section_name": "Stacked denoising auto-encoders",
+                "page_number": "1001",
+                "subsections": {}
+            }
+        }
+    },
+    "28.4": {
+        "section_name": "",
+        "page_number": "",
+        "subsections": {
+            "28.4.1": {
+                "section_name": "Handwritten digit classification using DBNs",
+                "page_number": "1001",
+                "subsections": {}
+            },
+            "28.4.2": {
+                "section_name": "Data visualization and feature discovery using deep auto-encoders",
+                "page_number": "1002",
+                "subsections": {}
+            },
+            "28.4.3": {
+                "section_name": "Information retrieval using deep auto-encoders (semantic hashing)",
+                "page_number": "1003",
+                "subsections": {}
+            },
+            "28.4.4": {
+                "section_name": "Learning audio features using 1d convolutional DBNs",
+                "page_number": "1004",
+                "subsections": {}
+            },
+            "28.4.5": {
+                "section_name": "Learning image features using 2d convolutional DBNs",
+                "page_number": "1005",
+                "subsections": {}
+            }
+        }
+    }
+}
