@@ -88,14 +88,14 @@ $('#submit_response_1').click(function() {
 });
 
 
-function post_data (data){
+function post_data (data_post){
 
   //console.log("Posting Data", data)
 
   $.ajax({
     type: "POST",
     url: "/post_data",
-    data: data,
+    data: JSON.stringify(data_post),
       success: function (data, status, xhr) {
       console.log(data);
     },

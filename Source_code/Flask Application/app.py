@@ -9,6 +9,8 @@ load_dotenv(os.sep.join([os.path.dirname(os.getcwd()), "Scraping", ".env"]))
 sys.path.insert(0, os.sep.join([os.path.dirname(os.getcwd()), os.getenv("SCRAPING_SCRIPT")]))
 from file_path_manager import File_Path_Manager
 
+sys.path.insert(0, os.sep.join([os.path.dirname(os.getcwd()), os.getenv("QUERY_SCRIPTS_FOLDER")]))
+from Prerequisites_finder import Prerequisites 
 
 app = Flask(__name__)
 fpm_h = File_Path_Manager()
@@ -20,12 +22,18 @@ def index():
 @app.route('/post_data', methods=['POST'])
 def post_data():
     if request.method == 'POST':
-        
-        selected_item_id    =   request.form.get("id")
-        selected_item_name  =   request.form.get("name") 
+       
+        data                =   list(request.form.items())[0]
+        json_string         =   data[0]
+        parsed_data         =   json.loads(json_string)
+        selected_item_id    =   parsed_data.get("id")
+        selected_item_name  =   parsed_data.get("name") 
 
     print("Selected item id", selected_item_id)
     print("Selected item name", selected_item_name)
+   
+    p_h = Prerequisites()
+    p_h.grab_data({ "id":selected_item_id, "name":selected_item_name})
 
     return("Data Posted Sucessfully")
 
@@ -41,15 +49,6 @@ def Query():
         servings = request.form.get('servings')
         print("Question asked :{} for step No {}".format(question, step_no))
 
-        '''
-        qr_h = Query_Resolver()
-        qr_h.read_json()
-        qr_h.set_cuisine_and_recipe(cuisine, recipe, servings)
-        parsed_query = qr_h.parse_question(question)
-        answer = qr_h.question_interpreter(parsed_query, step_no)
-
-        return (answer)
-        '''
 
 @app.route('/data')
 def get_data():  

@@ -1,6 +1,7 @@
 {
     "python.analysis.extraPaths": [
         "./Source_code/Arangodb",
-        "./Source_code/Scraping"
+        "./Source_code/Scraping",
+        "./Source_code/Query Scripts"
     ]
 }
