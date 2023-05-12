@@ -13,63 +13,25 @@
 .container { margin: 150px auto; }
 </style>
 </head>
-<body>
+<body  onload="init()">
 
+    <div class="container">
+        <h1>Curriculum Personalization Dashboard</h1>
 
-
-<div class="container">
-	<h1>Curriculum Personalization Dashboard</h1>
-
-	<div overflow = "auto">
-        <div class="left">
-			<h3 id="MultiSelect_Header_1"></h3>
-			<input type="text" id="justAnInputBox1" placeholder="Select" autocomplete="off"/>
-		</div>
-        <div class="right">
-            <button id="submit_response_1", type="submit">Submit Response</button>
+        <div overflow = "auto">
+            <div class="left">
+                <h3 id="MultiSelect_Header_1"></h3>
+                <input type="text" id="justAnInputBox1" placeholder="Select" autocomplete="off"/>
+            </div>
+            <div class="right">
+                <button id="submit_response_1", type="submit">Submit Response</button>
+            </div>
         </div>
-	</div>
-</div>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='Drop-Down-Combo-Tree/comboTreePlugin.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='data_extractor.js')}}"></script>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="{{url_for('static', filename='Drop-Down-Combo-Tree/comboTreePlugin.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='data_extractor.js')}}"></script>
-
-
-<script type="text/javascript">
-
-var comboTree1, comboTree2;
-
-jQuery(document).ready(function($) {
-
-    init()
-    /*
-		comboTree1 = $('#justAnInputBox').comboTree({
-			source : SampleJSONData,
-			isMultiple: true,
-			cascadeSelect: false,
-			collapse: true,
-			selectableLastNode: true,
-			withSelectAll: true
-		});
-		
-		comboTree3 = $('#justAnInputBox1').comboTree({
-			source : SampleJSONData,
-			isMultiple: true,
-			cascadeSelect: true,
-			collapse: false
-		});
-
-		comboTree3.setSource(SampleJSONData);
-
-
-		comboTree2 = $('#justAnotherInputBox').comboTree({
-			source : SampleJSONData,
-			isMultiple: false
-		});*/
-});
-
-</script>
 </body>
 </html>
