@@ -17,7 +17,17 @@ fpm_h = File_Path_Manager()
 def index():
     return render_template('index.html')
 
-@app.route('/create_file', methods=['POST'])
+@app.route('/post_data', methods=['POST'])
+def post_data():
+    if request.method == 'POST':
+        
+        selected_item_id    =   request.form.get("id")
+        selected_item_name  =   request.form.get("name") 
+
+    print("Selected item id", selected_item_id)
+    print("Selected item name", selected_item_name)
+
+    return("Data Posted Sucessfully")
 
 
 @app.route('/Query', methods=['POST'])
@@ -46,7 +56,7 @@ def get_data():
 
     json_path = os.sep.join([fpm_h.get_book_json_dir(), "Machine_Learning_A_Probabilistic_Perspective_Index.json"])
     data = json.load(open(json_path)) 
-    print(data)
+    ##print(data)
     return json.dumps(data)
 
 if __name__ == '__main__':
