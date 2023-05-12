@@ -152,3 +152,16 @@ span.comboTreeItemTitle, .comboTreeDropDownContainer .selectAll{
 	border-right: none;
 	border-bottom: 1px solid var(--ct-border-color);
 }
+
+.left {
+    float: left;
+    width: 50%;
+  }
+  
+  .right {
+    float: left;
+    height: 99.13px;
+    width: 50%;
+    text-align: center;
+    padding: 68px;
+  }
