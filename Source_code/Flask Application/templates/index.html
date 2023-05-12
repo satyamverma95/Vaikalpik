@@ -1,80 +1,74 @@
+<!doctype html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <title>Spice Up</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--<script src="../js/data_extractor.js"></script>-->
-    <script type="text/javascript" src="{{url_for('static', filename='data_extractor.js')}}"></script>
-    <style>
-        .axis path,
-        .axis line {
-            fill: none;
-            stroke: #000;
-            shape-rendering: crispEdges;
-        }
-
-        .comment {
-            resize: none;
-            height: 100px;
-            width: 350px;
-        }
-    </style>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/stylemax.css')}}" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>ComboTree jQuery Plugin Demos by Erhan FIRAT</title>
+	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='Drop-Down-Combo-Tree/style.css')}}" />
+<style>
+.container { margin: 150px auto; }
+</style>
 </head>
+<body>
 
-<body onload="init()">
 
-    <h1 style="margin-top: 0px">Welcome to Group#13 NLP Recipe Parser :)</h1>
-    <h2 style="margin-top: -30px">We are delighted to have you here!!</h2>
 
-    <div style="margin:30; width: 100%; align-self: center;">
-        <div id="cuisine" style="float: left; width: 50%">
-            <label for="cuisine_id">Cuisines: </label><select style="width: 200px; height:25px;" id="cuisine_id"
-                onchange="populate_recipe()">
-                <option val="sales">None</option>
-            </select>
-        </div>
+<div class="container">
+	<h1>ComboTree jQuery Plugin Demos</h1>
 
-        <div id="recipe" style="float: right; width: 50%">
-            <label for="recipe_id">Recipe: </label><select style="width: 200px; height:25px;" id="recipe_id">
-                <option val="profit">None</option>
-            </select>
-        </div>
-    </div>
+	<div class="row">
+		
+        <div class="col-lg-6">
+			<h3 id="MultiSelect_Header#1">Multi Selection With Cascade Option Select</h3>
+			<input type="text" id="justAnInputBox1" placeholder="Select" autocomplete="off"/>
+		</div>
 
-    <div id="Update_click_div"
-        style="display: table-cell; width: 150; text-align: center; margin:30; height:25px; align-self: center;">
-        <button id="update" onclick="fetch_recipe_details()">Fetch Recipe</button>
-    </div>
+	</div>
+	</div>
 
-    <div id="recipe_directions" style="text-align: center; word-wrap: normal">
-    </div>
 
-    <div id="navigation_button"
-        style="display: table-cell; width: 150; text-align: center; margin:0; height:25px; align-self: center; position: static">
-        <button id="Prev" onclick="process_recipes_data(this.id)" disabled>Prev</button>
-        <button id="Next" onclick="process_recipes_data(this.id)">Next</button>
-    </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="{{url_for('static', filename='Drop-Down-Combo-Tree/comboTreePlugin.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='data_extractor.js')}}"></script>
 
-    <div id="Question_div" style="text-align: center; width: 100%">
-        <label for="query_id" style ="font-size: 1.5em; color: rgb(102, 72, 72);">Query: </label><input id="Question_input_id" value="Input your question"></input>
-        <label for="servings_id" style ="font-size: 1.5em; color: rgb(102, 72, 72);">Servings: </label><input id="Servings_id" value="No. of Servings."></input>
-        <button id="QSubmit" onclick="ask_question()">Submit</button>
-    </div>
 
-    <div id="Answer_div" style="text-align: center;">
-    </div>
+<script type="text/javascript">
 
-    <div id="Speech_id"
-        style="display: table-cell; width: 150; text-align: center; margin:0; height:25px; align-self: center;">
-        <p><button type="button" onclick="runSpeechRecognition()">Speech to Text</button>
-        
-    </div>
-    <div style = "text-align: center; width: 100%; word-wrap: normal" id="output"></div>
-    </div>
+var comboTree1, comboTree2;
 
-    <div id="vis"></div>
+jQuery(document).ready(function($) {
+
+    init()
+    /*
+		comboTree1 = $('#justAnInputBox').comboTree({
+			source : SampleJSONData,
+			isMultiple: true,
+			cascadeSelect: false,
+			collapse: true,
+			selectableLastNode: true,
+			withSelectAll: true
+		});
+		
+		comboTree3 = $('#justAnInputBox1').comboTree({
+			source : SampleJSONData,
+			isMultiple: true,
+			cascadeSelect: true,
+			collapse: false
+		});
+
+		comboTree3.setSource(SampleJSONData);
+
+
+		comboTree2 = $('#justAnotherInputBox').comboTree({
+			source : SampleJSONData,
+			isMultiple: false
+		});*/
+});
+
+</script>
 </body>
-
 </html>
