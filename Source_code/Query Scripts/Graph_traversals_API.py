@@ -11,7 +11,7 @@ class Graph_API():
         self.graph_name         =   graph_name
 
 
-    def get_parent_topic(self, topic_name, parent_level):
+    def get_parent_topic(self, topic_name, parent_level=1):
         #############################
         # We need to follow protocol while using Query Enging API
         #   1) Always connect to the databse first. 
@@ -30,7 +30,7 @@ class Graph_API():
                                                                             database_name=self.database_name )
             if(len(results_list)>0):
                 parent_topic = results_list[-1].Topic
-                print("Parent topic of {} is {}".format(topic_name, parent_topic))
+                #print("Parent topic of {} is {}".format(topic_name, parent_topic))
             else:
                 print("Cuurently we don't have level {} Parent topic for {}".format( parent_level, topic_name))
 
@@ -51,10 +51,14 @@ class Graph_API():
                                                                                 database_name=self.database_name )
             if(len(results_list)>0):
                 sorted_sub_topics = sorted(results_list, key=lambda x: tuple(map(int, x['Sequence'].split('.'))))
+                sub_topics_list =  [doc['Topic'] for doc in sorted_sub_topics]
                 sub_topics = ", ".join([doc['Topic'] for doc in sorted_sub_topics])
-                print("Sub topics of \"{}\" are : {}".format(topic_name, sub_topics))
+                #print("Sub topics of \"{}\" are : {}".format(topic_name, sub_topics))
             else:
+                sub_topics_list= []
                 print("Currently we don't have any sub topic for {}".format(topic_name))
+
+        return (sub_topics_list)
 
     def get_all_other_sub_topics_of_a_topic(self, topic_name):
         
@@ -74,16 +78,17 @@ class Graph_API():
             if(len(results_list)>0):
                 sorted_neighbour_topics = sorted(results_list, key=lambda x: tuple(map(int, x['Sequence'].split('.'))))
                 neighbour_topics = ", ".join([doc['Topic'] for doc in sorted_neighbour_topics])
-                print("Neighbours of \"{}\" are : {}".format(topic_name, neighbour_topics))
+                #print("Neighbours of \"{}\" are : {}".format(topic_name, neighbour_topics))
             else:
                 print("Currently we don't have any sub topic for {}".format(topic_name))
 
 
     def get_childer_inbound_edges(self, topic_name):
 
-        parent_node = self.get_parent_topic(topic_name="Pareto distribution", parent_level = 1)
-        self.get_all_sub_topics(topic_name=parent_node)
+        parent_node = self.get_parent_topic(topic_name=topic_name, parent_level = 1)
+        subtopics_names = self.get_all_sub_topics(topic_name=parent_node)
 
+        return (parent_node, subtopics_names)
 
 
 if __name__=="__main__":

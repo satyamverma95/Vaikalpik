@@ -29,8 +29,8 @@ def post_data():
         selected_item_id    =   parsed_data.get("id")
         selected_item_name  =   parsed_data.get("name") 
 
-    print("Selected item id", selected_item_id)
-    print("Selected item name", selected_item_name)
+    #print("Selected item id", selected_item_id)
+    #print("Selected item name", selected_item_name)
    
     p_h = Prerequisites()
     p_h.grab_data({ "id":selected_item_id, "name":selected_item_name})

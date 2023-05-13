@@ -91,6 +91,10 @@ $('#submit_response_1').click(function() {
 function post_data (data_post){
 
   //console.log("Posting Data", data)
+  
+  // Show the loading gif
+  $("#loading_gif_container").css("display", "flex");
+ //$("#loading_gif_container").show();
 
   $.ajax({
     type: "POST",
@@ -98,6 +102,7 @@ function post_data (data_post){
     data: JSON.stringify(data_post),
       success: function (data, status, xhr) {
       console.log(data);
+      $("#loading_gif_container").hide();
     },
     error: function (jqXhr, textStatus, errorMessage) {
       console.log(errorMessage);
