@@ -77,6 +77,81 @@ function initializeComboTree(data) {
 }
 
 
+function createTableFromJSON(data) {
+  const table = document.createElement('table');
+
+  const thead = document.createElement('thead');
+  const tr = document.createElement('tr');
+
+  const thTopic = document.createElement('th');
+  thTopic.textContent = 'Topic';
+  tr.appendChild(thTopic);
+
+  const thTopicsRecommended = document.createElement('th');
+  thTopicsRecommended.textContent = 'Topics Recommended';
+  tr.appendChild(thTopicsRecommended);
+
+  const thAlreadyRead = document.createElement('th');
+  thAlreadyRead.textContent = 'Already Read';
+  tr.appendChild(thAlreadyRead);
+
+  thead.appendChild(tr);
+  table.appendChild(thead);
+
+  const tbody = document.createElement('tbody');
+
+  for (const topic in data) {
+    const subtopics = data[topic];
+
+    const tr = document.createElement('tr');
+
+    const tdTopic = document.createElement('td');
+    tdTopic.textContent = topic;
+    tr.appendChild(tdTopic);
+
+    const tdTopicsRecommended = document.createElement('td');
+    tdTopicsRecommended.classList.add('topics-recommended');
+
+    const tdAlreadyRead = document.createElement('td');
+    tdAlreadyRead.classList.add('already-read');
+
+    for (const subtopic in subtopics) {
+      if (subtopics[subtopic] === '0') {
+        const div = document.createElement('div');
+        div.textContent = subtopic;
+        tdTopicsRecommended.appendChild(div);
+      } else if (subtopics[subtopic] === '1') {
+        const div = document.createElement('div');
+        div.textContent = subtopic;
+        tdAlreadyRead.appendChild(div);
+      }
+    }
+
+    tr.appendChild(tdTopicsRecommended);
+    tr.appendChild(tdAlreadyRead);
+
+    tbody.appendChild(tr);
+  }
+
+  table.appendChild(tbody);
+
+  return table;
+}
+
+function publish_data_to_user(jsonData){
+
+  // Get the container element
+  var container = document.getElementById('table-container');
+
+  // Create the table
+  var table = createTableFromJSON(jsonData);
+
+  // Append the table to the container
+  container.appendChild(table);
+
+}
+
+
 $('#submit_response_1').click(function() {
   
   selected_element_names  = combo_tree_instance.getSelectedNames();
@@ -90,19 +165,19 @@ $('#submit_response_1').click(function() {
 
 function post_data (data_post){
 
-  //console.log("Posting Data", data)
-  
   // Show the loading gif
   $("#loading_gif_container").css("display", "flex");
- //$("#loading_gif_container").show();
+  //$("#loading_gif_container").show();
 
   $.ajax({
     type: "POST",
     url: "/post_data",
     data: JSON.stringify(data_post),
       success: function (data, status, xhr) {
-      console.log(data);
+      //console.log(data);
       $("#loading_gif_container").hide();
+      console.log("Data Received", data)
+      publish_data_to_user(data)
     },
     error: function (jqXhr, textStatus, errorMessage) {
       console.log(errorMessage);

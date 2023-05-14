@@ -33,9 +33,9 @@ def post_data():
     #print("Selected item name", selected_item_name)
    
     p_h = Prerequisites()
-    p_h.grab_data({ "id":selected_item_id, "name":selected_item_name})
+    processed_data = p_h.grab_data({ "id":selected_item_id, "name":selected_item_name})
 
-    return("Data Posted Sucessfully")
+    return(processed_data)
 
 
 @app.route('/Query', methods=['POST'])

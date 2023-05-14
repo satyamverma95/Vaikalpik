@@ -13,9 +13,19 @@ from json_manager import Json_Object
 class Prerequisites():
     def __init__(self):
         
-        self.var = ""
+        self.topics_dict    =   Json_Object()
+        self.title_kw       =   "Title"
+        self.subtopics_kw   =   "subtopics"
 
-    def grab_data (self, data):
+    def grab_data( self, data):
+
+        processed_data = self.process_data(data)
+        #self.post_result(data)
+
+        return(processed_data)
+
+
+    def process_data (self, data):
 
         #print("Data received", data)
         gapi_h = Graph_API()
@@ -23,26 +33,34 @@ class Prerequisites():
                                     graph_name="Machine_Learning_Relations",\
                                     database_name="Data_Science"
                                 )
-        topics_dict = Json_Object()
-        title_kw        =   "Title"
-        subtopics_kw    =   "subtopics"
 
-        for topic_count, topic_name in enumerate(data["name"]):
+        for topic_count, topic_name in enumerate(data["name"], start=1):
 
             parent_topic, similar_topcis = gapi_h.get_childer_inbound_edges(topic_name)
             print("parent_topic {}, similar_topcis: {}".format(parent_topic, similar_topcis))
-            topics_dict.add_record(topic_count, {}, topics_dict.dict_object)
-            topics_dict.add_record(title_kw, parent_topic, topics_dict.dict_object[topic_count])
-            topics_dict.add_record(subtopics_kw, {}, topics_dict.dict_object[topic_count])
+            #self.topics_dict.add_record(topic_count, {}, self.topics_dict.dict_object)
+            #self.topics_dict.add_record(self.title_kw, parent_topic, self.topics_dict.dict_object[topic_count])
+            #self.topics_dict.add_record(self.subtopics_kw, {}, self.topics_dict.dict_object[topic_count])
 
-            for similar_topic in similar_topcis:
-                print("Adding similar topics", similar_topic)
-                if (topic_name in similar_topic):
-                    topics_dict.add_record(similar_topic, "1", topics_dict.dict_object[topic_count][subtopics_kw])
-                else:
-                    topics_dict.add_record(similar_topic, "0", topics_dict.dict_object[topic_count][subtopics_kw])
+            if (parent_topic not in self.topics_dict.dict_object):
+                self.topics_dict.add_record(parent_topic, {}, self.topics_dict.dict_object)
+                
+                for similar_topic in similar_topcis:
+                    self.topics_dict.add_record(similar_topic, "0", self.topics_dict.dict_object[parent_topic])
+            
+            
+            self.topics_dict.update_record(topic_name, "1", self.topics_dict.dict_object[parent_topic])
 
-        topics_dict.print_dict()
+
+        self.topics_dict.print_dict()
+        
+        return(self.topics_dict.dict_object)
+
+
+    def post_result (self, data):
+        pass
+        
+
 
 
 if __name__=="__main__":

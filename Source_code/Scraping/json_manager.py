@@ -12,6 +12,10 @@ class Json_Object:
         if ( key not in dictionary):
             dictionary[ key ] = value
 
+    def update_record (self, key, value, dictionary):
+    
+        dictionary[ key ] = value
+
     def delete_record (self, key, value, dictionary):
 
         if ( key in dictionary):
