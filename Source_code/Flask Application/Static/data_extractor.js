@@ -83,6 +83,10 @@ function createTableFromJSON(data) {
   const thead = document.createElement('thead');
   const tr = document.createElement('tr');
 
+  const thSequence = document.createElement('th');
+  thSequence.textContent = 'Sequence';
+  tr.appendChild(thSequence);
+
   const thTopic = document.createElement('th');
   thTopic.textContent = 'Topic';
   tr.appendChild(thTopic);
@@ -100,10 +104,16 @@ function createTableFromJSON(data) {
 
   const tbody = document.createElement('tbody');
 
+  let sequence = 1; // Initialize sequence number
+
   for (const topic in data) {
     const subtopics = data[topic];
 
     const tr = document.createElement('tr');
+
+    const tdSequence = document.createElement('td');
+    tdSequence.textContent = sequence;
+    tr.appendChild(tdSequence);
 
     const tdTopic = document.createElement('td');
     tdTopic.textContent = topic;
@@ -115,28 +125,49 @@ function createTableFromJSON(data) {
     const tdAlreadyRead = document.createElement('td');
     tdAlreadyRead.classList.add('already-read');
 
+    let topicsRecommendedCount = 0; // Initialize topics recommended count
+    let alreadyReadCount = 0; // Initialize already read count
+
     for (const subtopic in subtopics) {
+      const div = document.createElement('div');
+      div.textContent = subtopic;
+
       if (subtopics[subtopic] === '0') {
-        const div = document.createElement('div');
-        div.textContent = subtopic;
         tdTopicsRecommended.appendChild(div);
+        topicsRecommendedCount++;
       } else if (subtopics[subtopic] === '1') {
-        const div = document.createElement('div');
-        div.textContent = subtopic;
         tdAlreadyRead.appendChild(div);
+        alreadyReadCount++;
       }
     }
 
+    if (topicsRecommendedCount === 0) {
+      tdTopicsRecommended.textContent = '-';
+    } else {
+      tdTopicsRecommended.setAttribute('data-count', topicsRecommendedCount);
+    }
+
+    if (alreadyReadCount === 0) {
+      tdAlreadyRead.textContent = '-';
+    } else {
+      tdAlreadyRead.setAttribute('data-count', alreadyReadCount);
+    }
+
+    tr.appendChild(tdSequence);
+    tr.appendChild(tdTopic);
     tr.appendChild(tdTopicsRecommended);
     tr.appendChild(tdAlreadyRead);
 
     tbody.appendChild(tr);
+
+    sequence++; // Increment sequence number
   }
 
   table.appendChild(tbody);
 
   return table;
 }
+
 
 function publish_data_to_user(jsonData){
 
@@ -148,7 +179,7 @@ function publish_data_to_user(jsonData){
 
   // Append the table to the container
   container.appendChild(table);
-
+  $("#table_header_ele").show()
 }
 
 
