@@ -172,7 +172,9 @@ function createTableFromJSON(data) {
 function publish_data_to_user(jsonData){
 
   // Get the container element
+ 
   var container = document.getElementById('table-container');
+  container.innerHTML = ""
 
   // Create the table
   var table = createTableFromJSON(jsonData);
