@@ -107,7 +107,7 @@ function createTableFromJSON(data) {
   let sequence = 1; // Initialize sequence number
 
   for (const topic in data) {
-    const subtopics = data[topic];
+    const subtopics = data[topic]['subtopics'];
 
     const tr = document.createElement('tr');
 
@@ -116,7 +116,7 @@ function createTableFromJSON(data) {
     tr.appendChild(tdSequence);
 
     const tdTopic = document.createElement('td');
-    tdTopic.textContent = topic;
+    tdTopic.textContent = data[topic]['Title'];
     tr.appendChild(tdTopic);
 
     const tdTopicsRecommended = document.createElement('td');
@@ -130,12 +130,12 @@ function createTableFromJSON(data) {
 
     for (const subtopic in subtopics) {
       const div = document.createElement('div');
-      div.textContent = subtopic;
+      div.textContent = Object.keys(subtopics[subtopic])[0];
 
-      if (subtopics[subtopic] === '0') {
+      if (Object.values(subtopics[subtopic])[0] === '0') {
         tdTopicsRecommended.appendChild(div);
         topicsRecommendedCount++;
-      } else if (subtopics[subtopic] === '1') {
+      } else if (Object.values(subtopics[subtopic])[0] === '1') {
         tdAlreadyRead.appendChild(div);
         alreadyReadCount++;
       }
@@ -169,6 +169,7 @@ function createTableFromJSON(data) {
 }
 
 
+
 function publish_data_to_user(jsonData){
 
   // Get the container element
@@ -200,6 +201,8 @@ function post_data (data_post){
 
   // Show the loading gif
   $("#loading_gif_container").css("display", "flex");
+  $("#table_header_ele").css("display", "none");
+  $("#table-container").empty()
   //$("#loading_gif_container").show();
 
   $.ajax({

@@ -7,7 +7,7 @@ load_dotenv(os.sep.join([os.path.dirname(os.getcwd()), "Scraping", ".env"]))
 
 sys.path.insert(0, os.sep.join([os.path.dirname(os.getcwd()), os.getenv("SCRAPING_SCRIPT")]))
 from json_manager import Json_Object
-
+from Query_engine import ArangoDB_Qurey_Engine
 
 
 class Prerequisites():
@@ -29,6 +29,7 @@ class Prerequisites():
 
         #print("Data received", data)
         gapi_h = Graph_API()
+
         gapi_h.set_env_variables(  collection_name="Machine_Learning",\
                                     graph_name="Machine_Learning_Relations",\
                                     database_name="Data_Science"
@@ -36,20 +37,22 @@ class Prerequisites():
 
         for topic_count, topic_name in enumerate(data["name"], start=1):
 
-            parent_topic, similar_topcis = gapi_h.get_childer_inbound_edges(topic_name)
-            print("parent_topic {}, similar_topcis: {}".format(parent_topic, similar_topcis))
-            #self.topics_dict.add_record(topic_count, {}, self.topics_dict.dict_object)
-            #self.topics_dict.add_record(self.title_kw, parent_topic, self.topics_dict.dict_object[topic_count])
-            #self.topics_dict.add_record(self.subtopics_kw, {}, self.topics_dict.dict_object[topic_count])
+            parent_topic, parent_seq, similar_topics, similar_topics_seq = gapi_h.get_childer_inbound_edges(topic_name, level=1)
+            topic_seq = gapi_h.get_document_attribute(topic_name, "Sequence")
+            print("parent_topic {}, topic Seq: {} similar_topics: {}".format(parent_topic, topic_seq, similar_topics))
 
             if (parent_topic not in self.topics_dict.dict_object):
-                self.topics_dict.add_record(parent_topic, {}, self.topics_dict.dict_object)
-                
-                for similar_topic in similar_topcis:
-                    self.topics_dict.add_record(similar_topic, "0", self.topics_dict.dict_object[parent_topic])
+                #self.topics_dict.add_record(parent_topic, {}, self.topics_dict.dict_object)
+                self.topics_dict.add_record(parent_seq, {}, self.topics_dict.dict_object)
+                self.topics_dict.add_record(self.title_kw, parent_topic, self.topics_dict.dict_object[parent_seq])
+                self.topics_dict.add_record(self.subtopics_kw, {}, self.topics_dict.dict_object[parent_seq])
+
+                for similar_topic, similar_topic_seq  in zip(similar_topics, similar_topics_seq):
+                    self.topics_dict.add_record(similar_topic_seq, {}, self.topics_dict.dict_object[parent_seq][self.subtopics_kw])
+                    self.topics_dict.add_record(similar_topic, "0", self.topics_dict.dict_object[parent_seq][self.subtopics_kw][similar_topic_seq])
             
             
-            self.topics_dict.update_record(topic_name, "1", self.topics_dict.dict_object[parent_topic])
+            self.topics_dict.update_record(topic_name, "1", self.topics_dict.dict_object[parent_seq][self.subtopics_kw][topic_seq])
 
 
         self.topics_dict.print_dict()

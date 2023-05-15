@@ -26,6 +26,7 @@ class ArangoDB_Qurey_Engine:
         docs = collection.fetchByExample({"Topic" : topic_name }, batchSize=None)
         doc_id = docs[0]._key
 
+        print("docs", docs[0])
         return (doc_id)
 
 
@@ -53,6 +54,9 @@ if __name__ == "__main__":
     ArangoDB_h = ArangoDB_Qurey_Engine()
     ArangoDB_h.connect_to_db()
       
+    ArangoDB_h.get_collection_id("Data_Science", "Machine_Learning","Regression")  
+    
+    '''
     all_child_query = "FOR node IN 1..1 OUTBOUND @start_node GRAPH @graph_name RETURN node"
     result = ArangoDB_h.execute_traversal_query(all_child_query, collection="Machine_Learning", node_key="112590",\
                                                  graph_name="Machine_Learning_Concepts", database_name="Data_Science")
@@ -69,3 +73,4 @@ if __name__ == "__main__":
                                                 graph_name="Machine_Learning_Concepts", database_name="Data_Science"\
                                                 )
     print("\n\nNeighbours of a Child :\n\n", result)
+    '''
