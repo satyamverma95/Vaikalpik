@@ -19,12 +19,12 @@ function readTextFile(file)
 function populate_list(data_object){
 
   var treeJson = convertPythonJSONToTreeBasedJSON(data_object);
-  console.log(treeJson);
+  console.log(treeJson);  
   initializeComboTree(treeJson)
 }
 
 
-function convertPythonJSONToTreeBasedJSON(jsonObj) {
+function convertPythonJSONToTreeBasedJSON__(jsonObj) {
   let idCounter = 1;
 
   function processSubTopics(subTopics) {
@@ -48,6 +48,37 @@ function convertPythonJSONToTreeBasedJSON(jsonObj) {
   const root = [{ id: idCounter++, title: jsonObj.Title, subs: processSubTopics(jsonObj["Sub Topics"]) }];
   return root;
 }
+
+function convertPythonJSONToTreeBasedJSON(jsonData) {
+
+  function processSubTopics(subTopics, idCounter) {
+    const nodes = [];
+  
+    for (const key in subTopics) {
+      const subTopic = subTopics[key];
+      const node = { id: idCounter++, title: subTopic.Title };
+  
+      if (subTopic["Sub Topics"]) {
+        const result = processSubTopics(subTopic["Sub Topics"], idCounter);
+        nodes.push(...result);
+        idCounter = result.length > 0 ? result[result.length - 1].id + 1 : idCounter;
+      }
+  
+      nodes.push(node);
+    }
+  
+    return nodes;
+  }
+
+let idCounter = 0;
+const nodes = processSubTopics(jsonData["Sub Topics"], idCounter);
+const result = [{ id: idCounter++, title: jsonData.Title, subs: nodes, isSelectable: false }];
+
+return result
+
+}
+
+
 
 function initializeComboTree(data) {
   // Clear existing data in the comboTree, if any
@@ -107,7 +138,7 @@ function createTableFromJSON(data) {
   let sequence = 1; // Initialize sequence number
 
   for (const topic in data) {
-    const subtopics = data[topic]['subtopics'];
+    const subtopics = data[topic];
 
     const tr = document.createElement('tr');
 
@@ -116,7 +147,7 @@ function createTableFromJSON(data) {
     tr.appendChild(tdSequence);
 
     const tdTopic = document.createElement('td');
-    tdTopic.textContent = data[topic]['Title'];
+    tdTopic.textContent = topic;
     tr.appendChild(tdTopic);
 
     const tdTopicsRecommended = document.createElement('td');
@@ -130,12 +161,12 @@ function createTableFromJSON(data) {
 
     for (const subtopic in subtopics) {
       const div = document.createElement('div');
-      div.textContent = Object.keys(subtopics[subtopic])[0];
+      div.textContent = subtopic;
 
-      if (Object.values(subtopics[subtopic])[0] === '0') {
+      if (subtopics[subtopic] === '0') {
         tdTopicsRecommended.appendChild(div);
         topicsRecommendedCount++;
-      } else if (Object.values(subtopics[subtopic])[0] === '1') {
+      } else if (subtopics[subtopic] === '1') {
         tdAlreadyRead.appendChild(div);
         alreadyReadCount++;
       }
@@ -167,6 +198,7 @@ function createTableFromJSON(data) {
 
   return table;
 }
+
 
 
 
