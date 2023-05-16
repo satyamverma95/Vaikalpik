@@ -1,11 +1,14 @@
 import json
-import os 
+import os
+from collections import OrderedDict
+ 
 
 
 class Json_Object:
     def __init__ ( self ):
-        self.dict_object    =   dict()
-        self.cwd            =   os.getcwd()
+        self.dict_object        =   dict()
+        self.ordered_dict_obj   =   OrderedDict()
+        self.cwd                =   os.getcwd()
 
     def add_record(self, key, value, dictionary):
 
@@ -21,8 +24,8 @@ class Json_Object:
         if ( key in dictionary):
            del dictionary[ key ]
 
-    def print_dict (self) :
-        print (self.dict_object)
+    def print_dict (self, dict) :
+        print (dict)
 
     def write_to_file(self, data, filename):
 

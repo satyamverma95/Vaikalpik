@@ -31,7 +31,7 @@ class Graph_API():
             if(len(results_list)>0):
                 parent_topic = results_list[-1].Topic
                 parent_seq   = results_list[-1].Sequence
-                print("Parent topic of {} is {}, sequence {}".format(topic_name, parent_topic,parent_seq ))
+                #print("Parent topic of {} is {}, sequence {}".format(topic_name, parent_topic,parent_seq ))
             else:
                 print("Cuurently we don't have level {} Parent topic for {}".format( parent_level, topic_name))
 
@@ -55,7 +55,7 @@ class Graph_API():
                 sub_topics_list =  [doc['Topic'] for doc in sorted_sub_topics]
                 sub_topics_seq_list = [doc['Sequence'] for doc in sorted_sub_topics]
                 sub_topics = ", ".join(["-".join([doc['Topic'], doc['Sequence']]) for doc in sorted_sub_topics])
-                print("Sub topics of \"{}\" are : {}".format(topic_name, sub_topics))
+                #print("Sub topics of \"{}\" are : {}".format(topic_name, sub_topics))
             else:
                 sub_topics_list= []
                 sub_topics_seq_list = []
@@ -91,6 +91,7 @@ class Graph_API():
         parent_node, parent_seq = self.get_parent_topic(topic_name=topic_name, parent_level = level)
         subtopics_names, subtopics_seq = self.get_all_sub_topics(topic_name=parent_node)
 
+        print( "Parent Topic :{} and Subtopics : {}".format(parent_node, subtopics_names) )
         return (parent_node, parent_seq, subtopics_names, subtopics_seq)
 
 
@@ -132,6 +133,6 @@ if __name__=="__main__":
 
     #graph_api_h.get_all_other_sub_topics_of_a_topic(topic_name="Pareto distribution")
 
-    #graph_api_h.get_childer_inbound_edges(topic_name="Pareto distribution", level = 1)
+    graph_api_h.get_childer_inbound_edges(topic_name="Pareto distribution", level = 1)
 
-    graph_api_h.get_document_attribute("Supervised learning", attribute_name="Sequence")
+    #graph_api_h.get_document_attribute("Supervised learning", attribute_name="Sequence")

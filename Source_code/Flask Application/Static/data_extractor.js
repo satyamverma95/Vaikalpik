@@ -79,7 +79,6 @@ return result
 }
 
 
-
 function initializeComboTree(data) {
   // Clear existing data in the comboTree, if any
 
