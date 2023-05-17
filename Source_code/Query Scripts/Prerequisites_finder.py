@@ -35,7 +35,7 @@ class Prerequisites():
         self.input_data_set = set(data["name"])
 
         gapi_h.set_env_variables(  collection_name="Machine_Learning",\
-                                    graph_name="Machine_Learning_Relations",\
+                                    graph_name="Machine_Learning_Dependency",\
                                     database_name="Data_Science"
                                 )
         
@@ -62,21 +62,27 @@ class Prerequisites():
                     print("Recommending {} as its prerequisite are already done".format(fwd_topic))
 
             
-            '''
-            print("parent_topic {}, topic Seq: {} similar_topics: {}".format(parent_topic, "", similar_topics))
+        gapi_h.set_env_variables(   collection_name="Machine_Learning",\
+                                    graph_name="Machine_Learning_Ontology",\
+                                    database_name="Data_Science"
+                                )
 
-            if (parent_topic not in self.topics_dict.dict_object):
-                self.topics_dict.add_record(parent_topic, {}, self.topics_dict.ordered_dict_obj)
+        for rec_topic in self.recommended_topics:
+            parent_topic, parent_seq    =   gapi_h.get_parent_topic(rec_topic)
+        
+        print("parent_topic {}, for recommended topic : {}".format(parent_topic, rec_topic))
 
-                for similar_topic, similar_topic_seq  in zip(similar_topics, similar_topics_seq):
-                    self.topics_dict.add_record(similar_topic, "0", self.topics_dict.ordered_dict_obj[parent_topic])
-            
-           
-            self.topics_dict.update_record(topic_name, "1", self.topics_dict.ordered_dict_obj[parent_topic])
+        if (parent_topic not in self.topics_dict.dict_object):
+            self.topics_dict.add_record(parent_topic, {}, self.topics_dict.ordered_dict_obj)
+            self.topics_dict.add_record(rec_topic, "0", self.topics_dict.ordered_dict_obj[parent_topic])
+        
+        
+        #self.topics_dict.update_record(topic_name, "1", self.topics_dict.ordered_dict_obj[parent_topic])
 
         self.topics_dict.print_dict(self.topics_dict.ordered_dict_obj)
-        '''
         print("All Recommenmded Topics {}".format(self.recommended_topics))
+        
+        
         return(self.topics_dict.ordered_dict_obj)        
 
 

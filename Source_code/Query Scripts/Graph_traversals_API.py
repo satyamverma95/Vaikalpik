@@ -23,7 +23,7 @@ class Graph_API():
                                                                  database_name=self.database_name )
         #print("Document Id ", doc_id)
         if (doc_id):
-            parent_query = "FOR parent IN {} OUTBOUND @start_node GRAPH @graph_name RETURN parent".format(parent_level)
+            parent_query = "FOR parent IN {} INBOUND @start_node GRAPH @graph_name RETURN parent".format(parent_level)
             results_list = self.arangoDB_qurey_engine_h.execute_traversal_query ( parent_query, collection=self.collection_name,\
                                                                             node_key= doc_id,\
                                                                             graph_name=self.graph_name,\
@@ -31,7 +31,7 @@ class Graph_API():
             if(len(results_list)>0):
                 parent_topic = results_list[-1].Topic
                 parent_seq   = results_list[-1].Sequence
-                #print("Parent topic of {} is {}, sequence {}".format(topic_name, parent_topic,parent_seq ))
+                print("Parent topic of {} is {}, sequence {}".format(topic_name, parent_topic,parent_seq ))
             else:
                 print("Cuurently we don't have level {} Parent topic for {}".format( parent_level, topic_name))
 
@@ -140,6 +140,7 @@ class Graph_API():
                 result_list = [doc[attribute_name] for doc in sorted_neighbour_topics]
                 print("{} of the document is {}".format(topic_name, result_list))
             else:
+                result_list = []
                 print("Currently, we don't have OUT Nodes from node {} ".format(topic_name))
 
         return result_list
@@ -169,6 +170,7 @@ class Graph_API():
                 result_list = [doc[attribute_name] for doc in sorted_neighbour_topics]
                 print("{} of the document is {}".format(topic_name, result_list))
             else:
+                result_list = []
                 print("Currently, we don't have OUT Nodes from node {} ".format(topic_name))
 
         return result_list
@@ -180,11 +182,11 @@ if __name__=="__main__":
     
     graph_api_h.set_env_variables(  
                                     collection_name="Machine_Learning",\
-                                    graph_name="Machine_Learning_Relations",\
+                                    graph_name="Machine_Learning_Ontology",\
                                     database_name="Data_Science"
                                 )
     
-    #graph_api_h.get_parent_topic(topic_name="Pareto distribution", parent_level = 1)
+    graph_api_h.get_parent_topic(topic_name="Pareto distribution", parent_level = 1)
 
     #Not used in the current Graph Structure
     #graph_api_h.get_all_sub_topics(topic_name="Pareto distribution")
@@ -194,5 +196,5 @@ if __name__=="__main__":
     #graph_api_h.get_childer_inbound_edges(topic_name="Pareto distribution", level = 1)
 
     #graph_api_h.get_document_attribute("Supervised learning", attribute_name="Sequence")
-    graph_api_h.get_IN_Edges_Nodes(topic_name="A brief review of probability theory", attribute_name="Topic")
-    graph_api_h.get_OUT_Edges_Nodes(topic_name="A brief review of probability theory", attribute_name="Topic")
+    #graph_api_h.get_IN_Edges_Nodes(topic_name="A brief review of probability theory", attribute_name="Topic")
+    #graph_api_h.get_OUT_Edges_Nodes(topic_name="A brief review of probability theory", attribute_name="Topic")

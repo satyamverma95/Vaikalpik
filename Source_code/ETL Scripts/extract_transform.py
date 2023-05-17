@@ -28,6 +28,13 @@ class extract_transform:
         self.arango_db_kw       =   "Arango Id"
         self.sub_topics_kw      =   "Sub Topics"
         self.title_kw           =   "Title"
+        self.edge_collection_1  =   "Machine_Learning_Hierarchy"
+        self.edge_collection_2  =   "Machine_Learning_KG"
+        self.database           =   "Data_Science"
+        self.doc_collection     =   "Machine_Learning"
+        self.sub_topics_kw      =   "sub_topic"
+        self.dict_title_kw      =   "Title"
+        self.dict_sub_topics_kw =   "Sub Topics"
 
     def read_json(self, filename):
         self.books_index_dict   =   json.load(open(filename))
@@ -89,137 +96,140 @@ class extract_transform:
     def setup_arango_env(self):
 
         self.connect_to_graph_db()
-        self.create_new_database(data_base="Data_Science")
-        self.create_new_collections(data_base="Data_Science", collection_name="Machine_Learning", edge_coll=False)
-        self.create_new_collections(data_base="Data_Science", collection_name="Machine_Learning_Hierarchy", edge_coll=True)
+        self.create_new_database(data_base=self.database)
+        self.create_new_collections(data_base=self.database, collection_name=self.doc_collection, edge_coll=False)
+        self.create_new_collections(data_base=self.database, collection_name=self.edge_collection_1, edge_coll=True)
+        self.create_new_collections(data_base=self.database, collection_name=self.edge_collection_2, edge_coll=True)
 
     def push_documents_in_collection (self):
         
+        self.edge_collection_1 = "Machine_Learning_Hierarchy"
+
         for i, keys in enumerate(self.books_index_dict.keys(), start=1):
           
             if (self.title_kw in keys):
                 #print("Title", self.books_index_dict[self.title_kw], i)
                 document = self.create_arango_object(self.books_index_dict[self.title_kw], i)
-                document_handle_main_title_id = self.add_document(collection="Machine_Learning", document_to_add=document)
+                document_handle_main_title_id = self.add_document(collection=self.doc_collection, document_to_add=document)
                 self.json_obj.update_record(self.arango_db_kw, document_handle_main_title_id, self.books_index_dict_c )
                 #print("document_handle_main_title", document_handle_main_title_id)
             
-                for index, section in  self.books_index_dict["Sub Topics"].items():
+                for index, section in  self.books_index_dict[self.dict_sub_topics_kw].items():
                     #print(section["Title"])
-                    document = self.create_arango_object(section["Title"], index)
-                    document_handle_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
-                    #document_main_title = self.create_arango_relation_object(document_handle_sec_id, document_handle_main_title_id,"depends_on" )
-                    #self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_main_title)
-                    self.json_obj.update_record(self.arango_db_kw, document_handle_sec_id, self.books_index_dict_c[self.sub_topics_kw][index])
+                    document = self.create_arango_object(section[self.dict_title_kw], index)
+                    document_handle_sec_id = self.add_document(collection=self.doc_collection, document_to_add=document)
+                    document_main_title = self.create_arango_relation_object(document_handle_main_title_id, document_handle_sec_id, self.sub_topics_kw )
+                    self.add_document(collection=self.edge_collection_1, document_to_add=document_main_title)
+                    self.json_obj.update_record(self.arango_db_kw, document_handle_sec_id, self.books_index_dict_c[self.dict_sub_topics_kw][index])
 
-                    for index_sub_section, sub_section in section["Sub Topics"].items():
+                    for index_sub_section, sub_section in section[self.dict_sub_topics_kw].items():
                         
                         #print(sub_section["Title"])
-                        document = self.create_arango_object(sub_section["Title"], index_sub_section)
-                        document_handle_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
+                        document = self.create_arango_object(sub_section[self.dict_title_kw], index_sub_section)
+                        document_handle_sub_sec_id = self.add_document(collection=self.doc_collection, document_to_add=document)
                         #print("Document handle", document_handle_sub_sec_id)
-                        #document_rel_sub_sec = self.create_arango_relation_object(document_handle_sub_sec_id, document_handle_sec_id, "depends_on" )
-                        #self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sec)
-                        self.json_obj.update_record(self.arango_db_kw, document_handle_sub_sec_id, self.books_index_dict_c["Sub Topics"][index][self.sub_topics_kw][index_sub_section])
+                        document_rel_sub_sec = self.create_arango_relation_object(document_handle_sec_id, document_handle_sub_sec_id, self.sub_topics_kw )
+                        self.add_document(collection=self.edge_collection_1, document_to_add=document_rel_sub_sec)
+                        self.json_obj.update_record(self.arango_db_kw, document_handle_sub_sec_id, self.books_index_dict_c[self.dict_sub_topics_kw][index][self.dict_sub_topics_kw][index_sub_section])
 
-                        for index_sub_sub_section, sub_sub_section in sub_section["Sub Topics"].items():
+                        for index_sub_sub_section, sub_sub_section in sub_section[self.dict_sub_topics_kw].items():
                             
                             #print(sub_sub_section["Title"])
-                            document = self.create_arango_object(sub_sub_section["Title"], index_sub_sub_section)
-                            document_handle_sub_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
-                            #document_rel_sub_sub_sec = self.create_arango_relation_object(document_handle_sub_sub_sec_id, document_handle_sub_sec_id, "depends_on" )
-                            #self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sub_sec)
-                            self.json_obj.update_record(self.arango_db_kw, document_handle_sub_sub_sec_id, self.books_index_dict_c[self.sub_topics_kw][index][self.sub_topics_kw][index_sub_section][self.sub_topics_kw][index_sub_sub_section])
+                            document = self.create_arango_object(sub_sub_section[self.dict_title_kw], index_sub_sub_section)
+                            document_handle_sub_sub_sec_id = self.add_document(collection=self.doc_collection, document_to_add=document)
+                            document_rel_sub_sub_sec = self.create_arango_relation_object(document_handle_sub_sec_id,  document_handle_sub_sub_sec_id, self.sub_topics_kw )
+                            self.add_document(collection=self.edge_collection_1, document_to_add=document_rel_sub_sub_sec)
+                            self.json_obj.update_record(self.arango_db_kw, document_handle_sub_sub_sec_id, self.books_index_dict_c[self.dict_sub_topics_kw][index][self.dict_sub_topics_kw][index_sub_section][self.dict_sub_topics_kw][index_sub_sub_section])
 
         #self.write_to_file("test.json", json.dumps(self.books_index_dict_c))
 
     def create_edge_collection(self):
-        
-        for i, keys_1 in enumerate(self.books_index_dict_c[self.sub_topics_kw].keys(), start=1):
-            for i, keys_2 in enumerate(self.books_index_dict_c[self.sub_topics_kw].keys(), start=1):
 
-                topic_1 =   self.books_index_dict_c[self.sub_topics_kw][keys_1][self.title_kw] 
-                topic_2 =   self.books_index_dict_c[self.sub_topics_kw][keys_2][self.title_kw]
+        self.edge_collection_2 = "Machine_Learning_KG"
+        
+        for i, keys_1 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw].keys(), start=1):
+            for i, keys_2 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw].keys(), start=1):
+
+                topic_1 =   self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.title_kw] 
+                topic_2 =   self.books_index_dict_c[self.dict_sub_topics_kw][keys_2][self.title_kw]
                 
                 if ( topic_1 != topic_2 ) :
                     #print(topic_1, topic_2)
                     document_level_1_rel_IN = self.create_arango_relation_object(
-                                                                                self.books_index_dict_c[self.sub_topics_kw][keys_2][self.arango_db_kw],
-                                                                                self.books_index_dict_c[self.sub_topics_kw][keys_1][self.arango_db_kw], 
+                                                                                self.books_index_dict_c[self.dict_sub_topics_kw][keys_2][self.arango_db_kw],
+                                                                                self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.arango_db_kw], 
                                                                                 "IN"
                                                                             )
                     print(document_level_1_rel_IN)
-                    self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_1_rel_IN)
+                    self.add_document(collection=self.edge_collection_2, document_to_add=document_level_1_rel_IN)
 
                     document_level_1_rel_OUT = self.create_arango_relation_object(
-                                                                                self.books_index_dict_c[self.sub_topics_kw][keys_1][self.arango_db_kw],
-                                                                                self.books_index_dict_c[self.sub_topics_kw][keys_2][self.arango_db_kw], 
+                                                                                self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.arango_db_kw],
+                                                                                self.books_index_dict_c[self.dict_sub_topics_kw][keys_2][self.arango_db_kw], 
                                                                                 "OUT"
                                                                            )
                     #print(document_level_1_rel_OUT)
-                    self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_1_rel_OUT)
+                    self.add_document(collection=self.edge_collection_2, document_to_add=document_level_1_rel_OUT)
         
         
-        for i, keys_1 in enumerate(self.books_index_dict_c[self.sub_topics_kw].keys(), start=1):
+        for i, keys_1 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw].keys(), start=1):
             
-            for i, keys_2 in enumerate(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw].keys(), start=1):
-                for i, keys_3 in enumerate(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw].keys(), start=1):
+            for i, keys_2 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw].keys(), start=1):
+                for i, keys_3 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw].keys(), start=1):
 
                     #print(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2].keys())
-                    topic_1 =   self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.title_kw]
-                    topic_2 =   self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_3][self.title_kw]
+                    topic_1 =   self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.title_kw]
+                    topic_2 =   self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_3][self.title_kw]
                     
                     if ( topic_1 != topic_2 ) :
                         print("Topic 1 : {}, Topic 2 :{}".format(topic_1, topic_2))
                         document_level_2_rel_IN = self.create_arango_relation_object(
-                                                                                    self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_3][self.arango_db_kw],
-                                                                                    self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.arango_db_kw], 
+                                                                                    self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_3][self.arango_db_kw],
+                                                                                    self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.arango_db_kw], 
                                                                                     "IN"
                                                                                     )
                         print(document_level_2_rel_IN)
                         
-                        self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_2_rel_IN)
+                        self.add_document(collection=self.edge_collection_2, document_to_add=document_level_2_rel_IN)
 
                         document_level_2_rel_OUT = self.create_arango_relation_object(
-                                                                                    self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.arango_db_kw],
-                                                                                    self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_3][self.arango_db_kw], 
+                                                                                    self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.arango_db_kw],
+                                                                                    self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_3][self.arango_db_kw], 
                                                                                     "OUT"
                                                                                 )
                         print(document_level_2_rel_OUT)
-                        self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_2_rel_OUT)
+                        self.add_document(collection=self.edge_collection_2, document_to_add=document_level_2_rel_OUT)
                         
 
         
-        for i, keys_1 in enumerate(self.books_index_dict_c[self.sub_topics_kw].keys(), start=1):
-            for i, keys_2 in enumerate(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw].keys(), start=1):
+        for i, keys_1 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw].keys(), start=1):
+            for i, keys_2 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw].keys(), start=1):
             
-                for i, keys_3 in enumerate(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.sub_topics_kw].keys(), start=1):
-                    for i, keys_4 in enumerate(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.sub_topics_kw].keys(), start=1):
+                for i, keys_3 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw].keys(), start=1):
+                    for i, keys_4 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw].keys(), start=1):
 
                         #print(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2].keys())
-                        topic_1 =   self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.sub_topics_kw][keys_3]
-                        topic_2 =   self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.sub_topics_kw][keys_4]
+                        topic_1 =   self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw][keys_3]
+                        topic_2 =   self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw][keys_4]
                         
                         if ( topic_1 != topic_2 ) :
                             print(topic_1, topic_2)
                             document_level_3_rel_IN= self.create_arango_relation_object(
-                                                                                        self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.sub_topics_kw][keys_4][self.arango_db_kw], 
-                                                                                         self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.sub_topics_kw][keys_3][self.arango_db_kw],
+                                                                                        self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw][keys_4][self.arango_db_kw], 
+                                                                                         self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw][keys_3][self.arango_db_kw],
                                                                                         "IN"
                                                                                     )
                             #print(document_level_2_rel)
-                            self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_3_rel_IN)
+                            self.add_document(collection=self.edge_collection_2, document_to_add=document_level_3_rel_IN)
 
                             document_level_3_rel_OUT= self.create_arango_relation_object(
-                                                                                        self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.sub_topics_kw][keys_3][self.arango_db_kw],
-                                                                                        self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.sub_topics_kw][keys_4][self.arango_db_kw], 
+                                                                                        self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw][keys_3][self.arango_db_kw],
+                                                                                        self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw][keys_4][self.arango_db_kw], 
                                                                                         "OUT"
                                                                                     )
                             #print(document_level_2_rel)
-                            self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_3_rel_OUT)
+                            self.add_document(collection=self.edge_collection_2, document_to_add=document_level_3_rel_OUT)
         
-
-
 
 def main():
         
@@ -237,7 +247,8 @@ def main():
             extract_transform_h.read_json(os.path.join(books_json_folder,json_filename)) 
             extract_transform_h.setup_arango_env()
             #extract_transform_h.delete_collections("Machine_Learning")
-            #extract_transform_h.delete_collections("Machine_Learning_Hierarchy")
+            #extract_transform_h.delete_collections(extract_transform_h.edge_collection_1)
+            #extract_transform_h.delete_collections(extract_transform_h.edge_collection_2)
             extract_transform_h.push_documents_in_collection()
             extract_transform_h.create_edge_collection()
 
