@@ -115,6 +115,64 @@ class Graph_API():
                 print("Cuurently we don't have {} attributr in the collection".format(attribute_name))
 
         return(sequence)
+    
+    def get_IN_Edges_Nodes(self, topic_name, attribute_name="_key"):
+        
+        self.arangoDB_qurey_engine_h.connect_to_db()
+
+        doc_id = self.arangoDB_qurey_engine_h.get_collection_id(collection_name=self.collection_name,
+                                                                topic_name=topic_name,
+                                                                database_name=self.database_name)
+
+        if (doc_id):
+            starting_node_key = "{}/{}".format(self.collection_name, doc_id)
+            traversal_query = """
+            LET startingNode = DOCUMENT('{}')
+            FOR v, e, p IN 1..1 INBOUND startingNode._id GRAPH '{}'
+                FILTER e.label == 'IN'
+                RETURN v
+            """.format(starting_node_key, self.graph_name)
+
+            results = self.arangoDB_qurey_engine_h.execute_document_query(traversal_query, database_name=self.database_name)
+
+            if len(results) > 0:
+                sorted_neighbour_topics = sorted(results, key=lambda x: tuple(map(int, x['Sequence'].split('.'))))
+                result_list = [doc[attribute_name] for doc in sorted_neighbour_topics]
+                print("{} of the document is {}".format(topic_name, result_list))
+            else:
+                print("Currently, we don't have OUT Nodes from node {} ".format(topic_name))
+
+        return result_list
+
+
+    def get_OUT_Edges_Nodes(self, topic_name, attribute_name="_key"):
+        
+        self.arangoDB_qurey_engine_h.connect_to_db()
+
+        doc_id = self.arangoDB_qurey_engine_h.get_collection_id(collection_name=self.collection_name,
+                                                                topic_name=topic_name,
+                                                                database_name=self.database_name)
+
+        if (doc_id):
+            starting_node_key = "{}/{}".format(self.collection_name, doc_id)
+            traversal_query = """
+            LET startingNode = DOCUMENT('{}')
+            FOR v, e, p IN 1..1 OUTBOUND startingNode._id GRAPH '{}'
+                FILTER e.label == 'IN'
+                RETURN v
+            """.format(starting_node_key, self.graph_name)
+
+            results = self.arangoDB_qurey_engine_h.execute_document_query(traversal_query, database_name=self.database_name)
+
+            if len(results) > 0:
+                sorted_neighbour_topics = sorted(results, key=lambda x: tuple(map(int, x['Sequence'].split('.'))))
+                result_list = [doc[attribute_name] for doc in sorted_neighbour_topics]
+                print("{} of the document is {}".format(topic_name, result_list))
+            else:
+                print("Currently, we don't have OUT Nodes from node {} ".format(topic_name))
+
+        return result_list
+
 
 if __name__=="__main__":
 
@@ -133,6 +191,8 @@ if __name__=="__main__":
 
     #graph_api_h.get_all_other_sub_topics_of_a_topic(topic_name="Pareto distribution")
 
-    graph_api_h.get_childer_inbound_edges(topic_name="Pareto distribution", level = 1)
+    #graph_api_h.get_childer_inbound_edges(topic_name="Pareto distribution", level = 1)
 
     #graph_api_h.get_document_attribute("Supervised learning", attribute_name="Sequence")
+    graph_api_h.get_IN_Edges_Nodes(topic_name="A brief review of probability theory", attribute_name="Topic")
+    graph_api_h.get_OUT_Edges_Nodes(topic_name="A brief review of probability theory", attribute_name="Topic")

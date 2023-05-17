@@ -120,7 +120,7 @@ class extract_transform:
                         #print("Document handle", document_handle_sub_sec_id)
                         #document_rel_sub_sec = self.create_arango_relation_object(document_handle_sub_sec_id, document_handle_sec_id, "depends_on" )
                         #self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sec)
-                        self.json_obj.update_record(self.arango_db_kw, document_handle_sec_id, self.books_index_dict_c["Sub Topics"][index][self.sub_topics_kw][index_sub_section])
+                        self.json_obj.update_record(self.arango_db_kw, document_handle_sub_sec_id, self.books_index_dict_c["Sub Topics"][index][self.sub_topics_kw][index_sub_section])
 
                         for index_sub_sub_section, sub_sub_section in sub_section["Sub Topics"].items():
                             
@@ -129,7 +129,7 @@ class extract_transform:
                             document_handle_sub_sub_sec_id = self.add_document(collection="Machine_Learning", document_to_add=document)
                             #document_rel_sub_sub_sec = self.create_arango_relation_object(document_handle_sub_sub_sec_id, document_handle_sub_sec_id, "depends_on" )
                             #self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_rel_sub_sub_sec)
-                            self.json_obj.update_record(self.arango_db_kw, document_handle_sec_id, self.books_index_dict_c[self.sub_topics_kw][index][self.sub_topics_kw][index_sub_section][self.sub_topics_kw][index_sub_sub_section])
+                            self.json_obj.update_record(self.arango_db_kw, document_handle_sub_sub_sec_id, self.books_index_dict_c[self.sub_topics_kw][index][self.sub_topics_kw][index_sub_section][self.sub_topics_kw][index_sub_sub_section])
 
         #self.write_to_file("test.json", json.dumps(self.books_index_dict_c))
 
@@ -142,24 +142,24 @@ class extract_transform:
                 topic_2 =   self.books_index_dict_c[self.sub_topics_kw][keys_2][self.title_kw]
                 
                 if ( topic_1 != topic_2 ) :
-                    print(topic_1, topic_2)
+                    #print(topic_1, topic_2)
                     document_level_1_rel_IN = self.create_arango_relation_object(
                                                                                 self.books_index_dict_c[self.sub_topics_kw][keys_2][self.arango_db_kw],
                                                                                 self.books_index_dict_c[self.sub_topics_kw][keys_1][self.arango_db_kw], 
                                                                                 "IN"
                                                                             )
-                    #print(document_level_1_rel)
+                    print(document_level_1_rel_IN)
                     self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_1_rel_IN)
 
                     document_level_1_rel_OUT = self.create_arango_relation_object(
                                                                                 self.books_index_dict_c[self.sub_topics_kw][keys_1][self.arango_db_kw],
                                                                                 self.books_index_dict_c[self.sub_topics_kw][keys_2][self.arango_db_kw], 
                                                                                 "OUT"
-                                                                            )
-                    #print(document_level_1_rel)
+                                                                           )
+                    #print(document_level_1_rel_OUT)
                     self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_1_rel_OUT)
         
-
+        
         for i, keys_1 in enumerate(self.books_index_dict_c[self.sub_topics_kw].keys(), start=1):
             
             for i, keys_2 in enumerate(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw].keys(), start=1):
@@ -170,13 +170,14 @@ class extract_transform:
                     topic_2 =   self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_3][self.title_kw]
                     
                     if ( topic_1 != topic_2 ) :
-                        print(topic_1, topic_2)
+                        print("Topic 1 : {}, Topic 2 :{}".format(topic_1, topic_2))
                         document_level_2_rel_IN = self.create_arango_relation_object(
                                                                                     self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_3][self.arango_db_kw],
                                                                                     self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2][self.arango_db_kw], 
                                                                                     "IN"
                                                                                     )
-                        #print(document_level_2_rel)
+                        print(document_level_2_rel_IN)
+                        
                         self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_2_rel_IN)
 
                         document_level_2_rel_OUT = self.create_arango_relation_object(
@@ -184,12 +185,11 @@ class extract_transform:
                                                                                     self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_3][self.arango_db_kw], 
                                                                                     "OUT"
                                                                                 )
-                        #print(document_level_2_rel)
+                        print(document_level_2_rel_OUT)
                         self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_2_rel_OUT)
+                        
 
-
-
-
+        
         for i, keys_1 in enumerate(self.books_index_dict_c[self.sub_topics_kw].keys(), start=1):
             for i, keys_2 in enumerate(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw].keys(), start=1):
             
@@ -217,7 +217,7 @@ class extract_transform:
                                                                                     )
                             #print(document_level_2_rel)
                             self.add_document(collection="Machine_Learning_Hierarchy", document_to_add=document_level_3_rel_OUT)
-
+        
 
 
 
