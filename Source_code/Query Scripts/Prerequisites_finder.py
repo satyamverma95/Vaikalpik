@@ -16,10 +16,11 @@ class Prerequisites():
         self.topics_dict            =   Json_Object()
         self.title_kw               =   "Title"
         self.subtopics_kw           =   "subtopics"
-        self.forward_topics         =   set()
-        self.input_data_set         =   set()
-        self.recommended_topics     =   set()
+        self.forward_topics         =   list()
+        self.input_data_set         =   list()
+        self.recommended_topics     =   list()
         self.ontology_graph_name    =   "Machine_Learning_Ontology"
+        self.dependency_graph_name  =   "Machine_Learning_Dependency"
 
     def grab_data( self, data):
 
@@ -33,7 +34,7 @@ class Prerequisites():
         #print("Data received", data)
         self.gapi_h = Graph_API()
         
-        self.input_data_set = set(data["name"])
+        self.input_data_set = data["name"]
 
         self.gapi_h.set_env_variables(  collection_name="Machine_Learning",\
                                     graph_name="Machine_Learning_Dependency",\
@@ -45,36 +46,51 @@ class Prerequisites():
 
             #parent_topic, parent_seq, similar_topics, similar_topics_seq = gapi_h.get_childer_inbound_edges(topic_name, level=1)
             
-            neighbours_of_node  =   self.gapi_h.get_all_other_sub_topics_of_a_topic(topic_name)
+            neighbours_of_node  =   self.gapi_h.get_all_neighbours_of_a_topic(topic_name, graph_name=self.ontology_graph_name)
             
-            if ( neighbours_of_node.issubset( self.input_data_set) ):
+            print("DEBUG - Neighbours of the '{}' are : {}".format(topic_name, neighbours_of_node))
+
+            if ( set(neighbours_of_node).issubset( set(self.input_data_set) ) ):
                 
+                print("DEBUG - All the neighbours of the topic '{}' are covered by the student.".format(topic_name))
+
                 parent_node = self.check_parent_with_out_edges( topic_name )
-                print("Received Parent nodes from the function - {}".format(parent_node))
+                #print("DEBUG - Parent of the topic is - {}".format(parent_node))
 
                 if( parent_node not in self.input_data_set ):
-                    fwd_topics_for_a_topic  =   self.gapi_h.get_OUT_Edges_Nodes(topic_name, attribute_name="Topic")
-                    self.forward_topics.update(fwd_topics_for_a_topic)
-
+                    fwd_topics_for_a_topic  =   self.gapi_h.get_OUT_Edges_Nodes(parent_node, attribute_name="Topic", graph_name=self.dependency_graph_name)
+                    if ( fwd_topics_for_a_topic not in self.forward_topics ):
+                        self.forward_topics.extend(fwd_topics_for_a_topic)
+                    print("DEBUG - Updated Forward topics of '{}' are : {}".format( parent_node, self.forward_topics ) )
 
             #Using OUT Neighbours edges to get all the forwards nodes of a topic.
             fwd_topics_for_a_topic  =   self.gapi_h.get_OUT_Edges_Nodes(topic_name, attribute_name="Topic")
-            self.forward_topics.update(fwd_topics_for_a_topic)
+            if ( fwd_topics_for_a_topic not in self.forward_topics ):
+                self.forward_topics.extend(fwd_topics_for_a_topic)
             
-            if topic_name in self.forward_topics:
-                print( "Topic Name : {} is found in forward topics, removing them".format(topic_name) )
-                self.forward_topics.remove(topic_name)
+            print("DEBUG - All Forward topics of are : {}".format( self.forward_topics ) )
+
+
+        if set(self.forward_topics).intersection(set(self.input_data_set)):
+            print( "DEBUG - Topic Name : {} is found in forward topics, removing them".format(topic_name) )
+            set(self.forward_topics).difference_update(set(self.input_data_set))
+            self.forward_topics = list( self.forward_topics )
             
 
-            for fwd_topic in self.forward_topics:
-            
-                prerequisite_for_a_topic  =   self.gapi_h.get_IN_Edges_Nodes(fwd_topic, attribute_name="Topic")
+        print("DEBUG - All final forward Topics are :{}".format(self.forward_topics))
+        
 
-                if ( self.is_prerequisite_already_covered( set(prerequisite_for_a_topic) ) ):
-                    self.recommended_topics.add(fwd_topic)
-                    print("Recommending {} as its prerequisite are already done".format(fwd_topic))
+        for fwd_topic in self.forward_topics:
+        
+            prerequisite_for_a_topic  =   self.gapi_h.get_IN_Edges_Nodes(fwd_topic, attribute_name="Topic")
+            print( "DEBUG - prerequisite of '{}' are : {}".format( fwd_topic, prerequisite_for_a_topic ) )
 
-            
+            if ( self.is_prerequisite_already_covered( set(prerequisite_for_a_topic) ) ):
+                self.recommended_topics.append(fwd_topic)
+        
+        print("DEBUG - Recommending {} as its prerequisite are already done".format(self.recommended_topics))
+
+        '''
         self.gapi_h.set_env_variables(   collection_name="Machine_Learning",\
                                     graph_name="Machine_Learning_Ontology",\
                                     database_name="Data_Science"
@@ -95,15 +111,20 @@ class Prerequisites():
         self.topics_dict.print_dict(self.topics_dict.ordered_dict_obj)
         print("All Recommenmded Topics {}".format(self.recommended_topics))
         
-        
+        '''
         return(self.topics_dict.ordered_dict_obj)        
 
 
     def is_prerequisite_already_covered (self, pre_of_a_topic):
 
+        print("DEBUG - Checking Pre-requisite of a topic are covered")
+        print("DEBUG - Pre-req : {}, topic covered : {}".format( pre_of_a_topic, self.input_data_set ))
+
         if pre_of_a_topic.issubset(self.input_data_set):
+            print("DEBUG - Pre-requisite all covered")
             return (True)
 
+        print("DEBUG - Pre-requisite not covered")
         return(False)
 
 
@@ -112,10 +133,10 @@ class Prerequisites():
         parent_node = self.gapi_h.get_parent_topic(topic_name, graph_name = self.ontology_graph_name)
         
         no_of_out_edges = self.gapi_h.check_if_out_edges_exits( parent_node )
-        print("no of out edges received", no_of_out_edges)
+        #print("no of out edges received", no_of_out_edges)
 
         if no_of_out_edges != 0:
-                print("Returning Parent node :{} having {} out nodes".format(parent_node, no_of_out_edges))
+                print("DEBUG - Returning Parent node :'{}' having {} out nodes".format(parent_node, no_of_out_edges))
                 return (parent_node)
         else:
             self.check_parent_with_out_edges(parent_node)
