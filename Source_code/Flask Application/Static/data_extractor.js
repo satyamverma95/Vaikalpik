@@ -125,6 +125,82 @@ function createTableFromJSON(data) {
   thTopicsRecommended.textContent = 'Topics Recommended';
   tr.appendChild(thTopicsRecommended);
 
+  thead.appendChild(tr);
+  table.appendChild(thead);
+
+  const tbody = document.createElement('tbody');
+
+  let sequence = 1; // Initialize sequence number
+
+  for (const topic in data) {
+    const subtopics = data[topic];
+
+    const tr = document.createElement('tr');
+
+    const tdSequence = document.createElement('td');
+    tdSequence.textContent = sequence;
+    tr.appendChild(tdSequence);
+
+    const tdTopic = document.createElement('td');
+    tdTopic.textContent = topic;
+    tr.appendChild(tdTopic);
+
+    const tdTopicsRecommended = document.createElement('td');
+    tdTopicsRecommended.classList.add('topics-recommended');
+
+    let topicsRecommendedCount = 0; // Initialize topics recommended count
+
+    for (const subtopic in subtopics) {
+      const div = document.createElement('div');
+      div.textContent = subtopic;
+
+      if (subtopics[subtopic] === '0') {
+        tdTopicsRecommended.appendChild(div);
+        topicsRecommendedCount++;
+      }
+    }
+
+    if (topicsRecommendedCount === 0) {
+      tdTopicsRecommended.textContent = '-';
+    } else {
+      tdTopicsRecommended.setAttribute('data-count', topicsRecommendedCount);
+    }
+
+    tr.appendChild(tdSequence);
+    tr.appendChild(tdTopic);
+    tr.appendChild(tdTopicsRecommended);
+
+    tbody.appendChild(tr);
+
+    sequence++; // Increment sequence number
+  }
+
+  table.appendChild(tbody);
+
+  return table;
+}
+
+
+
+
+function createTableFromJSON__(data) {
+  const table = document.createElement('table');
+
+  const thead = document.createElement('thead');
+  const tr = document.createElement('tr');
+
+  const thSequence = document.createElement('th');
+  thSequence.textContent = 'Sequence';
+  tr.appendChild(thSequence);
+
+  const thTopic = document.createElement('th');
+  thTopic.textContent = 'Topic';
+  tr.appendChild(thTopic);
+
+  const thTopicsRecommended = document.createElement('th');
+  thTopicsRecommended.textContent = 'Topics Recommended';
+  tr.appendChild(thTopicsRecommended);
+
   const thAlreadyRead = document.createElement('th');
   thAlreadyRead.textContent = 'Already Read';
   tr.appendChild(thAlreadyRead);

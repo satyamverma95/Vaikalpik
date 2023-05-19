@@ -13,12 +13,13 @@ from Query_engine import ArangoDB_Qurey_Engine
 class Prerequisites():
     def __init__(self):
         
-        self.topics_dict        =   Json_Object()
-        self.title_kw           =   "Title"
-        self.subtopics_kw       =   "subtopics"
-        self.forward_topics     =   set()
-        self.input_data_set     =   set()
-        self.recommended_topics =   set()
+        self.topics_dict            =   Json_Object()
+        self.title_kw               =   "Title"
+        self.subtopics_kw           =   "subtopics"
+        self.forward_topics         =   set()
+        self.input_data_set         =   set()
+        self.recommended_topics     =   set()
+        self.ontology_graph_name    =   "Machine_Learning_Ontology"
 
     def grab_data( self, data):
 
@@ -30,11 +31,11 @@ class Prerequisites():
     def process_data (self, data):
 
         #print("Data received", data)
-        gapi_h = Graph_API()
+        self.gapi_h = Graph_API()
         
         self.input_data_set = set(data["name"])
 
-        gapi_h.set_env_variables(  collection_name="Machine_Learning",\
+        self.gapi_h.set_env_variables(  collection_name="Machine_Learning",\
                                     graph_name="Machine_Learning_Dependency",\
                                     database_name="Data_Science"
                                 )
@@ -44,8 +45,20 @@ class Prerequisites():
 
             #parent_topic, parent_seq, similar_topics, similar_topics_seq = gapi_h.get_childer_inbound_edges(topic_name, level=1)
             
+            neighbours_of_node  =   self.gapi_h.get_all_other_sub_topics_of_a_topic(topic_name)
+            
+            if ( neighbours_of_node.issubset( self.input_data_set) ):
+                
+                parent_node = self.check_parent_with_out_edges( topic_name )
+                print("Received Parent nodes from the function - {}".format(parent_node))
+
+                if( parent_node not in self.input_data_set ):
+                    fwd_topics_for_a_topic  =   self.gapi_h.get_OUT_Edges_Nodes(topic_name, attribute_name="Topic")
+                    self.forward_topics.update(fwd_topics_for_a_topic)
+
+
             #Using OUT Neighbours edges to get all the forwards nodes of a topic.
-            fwd_topics_for_a_topic  =   gapi_h.get_OUT_Edges_Nodes(topic_name, attribute_name="Topic")
+            fwd_topics_for_a_topic  =   self.gapi_h.get_OUT_Edges_Nodes(topic_name, attribute_name="Topic")
             self.forward_topics.update(fwd_topics_for_a_topic)
             
             if topic_name in self.forward_topics:
@@ -55,20 +68,20 @@ class Prerequisites():
 
             for fwd_topic in self.forward_topics:
             
-                prerequisite_for_a_topic  =   gapi_h.get_IN_Edges_Nodes(fwd_topic, attribute_name="Topic")
+                prerequisite_for_a_topic  =   self.gapi_h.get_IN_Edges_Nodes(fwd_topic, attribute_name="Topic")
 
                 if ( self.is_prerequisite_already_covered( set(prerequisite_for_a_topic) ) ):
                     self.recommended_topics.add(fwd_topic)
                     print("Recommending {} as its prerequisite are already done".format(fwd_topic))
 
             
-        gapi_h.set_env_variables(   collection_name="Machine_Learning",\
+        self.gapi_h.set_env_variables(   collection_name="Machine_Learning",\
                                     graph_name="Machine_Learning_Ontology",\
                                     database_name="Data_Science"
                                 )
 
         for rec_topic in self.recommended_topics:
-            parent_topic, parent_seq    =   gapi_h.get_parent_topic(rec_topic)
+            parent_topic  =   self.gapi_h.get_parent_topic(rec_topic)
         
         print("parent_topic {}, for recommended topic : {}".format(parent_topic, rec_topic))
 
@@ -92,6 +105,20 @@ class Prerequisites():
             return (True)
 
         return(False)
+
+
+    def check_parent_with_out_edges(self, topic_name):
+
+        parent_node = self.gapi_h.get_parent_topic(topic_name, graph_name = self.ontology_graph_name)
+        
+        no_of_out_edges = self.gapi_h.check_if_out_edges_exits( parent_node )
+        print("no of out edges received", no_of_out_edges)
+
+        if no_of_out_edges != 0:
+                print("Returning Parent node :{} having {} out nodes".format(parent_node, no_of_out_edges))
+                return (parent_node)
+        else:
+            self.check_parent_with_out_edges(parent_node)
 
 
 if __name__=="__main__":

@@ -2,7 +2,7 @@
   "Title": "Machine Learning",
   "Sub Topics":{
   "1": {
-    "Title": "Introduction",
+    "Title": "Introduction to Machine Learning",
     "Sub Topics": {
       "1.1": {
         "Title": "Machine learning: what and why?",
@@ -56,16 +56,16 @@
             "Title": "Parametric models for classification and regression"
           },
           "1.4.5": {
-            "Title": "Linear regression"
+            "Title": "Linear regression (Basics)"
           },
           "1.4.6": {
-            "Title": "Logistic regression"
+            "Title": "Logistic regression (Basics)"
           },
           "1.4.7": {
             "Title": "Overfitting"
           },
           "1.4.8": {
-            "Title": "Model selection"
+            "Title": "Model selection (Basics)"
           },
           "1.4.9": {
             "Title": "No free lunch theorem"
@@ -78,7 +78,7 @@
     "Title": "Probability",
     "Sub Topics": {
       "2.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Probability",
         "Sub Topics": {}
       },
       "2.2": {
@@ -212,23 +212,23 @@
     "Title": "Generative models for discrete data",
     "Sub Topics": {
       "3.1": {
-        "Title": "Introduction",
+        "Title": "Introductio to Generative models",
         "Sub Topics": {}
       },
       "3.2": {
         "Title": "Bayesian concept learning",
         "Sub Topics": {
           "3.2.1": {
-            "Title": "Likelihood"
+            "Title": "Likelihood (Bayesian concept learning)"
           },
           "3.2.2": {
-            "Title": "Prior"
+            "Title": "Prior (Bayesian concept learning)"
           },
           "3.2.3": {
-            "Title": "Posterior"
+            "Title": "Posterior (Bayesian concept learning)"
           },
           "3.2.4": {
-            "Title": "Posterior predictive distribution"
+            "Title": "Posterior predictive distribution (Bayesian concept learning)"
           },
           "3.2.5": {
             "Title": "A more complex prior"
@@ -239,16 +239,16 @@
         "Title": "The beta-binomial model",
         "Sub Topics": {
           "3.3.1": {
-            "Title": "Likelihood"
+            "Title": "Likelihood (beta-binomial model)"
           },
           "3.3.2": {
-            "Title": "Prior"
+            "Title": "Prior (beta-binomial model)"
           },
           "3.3.3": {
-            "Title": "Posterior"
+            "Title": "Posterior (beta-binomial model)"
           },
           "3.3.4": {
-            "Title": "Posterior predictive distribution"
+            "Title": "Posterior predictive distribution (beta-binomial model)"
           }
         }
       },
@@ -256,16 +256,16 @@
         "Title": "The Dirichlet-multinomial model",
         "Sub Topics": {
           "3.4.1": {
-            "Title": "Likelihood"
+            "Title": "Likelihood (Dirichlet-multinomial model)"
           },
           "3.4.2": {
-            "Title": "Prior"
+            "Title": "Prior (Dirichlet-multinomial model)"
           },
           "3.4.3": {
-            "Title": "Posterior"
+            "Title": "Posterior (Dirichlet-multinomial model)"
           },
           "3.4.4": {
-            "Title": "Posterior predictive"
+            "Title": "Posterior predictive (Dirichlet-multinomial model)"
           }
         }
       },
@@ -273,7 +273,7 @@
         "Title": "Naive Bayes classifiers",
         "Sub Topics": {
           "3.5.1": {
-            "Title": "Model fitting"
+            "Title": "Model fitting (Naive Bayes classifiers)"
           },
           "3.5.2": {
             "Title": "Using the model for prediction"
@@ -295,13 +295,13 @@
     "Title": "Gaussian models",
     "Sub Topics": {
       "4.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Gaussian models",
         "Sub Topics": {
           "4.1.1": {
             "Title": "Notation"
           },
           "4.1.2": {
-            "Title": "Basics"
+            "Title": "Basics of Gaussian Models"
           },
           "4.1.3": {
             "Title": "MLE for an MVN"
@@ -344,16 +344,16 @@
         "Title": "Inference in jointly Gaussian distributions",
         "Sub Topics": {
           "4.3.1": {
-            "Title": "Statement of the result"
+            "Title": "Statement of the result (jointly Gaussian distributions)"
           },
           "4.3.2": {
-            "Title": "Examples"
+            "Title": "Examples of jointly Gaussian distributions"
           },
           "4.3.3": {
             "Title": "Information form"
           },
           "4.3.4": {
-            "Title": "Proof of the result"
+            "Title": "Proof of the result of jointly Gaussian distributions"
           }
         }
       },
@@ -361,13 +361,13 @@
         "Title": "Linear Gaussian systems",
         "Sub Topics": {
           "4.4.1": {
-            "Title": "Statement of the result"
+            "Title": "Statement of the result (Linear Gaussian systems)"
           },
           "4.4.2": {
-            "Title": "Examples"
+            "Title": "Examples of Linear Gaussian systems"
           },
           "4.4.3": {
-            "Title": "Proof of the result"
+            "Title": "Proof of the result of Linear Gaussian systems"
           }
         }
       },
@@ -405,7 +405,7 @@
     "Title": "Bayesian statistics",
     "Sub Topics": {
       "5.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Bayesian statistics",
         "Sub Topics": {}
       },
       "5.2": {
@@ -440,7 +440,7 @@
         }
       },
       "5.4": {
-        "Title": "Priors",
+        "Title": "Priors (Bayesian Statistics)",
         "Sub Topics": {
           "5.4.1": {
             "Title": "Uninformative priors"
@@ -495,7 +495,7 @@
     "Title": "Frequentist statistics",
     "Sub Topics": {
       "6.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Frequentist statistics",
         "Sub Topics": {}
       },
       "6.2": {
@@ -583,11 +583,11 @@
     "Title": "Linear regression",
     "Sub Topics": {
       "7.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Linear regression",
         "Sub Topics": {}
       },
       "7.2": {
-        "Title": "Model specification",
+        "Title": "Model specification (Linear regression)",
         "Sub Topics": {}
       },
       "7.3": {
@@ -612,7 +612,7 @@
         "Title": "Ridge regression",
         "Sub Topics": {
           "7.5.1": {
-            "Title": "Basic idea"
+            "Title": "Basic idea (Ridge regression)"
           },
           "7.5.2": {
             "Title": "Numerically stable computation"
@@ -648,15 +648,15 @@
     "Title": "Logistic regression",
     "Sub Topics": {
       "8.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Logistic regression",
         "Sub Topics": {}
       },
       "8.2": {
-        "Title": "Model specification",
+        "Title": "Model specification (Logistic regression)",
         "Sub Topics": {}
       },
       "8.3": {
-        "Title": "Model fitting",
+        "Title": "Model fitting (Logistic regression)",
         "Sub Topics": {
           "8.3.1": {
             "Title": "MLE"
@@ -741,17 +741,17 @@
     "Title": "Generalized linear models and the exponential family",
     "Sub Topics": {
       "9.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Generalized linear models",
         "Sub Topics": {}
       },
       "9.2": {
         "Title": "The exponential family",
         "Sub Topics": {
           "9.2.1": {
-            "Title": "Definition"
+            "Title": "Definition of the exponential family"
           },
           "9.2.2": {
-            "Title": "Examples"
+            "Title": "Examples of the exponential family"
           },
           "9.2.3": {
             "Title": "Log partition function"
@@ -771,13 +771,13 @@
         "Title": "Generalized linear models (GLMs)",
         "Sub Topics": {
           "9.3.1": {
-            "Title": "Basics"
+            "Title": "Basics of Generalized linear models"
           },
           "9.3.2": {
             "Title": "ML and MAP estimation"
           },
           "9.3.3": {
-            "Title": "Bayesian inference"
+            "Title": "Bayesian inference (GLMs)"
           }
         }
       },
@@ -849,7 +849,7 @@
     "Title": "Directed graphical models (Bayes nets)",
     "Sub Topics": {
       "10.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Directed graphical models",
         "Sub Topics": {
           "10.1.1": {
             "Title": "Chain rule"
@@ -869,13 +869,13 @@
         }
       },
       "10.2": {
-        "Title": "Examples",
+        "Title": "Examples of Directed graphical models",
         "Sub Topics": {
           "10.2.1": {
-            "Title": "Naive Bayes classifiers"
+            "Title": "Naive Bayes classifiers (Directed graphical models)"
           },
           "10.2.2": {
-            "Title": "Markov and hidden Markov models"
+            "Title": "Markov and hidden Markov models (Directed graphical models)"
           },
           "10.2.3": {
             "Title": "Medical diagnosis"
@@ -889,11 +889,11 @@
         }
       },
       "10.3": {
-        "Title": "Inference",
+        "Title": "Inference (Directed graphical models)",
         "Sub Topics": {}
       },
       "10.4": {
-        "Title": "Learning",
+        "Title": "Learning (Directed graphical models)",
         "Sub Topics": {
           "10.4.1": {
             "Title": "Plate notation"
@@ -954,7 +954,7 @@
         "Title": "Parameter estimation for mixture models",
         "Sub Topics": {
           "11.3.1": {
-            "Title": "Unidentifiability"
+            "Title": "Unidentifiability in Parameter estimation"
           },
           "11.3.2": {
             "Title": "Computing a MAP estimate is non-convex"
@@ -965,7 +965,7 @@
         "Title": "The EM algorithm",
         "Sub Topics": {
           "11.4.1": {
-            "Title": "Basic idea"
+            "Title": "Basic idea behind EM algorithm"
           },
           "11.4.2": {
             "Title": "EM for GMMs"
@@ -1027,7 +1027,7 @@
             "Title": "Inference of the latent factors"
           },
           "12.1.3": {
-            "Title": "Unidentifiability"
+            "Title": "Unidentifiability in Latent linear models"
           },
           "12.1.4": {
             "Title": "Mixtures of factor analysers"
@@ -1047,7 +1047,7 @@
             "Title": "Classical PCA: statement of the theorem"
           },
           "12.2.2": {
-            "Title": "Proof"
+            "Title": "Proof of PCA"
           },
           "12.2.3": {
             "Title": "Singular value decomposition (SVD)"
@@ -1103,7 +1103,7 @@
             "Title": "The FastICA algorithm"
           },
           "12.6.3": {
-            "Title": "Using EM"
+            "Title": "Using EM for ICA"
           },
           "12.6.4": {
             "Title": "Other estimation principles"
@@ -1116,7 +1116,7 @@
     "Title": "Sparse linear models",
     "Sub Topics": {
       "13.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Sparse linear models",
         "Sub Topics": {}
       },
       "13.2": {
@@ -1129,7 +1129,7 @@
             "Title": "From the Bernoulli-Gaussian model to L0 regularization"
           },
           "13.2.3": {
-            "Title": "Algorithms"
+            "Title": "Algorithms (Bayesian variable selection)"
           }
         }
       },
@@ -1146,10 +1146,10 @@
             "Title": "Comparison of least squares, lasso, ridge and subset selection"
           },
           "13.3.4": {
-            "Title": "Regularization path"
+            "Title": "Regularization path L1"
           },
           "13.3.5": {
-            "Title": "Model selection"
+            "Title": "Model selection L1"
           },
           "13.3.6": {
             "Title": "Bayesian inference for linear models with Laplace priors"
@@ -1244,7 +1244,7 @@
     "Title": "Kernel Methods",
     "Sub Topics": {
       "14.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Kernel Methods",
         "Sub Topics": {}
       },
       "14.2": {
@@ -1354,7 +1354,7 @@
     "Title": "Gaussian processes",
     "Sub Topics": {
       "15.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Gaussian processes",
         "Sub Topics": {}
       },
       "15.2": {
@@ -1434,14 +1434,14 @@
     "Title": "Ensemble Methods",
     "Sub Topics": {
       "16.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Ensemble Methods",
         "Sub Topics": {}
       },
       "16.2": {
         "Title": "Classification and regression trees (CART)",
         "Sub Topics": {
           "16.2.1": {
-            "Title": "Basics"
+            "Title": "Basics of CART"
           },
           "16.2.2": {
             "Title": "Growing a tree"
@@ -1502,7 +1502,7 @@
             "Title": "Why does boosting work so well?"
           },
           "16.4.9": {
-            "Title": "A Bayesian view"
+            "Title": "A Bayesian view to Boosting"
           }
         }
       },
@@ -1525,10 +1525,10 @@
             "Title": "Identifiability"
           },
           "16.5.6": {
-            "Title": "Regularization"
+            "Title": "Regularization (multilayer perceptrons)"
           },
           "16.5.7": {
-            "Title": "Bayesian inference"
+            "Title": "Bayesian inference (multilayer perceptrons)"
           }
         }
       },
@@ -1567,7 +1567,7 @@
     "Title": "Markov and hidden Markov models",
     "Sub Topics": {
       "17.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Markov and hidden Markov models",
         "Sub Topics": {}
       },
       "17.2": {
@@ -1619,7 +1619,7 @@
         "Title": "Learning for HMMs",
         "Sub Topics": {
           "17.5.1": {
-            "Title": "Training with fully observed data"
+            "Title": "Training with fully observed data HMMs"
           },
           "17.5.2": {
             "Title": "EM for HMMs (the Baum-Welch algorithm)"
@@ -1628,10 +1628,10 @@
             "Title": "Bayesian methods for fitting HMMs"
           },
           "17.5.4": {
-            "Title": "Discriminative training"
+            "Title": "Discriminative training for HMMs"
           },
           "17.5.5": {
-            "Title": "Model selection"
+            "Title": "Model selection for HMMs"
           }
         }
       },
@@ -1667,7 +1667,7 @@
     "Title": "State space models",
     "Sub Topics": {
       "18.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to State space models",
         "Sub Topics": {}
       },
       "18.2": {
@@ -1705,7 +1705,7 @@
             "Title": "Identifiability and numerical stability"
           },
           "18.4.2": {
-            "Title": "Training with fully observed data"
+            "Title": "Training with fully observed data LG-SSM"
           },
           "18.4.3": {
             "Title": "EM for LG-SSM"
@@ -1736,7 +1736,7 @@
         "Title": "Hybrid discrete/continuous SSMs",
         "Sub Topics": {
           "18.6.1": {
-            "Title": "Inference"
+            "Title": "Inference (Hybrid discrete/continuous SSMs)"
           },
           "18.6.2": {
             "Title": "Application: data association and multi-target tracking"
@@ -1755,14 +1755,14 @@
     "Title": "Undirected graphical models (Markov random fields)",
     "Sub Topics": {
       "19.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Markov random fields",
         "Sub Topics": {}
       },
       "19.2": {
         "Title": "Conditional independence properties of UGMs",
         "Sub Topics": {
           "19.2.1": {
-            "Title": "Key properties"
+            "Title": "Key properties (UGMs)"
           },
           "19.2.2": {
             "Title": "An undirected alternative to d-separation"
@@ -1804,7 +1804,7 @@
         }
       },
       "19.5": {
-        "Title": "Learning",
+        "Title": "Learning (Markov random fields)",
         "Sub Topics": {
           "19.5.1": {
             "Title": "Training maxent models using gradient methods"
@@ -1869,7 +1869,7 @@
     "Title": "Exact inference for graphical models",
     "Sub Topics": {
       "20.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Exact inference for graphical models",
         "Sub Topics": {}
       },
       "20.2": {
@@ -1934,11 +1934,11 @@
     "Title": "Variational inference",
     "Sub Topics": {
       "21.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Variational inference",
         "Sub Topics": {}
       },
       "21.2": {
-        "Title": "Variational inference",
+        "Title": "Variational inference explained",
         "Sub Topics": {
           "21.2.1": {
             "Title": "Alternative interpretations of the variational objective"
@@ -1994,7 +1994,7 @@
         "Title": "Local variational bounds",
         "Sub Topics": {
           "21.8.1": {
-            "Title": "Motivating applications"
+            "Title": "Motivating applications of Local variational bounds"
           },
           "21.8.2": {
             "Title": "Bohning's quadratic bound to the log-sum-exp function"
@@ -2016,14 +2016,14 @@
     "Title": "Variational Inference",
     "Sub Topics": {
       "22.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Variational Inference",
         "Sub Topics": {}
       },
       "22.2": {
         "Title": "Loopy belief propagation: algorithmic issues",
         "Sub Topics": {
           "22.2.1": {
-            "Title": "A brief history"
+            "Title": "A brief history on algorithmic issues"
           },
           "22.2.2": {
             "Title": "LBP on pairwise models"
@@ -2125,7 +2125,7 @@
     "Title": "Monte Carlo inference",
     "Sub Topics": {
       "23.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Monte Carlo inference",
         "Sub Topics": {}
       },
       "23.2": {
@@ -2143,10 +2143,10 @@
         "Title": "Rejection sampling",
         "Sub Topics": {
           "23.3.1": {
-            "Title": "Basic idea"
+            "Title": "Basic idea (Rejection sampling)"
           },
           "23.3.2": {
-            "Title": "Example"
+            "Title": "Example of Rejection sampling"
           },
           "23.3.3": {
             "Title": "Application to Bayesian statistics"
@@ -2163,7 +2163,7 @@
         "Title": "Importance sampling",
         "Sub Topics": {
           "23.4.1": {
-            "Title": "Basic idea"
+            "Title": "Basic idea (Importance sampling)"
           },
           "23.4.2": {
             "Title": "Handling unnormalized distributions"
@@ -2222,14 +2222,14 @@
     "Title": "Markov chain Monte Carlo (MCMC) inference",
     "Sub Topics": {
       "24.1": {
-        "Title": "Introduction",
+        "Title": "Introductio to Markov chain Monte Carlo",
         "Sub Topics": {}
       },
       "24.2": {
         "Title": "Gibbs sampling",
         "Sub Topics": {
           "24.2.1": {
-            "Title": "Basic idea"
+            "Title": "Basic idea (Gibbs sampling)"
           },
           "24.2.2": {
             "Title": "Example: Gibbs sampling for the Ising model"
@@ -2258,7 +2258,7 @@
         "Title": "Metropolis Hastings algorithm",
         "Sub Topics": {
           "24.3.1": {
-            "Title": "Basic idea"
+            "Title": "Basic idea (Metropolis Hastings algorithm)"
           },
           "24.3.2": {
             "Title": "Gibbs sampling is a special case of MH"
@@ -2324,7 +2324,7 @@
             "Title": "Simulated annealing"
           },
           "24.6.2": {
-            "Title": "Annealed importance sampling"
+            "Title": "Annealed importance sampling (Annealing methods)"
           },
           "24.6.3": {
             "Title": "Parallel tempering"
@@ -2341,7 +2341,7 @@
             "Title": "Harmonic mean estimate"
           },
           "24.7.3": {
-            "Title": "Annealed importance sampling"
+            "Title": "Annealed importance sampling (marginal likelihood)"
           }
         }
       }
@@ -2351,7 +2351,7 @@
     "Title": "Clustering",
     "Sub Topics": {
       "25.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Clustering",
         "Sub Topics": {
           "25.1.1": {
             "Title": "Measuring (dis)similarity"
@@ -2392,7 +2392,7 @@
             "Title": "Normalized graph Laplacian"
           },
           "25.4.3": {
-            "Title": "Example"
+            "Title": "Example (Spectral clustering)"
           }
         }
       },
@@ -2430,7 +2430,7 @@
     "Title": "Graphical model structure learning",
     "Sub Topics": {
       "26.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Graphical model structure learning",
         "Sub Topics": {}
       },
       "26.2": {
@@ -2543,14 +2543,14 @@
     "Title": "Latent variable models for discrete data",
     "Sub Topics": {
       "27.1": {
-        "Title": "Introduction",
+        "Title": "Introduction to Latent variable models for discrete data",
         "Sub Topics": {}
       },
       "27.2": {
         "Title": "Distributed state LVMs for discrete data",
         "Sub Topics": {
           "27.2.1": {
-            "Title": "Mixture models"
+            "Title": "Mixture models (Distributed state LVMs)"
           },
           "27.2.2": {
             "Title": "Exponential family PCA"
@@ -2567,7 +2567,7 @@
         "Title": "Latent Dirichlet allocation (LDA)",
         "Sub Topics": {
           "27.3.1": {
-            "Title": "Basics"
+            "Title": "Basics of Latent Dirichlet allocation"
           },
           "27.3.2": {
             "Title": "Unsupervised discovery of topics"
@@ -2579,7 +2579,7 @@
             "Title": "Fitting using (collapsed) Gibbs sampling"
           },
           "27.3.5": {
-            "Title": "Example"
+            "Title": "Example (Latent Dirichlet allocation)"
           },
           "27.3.6": {
             "Title": "Fitting using batch variational inference"
@@ -2654,7 +2654,7 @@
     "Title": "Deep learning",
     "Sub Topics": {
       "28.1": {
-        "Title": "Introduction",
+        "Title": "Introduction Deep learning",
         "Sub Topics": {}
       },
       "28.2": {

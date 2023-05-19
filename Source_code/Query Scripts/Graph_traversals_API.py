@@ -3,7 +3,8 @@ from Query_engine import ArangoDB_Qurey_Engine
 class Graph_API():
     def __init__(self):
         
-        self.arangoDB_qurey_engine_h = ArangoDB_Qurey_Engine()
+        self.arangoDB_qurey_engine_h    =   ArangoDB_Qurey_Engine()
+        self.subtopics_kw               =   "sub_topic"
 
     def set_env_variables(self, database_name, collection_name, graph_name):
         self.database_name      =   database_name
@@ -11,12 +12,16 @@ class Graph_API():
         self.graph_name         =   graph_name
 
 
-    def get_parent_topic(self, topic_name, parent_level=1):
+    def get_parent_topic(self, topic_name, parent_level=1, graph_name = None ):
         #############################
         # We need to follow protocol while using Query Enging API
         #   1) Always connect to the databse first. 
         #   2) Thsi will initialise the database handle in the script.
         ###############################
+
+        if (graph_name is None):
+            graph_name = self.graph_name
+
         self.arangoDB_qurey_engine_h.connect_to_db()
         doc_id = self.arangoDB_qurey_engine_h.get_collection_id( collection_name=self.collection_name,\
                                                                  topic_name=topic_name,\
@@ -26,7 +31,7 @@ class Graph_API():
             parent_query = "FOR parent IN {} INBOUND @start_node GRAPH @graph_name RETURN parent".format(parent_level)
             results_list = self.arangoDB_qurey_engine_h.execute_traversal_query ( parent_query, collection=self.collection_name,\
                                                                             node_key= doc_id,\
-                                                                            graph_name=self.graph_name,\
+                                                                            graph_name=graph_name,\
                                                                             database_name=self.database_name )
             if(len(results_list)>0):
                 parent_topic = results_list[-1].Topic
@@ -35,7 +40,7 @@ class Graph_API():
             else:
                 print("Cuurently we don't have level {} Parent topic for {}".format( parent_level, topic_name))
 
-        return (parent_topic, parent_seq)
+        return ( parent_topic )
 
     def get_all_sub_topics(self, topic_name):
         
@@ -63,7 +68,42 @@ class Graph_API():
 
         return (sub_topics_list, sub_topics_seq_list)
 
+
     def get_all_other_sub_topics_of_a_topic(self, topic_name):
+        
+        self.arangoDB_qurey_engine_h.connect_to_db()
+        doc_id = self.arangoDB_qurey_engine_h.get_collection_id( collection_name=self.collection_name,\
+                                                                 topic_name=topic_name,\
+                                                                 database_name=self.database_name )
+        #print("Document Id ", doc_id)
+        if (doc_id):
+            all_child_query =   """FOR v1, e1, p1 IN 1..1 INBOUND @start_node GRAPH @graph_name
+                                FOR v2, e2, p2 IN 1..1 OUTBOUND v1 GRAPH @graph_name 
+                                    FILTER e1.label == "{}"
+                                    FILTER e2.label == "{}"
+                                    FILTER v2._id != @start_node
+                                    RETURN v2
+                                """.format(self.subtopics_kw, self.subtopics_kw)
+            results_list = self.arangoDB_qurey_engine_h.execute_traversal_query ( all_child_query, collection=self.collection_name,\
+                                                                                node_key= doc_id,\
+                                                                                graph_name=self.graph_name,\
+                                                                                database_name=self.database_name )
+            if(len(results_list)>0):
+                sorted_sub_topics = sorted(results_list, key=lambda x: tuple(map(int, x['Sequence'].split('.'))))
+                sub_topics_list =  [doc['Topic'] for doc in sorted_sub_topics]
+                sub_topics_seq_list = [doc['Sequence'] for doc in sorted_sub_topics]
+                sub_topics = ", ".join(["-".join([doc['Topic'], doc['Sequence']]) for doc in sorted_sub_topics])
+                print("Sub topics of \"{}\" are : {}".format(topic_name, sub_topics))
+            else:
+                sub_topics_list= []
+                sub_topics_seq_list = []
+                print("Currently we don't have any sub topic for {}".format(topic_name))
+
+        return ( set(sub_topics_list) )
+
+
+
+    def get_all_other_sub_topics_of_a_topic__(self, topic_name):
         
         self.arangoDB_qurey_engine_h.connect_to_db()
         doc_id = self.arangoDB_qurey_engine_h.get_collection_id( collection_name=self.collection_name,\
@@ -71,7 +111,7 @@ class Graph_API():
                                                                  database_name=self.database_name )
         print("Document Id ", doc_id)
         if (doc_id):
-            all_child_neighbour_query = "FOR v, e IN 2..2 ANY @start_node GRAPH @graph_name  FILTER e.label == \"depends_on\" RETURN  v"
+            all_child_neighbour_query = "FOR v, e IN 2..2 OUTBOUND @start_node GRAPH @graph_name  FILTER e.label == \"sub_topic\" RETURN  v"
           
             results_list = self.arangoDB_qurey_engine_h.execute_traversal_query ( all_child_neighbour_query, collection=self.collection_name,\
                                                                                 node_key= doc_id,\
@@ -81,12 +121,12 @@ class Graph_API():
             if(len(results_list)>0):
                 sorted_neighbour_topics = sorted(results_list, key=lambda x: tuple(map(int, x['Sequence'].split('.'))))
                 neighbour_topics = ", ".join([doc['Topic'] for doc in sorted_neighbour_topics])
-                #print("Neighbours of \"{}\" are : {}".format(topic_name, neighbour_topics))
+                print("Neighbours of \"{}\" are : {}".format(topic_name, neighbour_topics))
             else:
                 print("Currently we don't have any sub topic for {}".format(topic_name))
 
 
-    def get_childer_inbound_edges(self, topic_name, level):
+    def get_children_inbound_edges(self, topic_name, level):
 
         parent_node, parent_seq = self.get_parent_topic(topic_name=topic_name, parent_level = level)
         subtopics_names, subtopics_seq = self.get_all_sub_topics(topic_name=parent_node)
@@ -174,6 +214,44 @@ class Graph_API():
                 print("Currently, we don't have OUT Nodes from node {} ".format(topic_name))
 
         return result_list
+    
+
+
+    def check_if_out_edges_exits(self, topic_name ):
+        
+        self.arangoDB_qurey_engine_h.connect_to_db()
+
+        doc_id = self.arangoDB_qurey_engine_h.get_collection_id(collection_name=self.collection_name,
+                                                                topic_name=topic_name,
+                                                                database_name=self.database_name)
+
+        if (doc_id):
+            starting_node_key = "{}/{}".format(self.collection_name, doc_id)
+            traversal_query = """
+            LET node = DOCUMENT(@start_node)
+                LET outboundEdges = (
+                    FOR v, e IN OUTBOUND node GRAPH @graph_name
+                    FILTER e.label == "OUT"
+                    RETURN e
+                )
+                RETURN COUNT(outboundEdges)
+            """
+            #.format( starting_node_key )
+
+            print("starting_node_key :{}, doc_id :{}".format( starting_node_key, doc_id ) )
+
+            results_list = self.arangoDB_qurey_engine_h.execute_traversal_query ( traversal_query, collection=self.collection_name,\
+                                                                                node_key= doc_id,\
+                                                                                graph_name=self.graph_name,\
+                                                                                database_name=self.database_name )
+            if (results_list.result):
+                no_of_out_edges = results_list.result[-1]
+                print( "No of out edges received : {}".format(no_of_out_edges))
+                
+                return (no_of_out_edges)
+
+
+
 
 
 if __name__=="__main__":
@@ -182,19 +260,21 @@ if __name__=="__main__":
     
     graph_api_h.set_env_variables(  
                                     collection_name="Machine_Learning",\
-                                    graph_name="Machine_Learning_Ontology",\
+                                    graph_name="Machine_Learning_Dependency",\
                                     database_name="Data_Science"
                                 )
     
-    graph_api_h.get_parent_topic(topic_name="Pareto distribution", parent_level = 1)
+    #graph_api_h.get_parent_topic(topic_name="Pareto distribution", parent_level = 1)
 
     #Not used in the current Graph Structure
     #graph_api_h.get_all_sub_topics(topic_name="Pareto distribution")
 
     #graph_api_h.get_all_other_sub_topics_of_a_topic(topic_name="Pareto distribution")
 
-    #graph_api_h.get_childer_inbound_edges(topic_name="Pareto distribution", level = 1)
+    #graph_api_h.get_children_inbound_edges(topic_name="Pareto distribution", level = 1)
 
     #graph_api_h.get_document_attribute("Supervised learning", attribute_name="Sequence")
     #graph_api_h.get_IN_Edges_Nodes(topic_name="A brief review of probability theory", attribute_name="Topic")
     #graph_api_h.get_OUT_Edges_Nodes(topic_name="A brief review of probability theory", attribute_name="Topic")
+
+    graph_api_h.check_if_out_edges_exits(topic_name="A brief review of probability theory")

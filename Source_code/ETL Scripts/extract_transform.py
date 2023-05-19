@@ -147,8 +147,8 @@ class extract_transform:
 
         self.edge_collection_2 = "Machine_Learning_KG"
         
-        for i, keys_1 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw].keys(), start=1):
-            for i, keys_2 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw].keys(), start=1):
+        for i_1, keys_1 in enumerate(list(self.books_index_dict_c[self.dict_sub_topics_kw].keys())[:-1], start=1):
+            for i_2, keys_2 in enumerate(list(self.books_index_dict_c[self.dict_sub_topics_kw].keys())[i_1:], start=1):
 
                 topic_1 =   self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.title_kw] 
                 topic_2 =   self.books_index_dict_c[self.dict_sub_topics_kw][keys_2][self.title_kw]
@@ -174,8 +174,8 @@ class extract_transform:
         
         for i, keys_1 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw].keys(), start=1):
             
-            for i, keys_2 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw].keys(), start=1):
-                for i, keys_3 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw].keys(), start=1):
+            for i_2, keys_2 in enumerate(list(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw].keys())[:-1], start=1):
+                for i_3, keys_3 in enumerate(list(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw].keys())[i_2:], start=1):
 
                     #print(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2].keys())
                     topic_1 =   self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.title_kw]
@@ -200,13 +200,13 @@ class extract_transform:
                         print(document_level_2_rel_OUT)
                         self.add_document(collection=self.edge_collection_2, document_to_add=document_level_2_rel_OUT)
                         
+    
 
-        
         for i, keys_1 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw].keys(), start=1):
             for i, keys_2 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw].keys(), start=1):
             
-                for i, keys_3 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw].keys(), start=1):
-                    for i, keys_4 in enumerate(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw].keys(), start=1):
+                for i_3, keys_3 in enumerate(list(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw].keys())[:-1], start=1):
+                    for i_4, keys_4 in enumerate(list(self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw].keys())[i_3 :], start=1):
 
                         #print(self.books_index_dict_c[self.sub_topics_kw][keys_1][self.sub_topics_kw][keys_2].keys())
                         topic_1 =   self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw][keys_3]
@@ -214,6 +214,9 @@ class extract_transform:
                         
                         if ( topic_1 != topic_2 ) :
                             print(topic_1, topic_2)
+                            #print(keys_3, keys_4)
+                            #test_data += "{} - {}\n".format(keys_3, keys_4)
+                            
                             document_level_3_rel_IN= self.create_arango_relation_object(
                                                                                         self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw][keys_4][self.arango_db_kw], 
                                                                                          self.books_index_dict_c[self.dict_sub_topics_kw][keys_1][self.dict_sub_topics_kw][keys_2][self.dict_sub_topics_kw][keys_3][self.arango_db_kw],
@@ -229,7 +232,9 @@ class extract_transform:
                                                                                     )
                             #print(document_level_2_rel)
                             self.add_document(collection=self.edge_collection_2, document_to_add=document_level_3_rel_OUT)
-        
+                            
+       #self.write_to_file("test.txt", test_data)
+
 
 def main():
         
@@ -246,7 +251,7 @@ def main():
             #print(os.path.join(books_json_folder,json_filename))
             extract_transform_h.read_json(os.path.join(books_json_folder,json_filename)) 
             extract_transform_h.setup_arango_env()
-            #extract_transform_h.delete_collections("Machine_Learning")
+            #extract_transform_h.delete_collections(extract_transform_h.doc_collection)
             #extract_transform_h.delete_collections(extract_transform_h.edge_collection_1)
             #extract_transform_h.delete_collections(extract_transform_h.edge_collection_2)
             extract_transform_h.push_documents_in_collection()

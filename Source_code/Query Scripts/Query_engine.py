@@ -20,10 +20,10 @@ class ArangoDB_Qurey_Engine:
 
     def get_collection_id (self, database_name, collection_name, topic_name):
         
-        db = self.conn[database_name]
-        collection = db[collection_name] 
+        db          =   self.conn[database_name]
+        document    =   db[collection_name] 
 
-        docs = collection.fetchByExample({"Topic" : topic_name }, batchSize=None)
+        docs = document.fetchByExample( {"Topic" : topic_name }, batchSize=None )
         doc_id = docs[0]._key
 
         return (doc_id)
