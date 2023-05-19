@@ -102,7 +102,7 @@ class Graph_API():
                 sub_topics_seq_list = []
                 print("Currently we don't have any Neighbours topic for {}".format(topic_name))
 
-        return ( sub_topics_list )
+        return ( set(sub_topics_list) )
 
 
 
