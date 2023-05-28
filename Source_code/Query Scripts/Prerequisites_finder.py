@@ -89,27 +89,27 @@ class Prerequisites():
         print("DEBUG - Recommending {} as its prerequisite are already done".format(self.recommended_topics))
 
         '''
-        self.gapi_h.set_env_variables(   collection_name="Machine_Learning",\
+        self.gapi_h.set_env_variables(collection_name="Machine_Learning",\
                                     graph_name="Machine_Learning_Ontology",\
                                     database_name="Data_Science"
-                                )
-
+                                    )
+        '''
         for rec_topic in self.recommended_topics:
-            parent_topic  =   self.gapi_h.get_parent_topic(rec_topic)
+            parent_topic  =   self.gapi_h.get_parent_topic(rec_topic, graph_name = self.ontology_graph_name)
         
-        print("parent_topic {}, for recommended topic : {}".format(parent_topic, rec_topic))
+            print("parent_topic {}, for recommended topic : {}".format(parent_topic, rec_topic))
 
-        if (parent_topic not in self.topics_dict.dict_object):
-            self.topics_dict.add_record(parent_topic, {}, self.topics_dict.ordered_dict_obj)
-            self.topics_dict.add_record(rec_topic, "0", self.topics_dict.ordered_dict_obj[parent_topic])
-        
-        
-        #self.topics_dict.update_record(topic_name, "1", self.topics_dict.ordered_dict_obj[parent_topic])
+            if (parent_topic not in self.topics_dict.dict_object):
+                self.topics_dict.add_record(parent_topic, {}, self.topics_dict.ordered_dict_obj)
+                self.topics_dict.add_record(rec_topic, "0", self.topics_dict.ordered_dict_obj[parent_topic])
+            
+            
+            #self.topics_dict.update_record(topic_name, "1", self.topics_dict.ordered_dict_obj[parent_topic])
 
         self.topics_dict.print_dict(self.topics_dict.ordered_dict_obj)
         print("All Recommenmded Topics {}".format(self.recommended_topics))
         
-        '''
+        
         return(self.topics_dict.ordered_dict_obj)        
 
 

@@ -74,11 +74,12 @@ class extract_transform:
         with open(filename, 'w', encoding='utf-8') as file:
             file.write(data)
 
-    def create_arango_object (self, title, index_squence):
+    def create_arango_object (self, title, index_squence, Colour):
 
         doc =   {
                     "Topic"     :   title,
-                    "Sequence"  :   index_squence
+                    "Sequence"  :   index_squence,
+                    "Colour"     :   Colour
                 }
 
         return (doc)
@@ -109,14 +110,14 @@ class extract_transform:
           
             if (self.title_kw in keys):
                 #print("Title", self.books_index_dict[self.title_kw], i)
-                document = self.create_arango_object(self.books_index_dict[self.title_kw], i)
+                document = self.create_arango_object(self.books_index_dict[self.title_kw], i, Colour="Orange")
                 document_handle_main_title_id = self.add_document(collection=self.doc_collection, document_to_add=document)
                 self.json_obj.update_record(self.arango_db_kw, document_handle_main_title_id, self.books_index_dict_c )
                 #print("document_handle_main_title", document_handle_main_title_id)
             
                 for index, section in  self.books_index_dict[self.dict_sub_topics_kw].items():
                     #print(section["Title"])
-                    document = self.create_arango_object(section[self.dict_title_kw], index)
+                    document = self.create_arango_object(section[self.dict_title_kw], index, Colour="Red Orange")
                     document_handle_sec_id = self.add_document(collection=self.doc_collection, document_to_add=document)
                     document_main_title = self.create_arango_relation_object(document_handle_main_title_id, document_handle_sec_id, self.sub_topics_kw )
                     self.add_document(collection=self.edge_collection_1, document_to_add=document_main_title)
@@ -125,7 +126,7 @@ class extract_transform:
                     for index_sub_section, sub_section in section[self.dict_sub_topics_kw].items():
                         
                         #print(sub_section["Title"])
-                        document = self.create_arango_object(sub_section[self.dict_title_kw], index_sub_section)
+                        document = self.create_arango_object(sub_section[self.dict_title_kw], index_sub_section, Colour="Amber")
                         document_handle_sub_sec_id = self.add_document(collection=self.doc_collection, document_to_add=document)
                         #print("Document handle", document_handle_sub_sec_id)
                         document_rel_sub_sec = self.create_arango_relation_object(document_handle_sec_id, document_handle_sub_sec_id, self.sub_topics_kw )
@@ -135,7 +136,7 @@ class extract_transform:
                         for index_sub_sub_section, sub_sub_section in sub_section[self.dict_sub_topics_kw].items():
                             
                             #print(sub_sub_section["Title"])
-                            document = self.create_arango_object(sub_sub_section[self.dict_title_kw], index_sub_sub_section)
+                            document = self.create_arango_object(sub_sub_section[self.dict_title_kw], index_sub_sub_section, Colour="Black")
                             document_handle_sub_sub_sec_id = self.add_document(collection=self.doc_collection, document_to_add=document)
                             document_rel_sub_sub_sec = self.create_arango_relation_object(document_handle_sub_sec_id,  document_handle_sub_sub_sec_id, self.sub_topics_kw )
                             self.add_document(collection=self.edge_collection_1, document_to_add=document_rel_sub_sub_sec)
